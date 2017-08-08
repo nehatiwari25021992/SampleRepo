@@ -19,6 +19,9 @@ demoApp.config(['$routeProvider', '$httpProvider',
         })
         .when('/payment',{
             templateUrl: '../en/payment.html'
+        }) 
+            .when('/policySummary',{
+            templateUrl: '../en/policySummary.html'
         })
         .otherwise({
             redirectTo: '/dashboard'
@@ -40,5 +43,56 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
     $scope.goToPayment = function(){
         $location.path("/payment")
     }
+    $scope.policyTableContent=[
+        
+        {
+           policyType:'home',
+            policyIssueDate:'30-Mar-2016',
+            policyId:'*111',
+            policyName:'Home',
+            policyToDate:'20-apr2016',
+             policyFromDate:'20-apr2016',
+             policyStatus:'20-apr2016',
+             policyDetails:'Download',
+             policyAction:'Change Plan',
+            
+        },
+        {
+           policyType:'home1',
+            policyIssueDate:'30-Mar-2016',
+            policyId:'*111',
+            policyName:'Home',
+            policyToDate:'20-apr2016',
+             policyFromDate:'20-apr2016',
+             policyStatus:'20-apr2016',
+             policyDetails:'Download',
+             policyAction:'Change Plan',
+            
+        },
+        {
+           policyType:'home2',
+            policyIssueDate:'30-Mar-2016',
+            policyId:'*111',
+            policyName:'Home',
+            policyToDate:'20-apr2016',
+             policyFromDate:'20-apr2016',
+             policyStatus:'20-apr2016',
+             policyDetails:'Download',
+             policyAction:'Change Plan',
+            
+        },
+        {
+           policyType:'home3',
+            policyIssueDate:'30-Mar-2016',
+            policyId:'*111',
+            policyName:'Home',
+            policyToDate:'20-apr2016',
+             policyFromDate:'20-apr2016',
+             policyStatus:'20-apr2016',
+             policyDetails:'Download',
+             policyAction:'Change Plan',
+            
+        },
+    ]
 });
     
