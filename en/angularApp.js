@@ -32,6 +32,9 @@ demoApp.config(['$routeProvider', '$httpProvider',
 demoApp.controller("MainController", function($rootScope,$scope,$location) {
     $scope.pendingPolicy = 1
     $scope.totalCost = "1,110"
+	$scope.showCongrats = false
+	$scope.productName = "Motar Inc."
+    $scope.productPrice = "$1,110"
     $scope.goToDashboard = function(){
         $location.path("/dashboard")
     }
