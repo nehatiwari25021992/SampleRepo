@@ -1,0 +1,38 @@
+/* 22Aug2016 - header notification bar */
+/* line 3, ../sass/header.notification.bar.scss */
+header .top-bar .header-notification-box, .navbar.navbar-default.navbar-fixed-top.hidden-lg.hidden-md.pad-none .header-notification-box {
+  margin-bottom: 0;
+  background-color: #f1f1f1;
+  display: block;
+  color: #575757 !important;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* line 13, ../sass/header.notification.bar.scss */
+.header-notification-box.header-notification-box--desktop, .header-notification-box.header-notification-box--mobile {
+  border-radius: 0;
+  padding-right: 35px;
+  padding: 15px;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+/* line 20, ../sass/header.notification.bar.scss */
+.header-notification-box.header-notification-box--desktop:hover, .header-notification-box.header-notification-box--mobile:hover {
+  text-decoration: none;
+}
+/* line 23, ../sass/header.notification.bar.scss */
+.header-notification-box .close {
+  position: relative;
+  z-index: 1000;
+}
+/* line 27, ../sass/header.notification.bar.scss */
+.header-notification-box a {
+  color: #ff8200 !important;
+}
+/* line 29, ../sass/header.notification.bar.scss */
+.header-notification-box a:hover {
+  color: #ff8200 !important;
+}
+
+/*# sourceMappingURL=header.notification.bar.css.map */

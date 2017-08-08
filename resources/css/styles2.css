@@ -1,0 +1,222 @@
+/*from styles.css line 25,445 - 25,666*/
+/* line 201, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .info
+	{
+	line-height: 21px;
+	color: #000;
+	width: 50%;
+	float: left;
+}
+
+@media ( min-width : 992px) {
+	/* line 201, ../sass/partials/_et-application-summary.scss */
+	#application-summary .container-fluid .summary-content .summary-body .info
+		{
+		width: 63%;
+		margin-left: 12%;
+	}
+}
+/* line 213, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .info-holder-below
+	{
+	margin-top: 9px;
+}
+/* line 217, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .plan-detail-holder h4.info-label
+	{
+	margin-bottom: 12px;
+}
+/* line 225, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .confirm-and-sign-holder {
+	padding-bottom: 50px;
+}
+
+@media ( min-width : 992px) {
+	/* line 227, ../sass/partials/_et-application-summary.scss */
+	#application-summary .container-fluid .confirm-and-sign-holder button {
+		margin-top: 40px;
+	}
+}
+
+/* line 3, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog {
+	position: relative;
+}
+
+@media ( min-width : 992px) {
+	/* line 3, ../sass/partials/_et-get-promotion-code-modal.scss */
+	#get-promotion-code .modal-dialog {
+		max-width: 800px;
+	}
+}
+/* line 8, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content {
+	padding: 0;
+	padding-top: 30px;
+}
+
+#get-promotion-code .modal-dialog .modal-content .login-form {
+	position: static;
+}
+
+@media ( min-width : 992px) {
+	/* line 8, ../sass/partials/_et-get-promotion-code-modal.scss */
+	#get-promotion-code .modal-dialog .modal-content {
+		padding: 50px 20px 40px;
+	}
+}
+/* line 14, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content .form-container {
+	padding: 2px 20px;
+}
+/* line 17, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content .form-container h2 {
+	color: #f68a1d;
+	font-size: 24px;
+	text-align: left;
+}
+/* line 23, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content .form-container h4 {
+	font-weight: normal;
+	font-family: 'Calibri';
+}
+/* line 28, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content .form-container .form-control
+	{
+	border-radius: 5px;
+	height: 52px;
+	box-shadow: none;
+}
+/* line 33, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content .form-container .form-control:focus
+	{
+	border-color: #ccc;
+}
+/* line 37, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content .form-container .form-control:focus:invalid:focus
+	{
+	border-color: #f68a1d;
+	-webkit-box-shadow: 0 0 6px #f68a1d;
+	-moz-box-shadow: 0 0 6px #f68a1d;
+	box-shadow: 0 0 6px #f68a1d;
+}
+/* line 44, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content .form-container .form-control:focus:invalid
+	{
+	color: #b94a48;
+	border-color: #f68a1d;
+}
+/* line 50, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content .form-container button
+	{
+	height: 57px;
+	font-size: 30px;
+	font-family: 'calibri';
+	margin-top: 8px;
+}
+/* line 57, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code .modal-dialog .modal-content .form-container p {
+	color: #000;
+	font-size: 18px;
+	text-align: left;
+	font-weight: 300;
+	line-height: 20px;
+	margin-top: 88px;
+	margin-bottom: 10px;
+}
+
+@media ( min-width : 992px) {
+	/* line 57, ../sass/partials/_et-get-promotion-code-modal.scss */
+	#get-promotion-code .modal-dialog .modal-content .form-container p {
+		margin-top: 20px;
+	}
+}
+/* line 73, ../sass/partials/_et-get-promotion-code-modal.scss */
+#get-promotion-code #getPromotionClose {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+@media ( min-width : 992px) {
+	/* line 73, ../sass/partials/_et-get-promotion-code-modal.scss */
+	#get-promotion-code #getPromotionClose {
+		top: 15px;
+		right: 15px;
+	}
+}
+
+.panel-group {
+	margin-bottom: 20px;
+}
+
+/*october 22 fixes*/
+/* Checklist 1 */
+#cannot-apply-modal .modal-body form .input-items .error-msg,
+	#customer-service-modal .modal-body form .input-items .error-msg {
+	float: right;
+	width: 60%;
+	margin-bottom: 0;
+}
+
+#cannot-apply-modal .modal-body form .input-items .error-msg .help-block,
+	#customer-service-modal .modal-body form .input-items .error-msg .help-block
+	{
+	font-size: 14px;
+	margin: 0;
+}
+
+/*october 26 fixes*/
+/*checklist 4*/
+.capitalize {
+	text-transform: uppercase;
+}
+
+#et-plan-option-section .mask {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.50);
+	text-align: center;
+}
+
+#et-plan-option-section .mask img {
+	margin-top: 25%;
+}
+@media screen and ( max-width : 991px) {
+    .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-back-arrow .et-back-arrow-link,
+    .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-header-tex h3{
+        font-size: 18px;
+    }
+    .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-header-tex h3{
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-back-arrow .et-back-arrow-link{
+        padding-top: 5px;
+    }
+
+#et-select-plan-go-homepage {
+	color: #fff;
+	background: #ff8200;
+	font-size: 24px;
+	font-family: 'Calibri-Bold';
+	padding: 7px 40px;
+	margin-bottom: 50px;
+}
+#et-select-plan-go-homepage:hover, #et-select-plan-go-homepage:focus
+	{
+	background: #fff;
+	color: #ff8200;
+	border: 1px solid #ff8200;
+	-webkit-transition: background 0.1s ease-in;
+	-moz-transition: background 0.1s ease-in;
+	-ms-transition: background 0.1s ease-in;
+	-o-transition: background 0.1s ease-in;
+	transition: background 0.1s ease-in;
+	}
+}
+/*-----------------------------------styles.css end---------------------------------------------------*/

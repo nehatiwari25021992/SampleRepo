@@ -1,0 +1,62 @@
+/* main css for pages with old template */
+/* line 1, ../sass/common_screen/banner/_banner_m1.scss */
+.banner_m1 {
+  background-size: cover;
+  font-size: 24px;
+  text-align: center;
+  padding: 26px 0;
+  padding-bottom: 50px;
+}
+
+/* line 12, ../sass/common_screen/banner/_banner_m1.scss */
+.banner_m1__title {
+  color: #ffffff;
+  font-family: Calibri, sans-serif, Arial !important;
+  font-weight: bold;
+  font-size: 36px !important;
+  line-height: 1.278em;
+  margin-top: 0.278em;
+  margin-bottom: 0.278em;
+  text-align: center;
+}
+
+/* line 23, ../sass/common_screen/banner/_banner_m1.scss */
+.chin .banner_m1__title {
+  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+
+/* line 27, ../sass/common_screen/banner/_banner_m1.scss */
+.banner_m1__button {
+  background-color: #fbb631;
+  border-radius: 5px;
+  border: #fbb631 solid 1px;
+  border-bottom: #ce9528 solid 2px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 1.167em;
+  line-height: 2.381em;
+  min-width: 200px;
+  text-align: center;
+}
+/* line 39, ../sass/common_screen/banner/_banner_m1.scss */
+.banner_m1__button:hover {
+  background-color: #ffffff;
+  border: #fbb631 solid 1px;
+  border-bottom: #fbb631 solid 2px;
+  color: #fbb631;
+}
+
+/* line 47, ../sass/common_screen/banner/_banner_m1.scss */
+.banner_m1__disclaimer {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* line 54, ../sass/common_screen/banner/_banner_m1.scss */
+.banner_m1--life-referral {
+  background: url(../images/provie/provie_landing_s5_bg.jpg) 50% 50%;
+}
+
+/*# sourceMappingURL=main_fallback.css.map */

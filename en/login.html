@@ -1,0 +1,18 @@
+
+<div class="login-block">
+    <h1>Log in with your email account </h1>
+    <span>Email</span>
+    <input type="text" value="" placeholder="name@domain.com" id="username" />
+    <span>Password</span>
+    <input type="password" value="" placeholder="Password" id="password" />
+    <button onclick="goToDashboard()">Login</button>
+
+    <fb:login-button 
+        scope="public_profile,email"
+        onlogin="checkLoginState();">
+    </fb:login-button>   
+    <div id="login"> <a id="btnGoogleOAuth" class="btn btn-primary" href="#" target="_blank" role="button">
+            <i class="fa fa-google-plus"></i> Login with Google</a>
+
+    </div> 
+</div> 

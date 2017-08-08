@@ -1,0 +1,671 @@
+
+/**
+**  Generic Font Family
+**/
+body {
+	font-family: Arial, Calibri, sans-serif !important;
+}
+
+body .bold{
+	font-family: 'Calibri-bold', Calibri, sans-serif !important;
+}
+
+body.chin, 
+body.chin .bold{
+	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+
+::-webkit-input-placeholder {
+	font-family: Calibri, sans-serif !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	font-family: Calibri, sans-serif !important;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+	font-family: Calibri, sans-serif !important;
+}
+
+:-ms-input-placeholder {
+	font-family: Calibri, sans-serif !important;
+}
+
+.placeholder{
+	color: #ccc;
+}
+
+/* ET Chinese Font */
+body.chin .fwd-savie-wrapper .banner-widget .buy-now,
+body.chin .fwd-savie-wrapper .three-column-widget a,
+body.chin .fwd-savie-wrapper .three-column-widget a:focus,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-before-we-start label.et-before-we-start-yes,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-about-urself label.et-before-we-start-yes,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option label.et-before-we-start-yes,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-before-we-start label.et-before-we-start-no,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-about-urself label.et-before-we-start-no,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option label.et-before-we-start-no,
+body.chin .fwd-savie-wrapper .btn-orange,
+body.chin .fwd-savie-wrapper .btn-white,
+body.chin .fwd-savie-wrapper button.next,
+body.chin .fwd-savie-wrapper a.next,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option .et-promocode,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option-extra-info .et-extra-info span.et-amount,
+body.chin .et-po-amount-label,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option-extra-info .et-extra-info p.et-amount,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option-extra-info .et-extra-info p.et-per,
+body.chin .fwd-savie-wrapper .et-accrdn-list .panel-group .panel.et-panel-accordion .et-panel-heading a.et-collapse-link,
+body.chin .fwd-savie-wrapper .et-accrdn-list .jspPane p.et-accrdion-txt-normal,
+body.chin .fwd-savie-wrapper .et-accrdn-list .jspPane p.et-accrdion-txt-bold,
+body.chin .et-medic-panel .panel-collapse,
+body.chin .et-btn-medic,
+body.chin .fwd-savie-wrapper .personal-info-widget,
+body.chin .fwd-savie-wrapper .page-application .page-application-page-input-text.et-input-label span,
+body.chin .fwd-savie-wrapper .personal-info-widget .left-desktop.text-box span.warning-note,
+body.chin .fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox span.checkbox-text,
+body.chin .fwd-savie-wrapper .page-application .form-control.gray-textbox,
+body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown,
+body.chin .et-app-edit,
+body.chin .bv-form .help-block,
+body.chin .fwd-savie-wrapper .personal-info-widget .has-error .help-block,
+body.chin .fwd-savie-wrapper #employment-info .content .employment-info-row label,
+body.chin .fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .second-label,
+body.chin .fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .second-label-female,
+body.chin .fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .second-label-estate,
+body.chin .fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .second-label-estate-others,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.fatca-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.pics-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.cancellation-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .policy-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.yes-policy-replace-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.marketing-info-desk,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.personal-data-desc,
+body.chin #application-summary .container-fluid .summary-content .summary-body .fwd-checkbox ul,
+body.chin .fwd-savie-wrapper .signature span.span-text-img,
+body.chin .et-payment .page-header p.amount-holder,
+body.chin .et-payment .page-content .page-content-item label,
+body.chin .et-payment .page-content .page-content-item .fwd-checkbox p.notice,
+body.chin .et-payment .page-content .page-content-item .fwd-checkbox #application-registration form p.notice-password,
+body.chin #application-registration form .et-payment .page-content .page-content-item .fwd-checkbox p.notice-password,
+body.chin .et-ud-payment-note-head,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-now span.desktop-text,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-later span.desktop-text,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.give-at-store span.desktop-text,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-now p,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-later p,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.give-at-store p,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .pull-left.residence-text,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file .select-file-section .desk,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-passport .select-file-section .desk,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-hkid .select-file-section .desk,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file span.OR,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-passport span.OR,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-hkid span.OR,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file label span.input-file-text,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-passport label span.input-file-text,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-hkid label span.input-file-text,
+body.chin .et-document-upload p.notice, .et-document-upload #application-registration form p.notice-password,
+body.chin #application-registration form .et-document-upload p.notice-password,
+body.chin #etConfirm .et-submit button
+{
+	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+
+/* Take leaves from bootstrap */
+.visible-xs-inline, .visible-xs-inline-block,
+.visible-sm-inline, .visible-sm-inline-block{
+	display: none !important;
+}
+
+.visible-md-inline,
+.visible-lg-inline{
+	display: inline !important;
+}
+
+.visible-md-inline-block,
+.visible-lg-inline-block{
+	display: inline-block !important;
+}
+
+@media(max-width:767px){
+	.visible-xs-inline,
+	.visible-sm-inline{
+		display: inline !important;
+	}
+	.visible-xs-inline-block,
+	.visible-sm-inline-block{
+		display: inline-block !important;
+	}
+
+	.visible-md-inline, .visible-md-inline-block,
+	.visible-lg-inline, .visible-lg-inline-block{
+		display: none !important;
+	}
+}
+
+@media(max-width:991px){
+	.visible-xs-inline,
+	.visible-sm-inline{
+		display: inline !important;
+	}
+	.visible-xs-inline-block,
+	.visible-sm-inline-block{
+		display: inline-block !important;
+	}
+
+	.visible-md-inline, .visible-md-inline-block,
+	.visible-lg-inline, .visible-lg-inline-block{
+		display: none !important;
+	}
+}
+
+/* ET Shared */
+.hide,
+.hide-element {
+	display: none !important;
+}
+
+.fwd-et-wrapper select,
+.et-payment .page-content .page-content-item .selectDiv select {
+	color: #ccc;
+}
+
+.fwd-error-red,
+.fwd-error-red .help-block{
+	color: #e4002b !important;
+}
+
+.fwd-et-wrapper .et-next-btn-div{
+	/* Next button */
+	padding-top: 10px;
+	padding-bottom: 40px;
+}
+
+.fwd-et-wrapper .et-calcu{
+	/* Calculate button */
+	padding-bottom: 0px;
+}
+
+@media ( min-width : 992px) {
+	#promocode-hidden-button{
+		padding-bottom: 20px;
+	}
+
+	#promocode-hidden-button .et-calculate-btn{
+		margin-bottom: 0;
+	}
+}
+
+.site-remarks{
+	margin: 30px;
+	font-size: 14px;
+	color: #061d2a;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+
+/* FWD Buttons DIV wrapper*/
+.fwd-orange-btn-center-wrapper{
+	margin: 20px auto 0;
+	text-align: center;
+	display: inline-block;
+	float: none;
+
+}
+
+.fwd-et-wrapper .et-panel-accordion li{
+	/* Accordion Copy*/
+	margin-bottom: 15px;
+}
+
+.et-panel-accordion .panel-collapse .accordion-copy{
+	margin-bottom: 20px;
+}
+
+.et-panel-accordion .et-panel-body ol li{
+	padding-right: 60px;
+}
+
+.et-remarks-wrapper{
+	padding: 35px 30px;
+}
+
+/* Product Landing Download section */
+.btn-download-section{
+	padding: 30px 0 0 0;
+}
+
+/* ET landing tagline */
+.fwd-et-wrapper .banner-widget .tagline-holder{
+	position: absolute;
+	top: auto;
+	bottom: 130px;
+}
+
+.fwd-et-wrapper .banner-widget .tagline-holder img{
+	padding: 0 5%;
+	margin: 0 auto;
+}
+
+@media (min-width: 768px){
+	.fwd-et-wrapper .banner-widget .tagline-holder img {
+		width: 100%;
+	}
+}
+
+@media ( min-width : 992px) {
+	.fwd-et-wrapper .banner-widget .tagline-holder{
+		top: 28%;
+	}
+
+	.fwd-et-wrapper .banner-widget .tagline-holder img{
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		max-width: 470px;
+	}
+}
+
+@media ( min-width : 1100px) {
+	.fwd-et-wrapper .banner-widget .tagline-holder img{
+		max-width: 550px;
+	}
+}
+
+/* ET landing H1 */
+.fwd-et-wrapper .wow{
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+/* ET landing USP */
+.fwd-et-wrapper #landing-three-column{
+	padding-top: 0;
+}
+
+/* ET landing Benefits */
+.et-benefit-item .hidden-content {
+	position: absolute;
+	top: 0px;
+	z-index: 99;
+	background-color: #F2F3F5;
+	opacity: 0.9;
+	display: none;
+	min-height: 180px;
+}
+
+.et-benefit-item .hidden-content .hidden-content-title {
+	font-weight: bold;
+}
+
+.et-benefit-item .hidden-content .hidden-content-p {
+	font-size: 14px;
+}
+
+#benefitsPopup {
+	top: 50px;
+}
+
+@media ( min-width : 992px) {
+	.et-benefit-item:hover .hidden-content {
+		display: block;
+	}
+}
+
+/* ET get promo code */
+.fwd-et-wrapper .modal.fade .modal-dialog .modal-content{
+	padding: 0;
+}
+
+.fwd-et-wrapper .modal.fade{
+	font-size: 16px;
+}
+
+.fwd-et-wrapper .modal.fade p{
+	margin-bottom: 20px;
+}
+
+.fwd-et-wrapper button.next,
+.fwd-et-wrapper a.next {
+	    margin: 20px 0;
+}
+
+@media (max-width: 991px){
+	.login-form {
+	    padding: 15px;
+	}
+}
+
+/* Tooltips */
+
+.et-tooltip-wrapper span.et-info-tooltip{
+	background: url("../images/et-sprite.png") no-repeat center center;
+    background-position: -523px -41px;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    display: block;
+
+    position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.et-tooltip-wrapper span{
+	position: relative;
+}
+
+.et-tooltip-wrapper button{
+	width: 18px;
+	height: 18px;
+	border: none;
+	background-color: transparent;
+}
+
+.fwd-et-wrapper .et-smoker-tooltip{
+	position: absolute;
+	left: 10px;
+}
+
+.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
+.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
+	position: absolute;
+	top: 7px;
+	left: 10px;
+}
+
+.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option span{
+	position: relative;
+}
+
+.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option h3.et-promo-code-txt img{
+	margin-top: 0;
+	margin-left: 35px;
+}
+
+body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
+body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
+	position: absolute;
+	top: 7px;
+	left: 10px;
+}
+
+@media ( min-width : 992px) {
+	.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
+	.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
+		position: absolute;
+		top: 7px;
+		left: 10px;
+	}
+
+	body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
+	body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
+		position: absolute;
+		top: 7px;
+		left: 10px;
+	}
+}
+
+
+/* Diseasea List */
+#et-medi-question-2 .et-disease-list ul {
+	/* Disease unordered list*/
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 35px;
+}
+
+@media ( min-width : 992px) {
+	#et-medi-question-2 .et-disease-list ul {
+		/* Disease unordered list*/
+	    padding-top: 20px;
+    	padding-bottom: 20px;
+	}
+}
+
+/* Application Form */
+.fwd-et-wrapper .personal-info-widget .checkbox-section .pull-left.left-checkbox{
+	/* Residency Address Checkbox position*/
+	top: 64px;
+}
+
+/* Employment Status */
+#etEmploymentInfoForm .help-block{
+	margin-bottom: 0;
+}
+
+/* Beneficiary Form */
+.fwd-et-wrapper #beneficiary-info.et-beneficiaries-section .selectDiv select{
+	color: #000;
+}
+
+.fwd-et-wrapper #beneficiary-info .content h3.mobile-desc{
+	margin: 20px 0 10px;
+}
+
+/* Declarations */
+.fwd-et-wrapper .policy-replacement-remarks{
+	padding-top: 10px;
+	padding-bottom: 40px;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.fwd-authorize {
+	font-size: 14px;
+}
+
+#et-application-second-section .text-red{
+	display: block;
+	font-size: 14px;
+}
+
+.fwd-et-wrapper .declare-authorize .agreement-description .pull-left.policy-replace-desc{
+	width: 40%;
+}
+
+
+/* Signature */
+#signature-section .error-signature{
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* Document Upload */
+.upload-copy-title{
+	height: 80px;
+}
+
+.fwd-et-wrapper .document-upload .info.hkid {
+  left: 120px;
+}
+
+.fwd-et-wrapper .document-upload .info.passport {
+  left: 200px;
+}
+
+.fwd-et-wrapper .document-upload .info.addr {
+  left: 175px;
+}
+
+.fwd-et-wrapper .document-upload .elite-home-btn {
+	text-align: center;
+}
+
+.chin .upload-copy-title{
+	height: 70px;
+}
+
+.chin .fwd-et-wrapper .document-upload .info.hkid {
+  	left: 135px;
+}
+
+.chin .fwd-et-wrapper .document-upload .info.passport {
+  	left: 60px;
+}
+
+.chin .fwd-et-wrapper .document-upload .info.addr {
+  	left: 110px;
+}
+
+.chin .fwd-et-wrapper .document-upload .upload-now-section .et-du-passport-tooltip,
+.fwd-et-wrapper .document-upload .upload-now-section .et-du-passport-tooltip {
+	left: 56%;
+	top: 30px;
+	z-index: 5;
+}
+
+@media (min-width: 992px) {
+  .fwd-et-wrapper .document-upload .info {
+    top: 35px;
+  }
+}
+
+/* ET Summary */
+.summary-body-item .info{
+	word-break: break-all;
+}
+
+#application-summary .container-fluid .summary-content .summary-body .monthly-premium h4.info-label{
+	margin-bottom: 25px;
+}
+
+@media(max-width: 767px){
+	#application-summary .container-fluid .summary-content .summary-body .monthly-premium h4.info-label{
+		margin-bottom: 40px;
+	}
+}
+
+
+/* ET mask */
+.modal-backdrop.in{
+	opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+/* ET Customer Service Form */
+#cannot-apply-modal .modal-body form p.notice{
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+#et-cust-serv-form .btn {
+    border: solid 1px #b8123e;
+    background: #b8123e;
+    color: white;
+    padding: 7px 40px;
+    font: normal 20px "AIASans","Calibri",sans-serif;	
+}
+#et-cust-serv-form .btn:hover{ 
+    border: solid 1px #e86487;
+    background: #e86487;
+}
+
+#cannot-apply-modal .modal-header button{
+	top: -10px;
+}
+
+@media(max-width: 767px){
+	#cannot-apply-modal .modal-body form .input-items .error-msg,
+	#customer-service-modal .modal-body form .input-items .error-msg {
+		float: left;
+		width: 100%;
+		margin-bottom: 0;
+	}
+}
+
+/* Modal Box Tel/Mobile field*/
+
+#cannot-apply-modal .modal-body form input[type="tel"],
+#cannot-apply-modal .modal-body form input[type="email"],
+#customer-service-modal .modal-body form input[type="tel"],
+#customer-service-modal .modal-body form input[type="email"]{
+	margin-top: -3px;
+	background-color: #e8eaea;
+	border: none;
+	box-shadow: none;
+	height: 40px;
+	font-size: 18px;
+	padding: 6px 20px;
+	border-radius: 0;
+}
+
+@media ( min-width : 992px) {
+	#cannot-apply-modal .modal-body form input[type="tel"],
+	#cannot-apply-modal .modal-body form input[type="email"],
+	#customer-service-modal .modal-body form input[type="tel"],
+	#customer-service-modal .modal-body form input[type="email"]{
+		width: 60%;
+		float: left;
+	}
+}
+
+#cannot-apply-modal .modal-body form input[type="tel"] :-ms-input-placeholder,
+#cannot-apply-modal .modal-body form input[type="email"] :-ms-input-placeholder,
+#customer-service-modal .modal-body form input[type="tel"] :-ms-input-placeholder,
+#customer-service-modal .modal-body form input[type="email"] :-ms-input-placeholder{
+	color: #9a9a9a;
+}
+
+/*iframes*/
+.fwd-container.container-fluid.iframe-container {
+    max-width: none;
+}
+.document-upload.et-document-upload.upload-iframe {
+  padding: 0;
+}
+.document-upload .upload-now-section .document-upload-progress.iframe {
+    max-height: 75px;
+    overflow: hidden;
+}
+.document-upload .upload-now-section .upload-iframe-height {
+  height: 400px;
+  width: 23%;
+}
+.document-upload .upload-now-section .upload-iframe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 70%;
+}
+.document-upload .upload-now-section .col-xs-12.col-md-4, .document-upload .upload-now-section .col-xs-12.col-md-6 {
+  padding-top: 32px;
+  position: relative;
+}
+
+.et-valid-proof {
+	color: #f6871e;	
+}
+
+@media ( min-width : 992px) {
+	/* line 212, ../sass/partials/_three-column-widget.scss */
+	.fwd-savie-wrapper .three-column-widget .fwd-col .et-desc-col h2 {
+		min-height: 175px;
+	}
+}
+@media ( min-width : 1100px) {
+	.fwd-savie-wrapper .three-column-widget .fwd-col .et-desc-col h2 {
+		min-height: 155px;
+	}
+}
+@media ( min-width : 1200px) {
+	.fwd-savie-wrapper .three-column-widget .fwd-col .et-desc-col h2 {
+		min-height: 110px;
+	}
+}
+
+.checkbox-description, #et-medi-question-4-text {
+	cursor: pointer;
+}
+@media ( min-width : 980px) and (max-width: 1100px) {
+	.beneficiary-info-row .et-hkid-pass .orange-caret {
+		padding-right: 5px !important;
+	}
+	.beneficiary-info-row .et-hkid-pass select{
+		padding-left: 7px !important;
+	}
+}	

@@ -1,0 +1,1098 @@
+/* lg */
+
+@media (min-width: 1200px) {}
+/* md */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .navbar-nav > li {} .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .recent-work-wrap .recent-work-inner h3 a {
+        font-size: 20px;
+    }
+    .recent-work-wrap .overlay {
+        padding: 15px;
+    }
+    .feature-wrap h2,
+    .single-services h2 {
+        font-size: 18px;
+    }
+    .feature-wrap h3,
+    .single-services h3 {
+        font-size: 14px;
+    }
+    .recent-work-wrap .overlay .preview {
+        line-height: inherit;
+    }
+    ul.social_icons li {
+        margin-right: 0;
+    }
+    table.activation-form {
+        width: calc(94% - 20px);
+    }
+    table.activation-form .form-control {
+        width: 90%;
+    }
+    table.activation-form .form-control.full-control {
+	  width: 100%;
+	}
+    table.activation-form.registration .form-control {
+        width: 100%;
+    }
+    
+    table.plandetail-form {
+        width: calc(94% - 20px);
+    }
+    table.plandetail-form .form-control {
+        width: 90%;
+    }
+    table.plandetail-form .form-control.full-control {
+      width: 100%;
+    }
+    table.plandetail-form.registration .form-control {
+        width: 100%;
+    }
+    
+    .acc-tool-input {
+        width: 100%;
+    }
+    .homecare h4 {
+      height: 90px;
+    }
+/*  .plan-box4 h3,
+    .plan-box4 h6{
+        margin-left: 0;
+    } */
+}
+/* sm */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /***********************/
+    /*****For-Flight-Plan-Page*****/
+    
+/*     .input-block-level {
+        padding-left: 3px;
+    } */
+    .plan-box h2 {
+        margin-left: 10px;
+    }
+    .plan-box3 h2 {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    .plan-box3 h4{
+    	margin-left: 10px;
+    }
+    .plan-box {
+        
+    }
+    .plan-box4 h2 {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    .bdr {
+        border: #fff 1px solid;
+    }
+    .status {
+        display: none;
+    }
+    .breadcrumb {
+        display: none;
+    }
+    .btn-box-2 {
+        font-size: 18px;
+    }
+    h3.btn-box-3 {
+        font-size: 18px;
+    }
+    .h4-4 {
+        font-size: 18px;
+    }
+    .h4-5 {
+        font-size: 16px;
+        line-height: 36px;
+    }
+    .other-benefits ul.bullets {
+        font-size: 18px;
+        line-height: 42px;
+    }
+    .testimonials-wrap .testimonials-inner p {
+        line-height: 30px;
+        font-size: 18px;
+    }
+    .other-share {
+        line-height: 60px;
+    }
+    .plan-box3 {
+        border: 1px solid #616163;
+    }
+    .mob-pad {
+        padding: 0px 30px;
+    }
+    /*****For-Flight-Index-Page*****/
+    
+    .center h2 {
+        font-size: 24px;
+    }
+    
+    .center .landing_h2 {
+        font-size: 36px !important;
+    }
+    .tab-content .padding3 {
+        padding-left: 10px;
+    }
+    .bck-btn {
+        padding: 20px 30px;
+        width: 100%;
+        font-size: 24px;
+    }
+    .nxt-btn {
+        padding: 20px 30px;
+        width: 100%;
+        font-size: 24px;
+    }
+    #cn .bck-btn {
+        padding: 20px 30px;
+        width: 100%;
+    }
+    #cn .nxt-btn {
+        padding: 20px 30px;
+        width: 100%;
+    }
+    .travel-tb td {
+        padding: 5px 0px;
+    }
+    .travel-tb th {
+        padding: 5px 0px;
+    }
+    .h4-5 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h2-1-td {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h4-6-td {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    #no-more-tables td {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    h2.from-control {
+        font-size: 24px;
+    }
+    .h2-1 {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .h4-4-full {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .h4-4-orange-b {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .h2-3-existing-fwd-head {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    /***********************/
+    
+    .homecare h2 {
+        color: #f68a1d;
+        font-size: 24px;
+    }
+    .homecare {
+        background: #fff;
+    }
+    .homecare h4 {
+        color: #000;
+        height: auto;
+    }
+    .home-input {
+        background-color: #e5e5e5 !important;
+        border: 1px solid #e5e5e5 !important;
+    }
+    .homecare span {
+        color: #000;
+    }
+    .homecare p {
+        color: #000;
+    }
+    .get-btn-home {
+        margin-top: 20px;
+    }
+    .pad-left-20 {
+        padding-left: 0px;
+    }
+    .h4-6-td {
+        padding: 0px;
+    }
+/*     .input-block-level {
+        padding: 3px;
+        font-size: 18px;
+        padding-left: 3px;
+    } */
+    .plan-box h4 , .plan-box2 h4{
+        margin-left: 25px;
+    }
+    h2.page-title {
+        font-size: 24px;
+    }
+    .act-btn {
+        width: 90%;
+        margin-left: 5%;
+    }
+    /*.tool-tip{position: absolute;left: 173px;margin-top: -49px;}
+.tool-tip.account{position: absolute;left: 80px;margin-top: -49px;}*/
+    
+    table.acc-form .form-control {
+        width: 90%;
+        margin-left: 40px;
+    }
+    .bold-500 {
+        font-size: 18px;
+    }
+    .insure-travel .bold-500 {
+        font-size: 18px;
+    }
+    .select-label {
+        font-size: 18px;
+    }
+    .insure-travel .select-label {
+        font-size: 18px;
+    }
+    
+    .full-control::-webkit-input-placeholder {
+	   font-size: 18px;
+	}
+	
+	.full-control:-moz-placeholder { /* Firefox 18- */
+	   font-size: 18px;
+	}
+	
+	.full-control::-moz-placeholder {  /* Firefox 19+ */
+	   font-size: 18px;
+	}
+	
+	.full-control:-ms-input-placeholder {  
+	   font-size: 18px;
+	}
+    
+    .gry-bg {
+        background-color: #fff;
+        min-height: 0;
+    }
+    table.plandetail-form td .control-label {
+
+    }
+    .marg-t1 {
+        margin-top: 55px;
+    }
+    .navbar-brand img {
+        margin-left: 20px;
+    }
+    .border-right {
+        border: 0px;
+    }
+    .margin-left-3 {
+        margin-left: 0px;
+    }
+    .purchase-history td {
+        padding: 0px;
+    }
+    .checkbox label {
+        font-size: 16px;
+    }
+    /*Summary Table*/
+    
+    .btn-box h3 {
+        font-size: 24px;
+    }
+    /* Force table to not be like tables anymore */
+    
+    #no-more-tables table,
+    #no-more-tables thead,
+    #no-more-tables tbody,
+    #no-more-tables th,
+    #no-more-tables td,
+    #no-more-tables tr {
+        display: inline-block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    
+    #no-more-tables thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    #no-more-tables tr {
+        border-bottom: 1px solid #ccc;
+    }
+    #no-more-tables td {
+        /* Behave  like a "row" */
+        
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align: left;
+        font-size: 16px;
+    }
+    #no-more-tables td:before {
+        /* Now like a table header */
+        
+        position: absolute;
+        /* Top/left values mimic padding */
+        
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+    /*
+    Label the data
+    */
+    
+    #no-more-tables td:before {
+        content: attr(data-title);
+    }
+    /**********End Summary Table************/
+    
+    .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .navbar-nav > li {
+        margin-left: 0;
+    }
+    #main-slider .carousel h1 {
+        font-size: 25px;
+    }
+    #main-slider .carousel h2 {
+        font-size: 20px;
+    }
+    .services-wrap {
+        padding: 40px 0 40px 30px;
+    }
+    .recent-work-wrap .overlay {
+        padding: 15px;
+    }
+    .recent-work-wrap .recent-work-inner h3 a {
+        font-size: 20px;
+    }
+    table.activation-form {
+        width: calc(100% - 20px);
+    }
+    table.activation-form .form-control {
+        width: 90%;
+    }
+    table.activation-form .form-control.full-control {
+        width: 100%;
+    }
+    
+    table.plandetail-form {
+        width: calc(100% - 20px);
+    }
+    table.plandetail-form .form-control {
+        width: 90%;
+    }
+    table.plandetail-form .form-control.full-control {
+        width: 100%;
+    }
+    .plan-box2
+    {
+        border:1px solid #616163;
+    }
+    .plan-box2-inner
+    {
+        
+    }
+    .wht-bg3 {
+        background-color: #fff;
+    }
+}
+/* xs */
+
+@media (max-width: 767px) {
+    /***********************/
+    /*****For-Flight-Plan-Page*****/
+    
+    .plan-box {
+        
+    }
+    .plan-box h2 {
+        margin-left: 10px;
+        
+    }
+    .plan-box3 h2 {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    .plan-box4 h2 {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    .plan-box3 h4{
+    	margin-left: 10px;
+    }
+    .bdr, .bdr2 {
+        border: #fff 1px solid;
+    }
+    .bdr2{
+    	margin-bottom: 20px;
+    }
+    .status {
+        display: none;
+    }
+    .breadcrumb {
+        display: none;
+    }
+    .btn-box-2 {
+        font-size: 18px;
+    }
+    h3.btn-box-3 {
+        font-size: 18px;
+    }
+    .wht-bg3 {
+        background-color: #fff;
+    }
+    .plan-box2-inner {
+
+    }
+    .h4-4 {
+        font-size: 18px;
+    }
+    .h4-5 {
+        font-size: 16px;
+        line-height: 36px;
+    }
+    .other-benefits ul.bullets {
+        font-size: 18px;
+    }
+    .testimonials-inner p {
+        line-height: 30px;
+        font-size: 18px;
+    }
+    .plan-box2
+    {
+        border:1px solid #616163;
+        margin-left:0px;
+    }
+    .plan-box3 {
+        border: 1px solid #616163;
+    }
+    .other-share {
+        line-height: 60px;
+    }
+    .bold-500 {
+        font-size: 18px;
+    }
+    .insure-travel .bold-500 {
+        font-size: 18px;
+    }
+    .select-label {
+        font-size: 18px;
+    }
+    .insure-travel .select-label {
+        font-size: 18px;
+    }
+    
+    .full-control::-webkit-input-placeholder {
+       font-size: 18px;
+    }
+    
+    .full-control:-moz-placeholder { /* Firefox 18- */
+       font-size: 18px;
+    }
+    
+    .full-control::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 18px;
+    }
+    
+    .full-control:-ms-input-placeholder {  
+       font-size: 18px;
+    }
+    
+    table.plandetail-form td .control-label {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .checkbox label {
+        font-size: 16px;
+    }
+    /*****For-Flight-Index-Page*****/
+    
+    .center h2 {
+        font-size: 24px;
+    }
+    h2.page-title {
+        font-size: 24px;
+    }
+    /*.bck-btn {
+        padding: 20px 30px;
+        width: 100%;
+    }
+    .nxt-btn {
+        padding: 20px 30px;
+        width: 100%;
+    }
+    #cn .bck-btn {
+        padding: 20px 30px;
+        width: 100%;
+        font-size: 24px;
+    }
+    #cn .nxt-btn {
+        padding: 20px 30px;
+        width: 100%;
+        font-size: 24px;
+    }*/
+    .travel-tb td {
+        padding: 5px 5px;
+    }
+    .travel-tb th {
+        padding: 5px 0px;
+    }
+    .h4-5 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h2-3-existing-fwd-head {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    /***********************/
+    
+    .homecare h2 {
+        color: #f68a1d;
+        font-size: 24px;
+    }
+    .homecare {
+        background: #fff;
+    }
+    .homecare h4 {
+        color: #000;
+        height: auto;
+    }
+    .home-input {
+        background-color: #e5e5e5 !important;
+        border: 1px solid #e5e5e5 !important;
+    }
+    .homecare span {
+        color: #000;
+    }
+    .homecare p {
+        color: #000;
+    }
+    .get-btn-home {
+        margin-top: 20px;
+    }
+   /*  .input-block-level {
+        padding: 3px;
+        font-size: 18px;
+        padding-left: 3px;
+    } */
+    .h4-6-td {
+        padding: 0px;
+    }
+    .plan-box h4 , .plan-box2 h4 {
+        margin-left: 25px;
+    }
+    .btn-lg {
+        padding: 0px;
+        font-size: 30px;
+        line-height: 31.5px;
+    }
+    .act-btn {
+        width: 90%;
+        margin-left: 5%;
+    }
+    /*.tool-tip{position: absolute;left: 173px;margin-top: -49px;}
+.tool-tip.account{position: absolute;left: 80px;margin-top: -49px;}*/
+    
+    table.acc-form .form-control {
+        width: 90%;
+        margin-left: 40px;
+    }
+    .gry-bg {
+        height: auto;
+        background-color: #fff;
+    }
+    .marg-t1 {
+        margin-top: 55px;
+    }
+    .mob-pad {
+        padding: 0px 30px;
+    }
+    .navbar-brand img {
+        margin-left: 20px;
+    }
+    .border-right {
+        border: 0px;
+    }
+    .offset-1 {
+        margin-left: 10%;
+    }
+    .tab-content .padding3 {
+        padding-left: 10px;
+    }
+    .margin-left-3 {
+        margin-left: 0px;
+    }
+    .purchase-history td {
+        padding: 0px;
+    }
+    #no-more-tables td {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h4-5 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h2-1-td {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h4-6-td {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    h2.from-control {
+        font-size: 24px;
+    }
+    /* .input-block-level {
+        padding-left: 3px;
+    } */
+    .h2-1 {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .h4-4-full {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .h4-4-orange-b {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    /**********Summary Table************/
+    
+    .btn-box h3 {
+        font-size: 24px;
+    }
+    /* Force table to not be like tables anymore */
+    
+    #no-more-tables table,
+    #no-more-tables thead,
+    #no-more-tables tbody,
+    #no-more-tables th,
+    #no-more-tables td,
+    #no-more-tables tr {
+        display: inline-block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    
+    #no-more-tables thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    #no-more-tables tr {
+        border-bottom: 1px solid #ccc;
+    }
+    #no-more-tables td {
+        /* Behave  like a "row" */
+        
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align: left;
+        font-size: 16px;
+    }
+    #no-more-tables td:before {
+        /* Now like a table header */
+        
+        position: absolute;
+        /* Top/left values mimic padding */
+        
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+    /*
+    Label the data
+    */
+    
+    #no-more-tables td:before {
+        content: attr(data-title);
+    }
+    /***End Summary Table***/
+    /***Form***/
+    
+    table.acc-form td .control-label {
+        font-size: 18px;
+    }
+    .container > .navbar-header,
+    .container > .navbar-collapse {
+        margin-left: 0;
+    }
+    .top-number {
+        font-size: 14px;
+    }
+    input.search-form:hover {
+        width: 120px;
+    }
+    .navbar-nav > li {
+        padding-bottom: 0;
+    }
+    #main-slider .carousel h1 {
+        font-size: 25px;
+    }
+    #main-slider .carousel h2 {
+        font-size: 16px;
+    }
+    .feature-wrap h2,
+    .single-services h2 {
+        font-size: 18px;
+    }
+    .feature-wrap h3,
+    .single-services h3 {
+        font-size: 14px;
+    }
+    .media.accordion-inner .pull-left,
+    .media.accordion-inner .media-body {
+        clear: both;
+    }
+    .accordion-inner h4 {
+        margin-top: 10px;
+    }
+    .tab-wrap .media .pull-left {
+        clear: both;
+        width: 100%;
+    }
+    .tab-wrap .media .media-body {
+        clear: both;
+    }
+    .nav-tabs > li.active > a:after {
+        display: none;
+    }
+    #footer .col-sm-6 {
+        text-align: center;
+    }
+    #footer .pull-right {
+        float: none !important;
+    }
+    .sinlge-skill {
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .team .single-profile-top,
+    .team .single-profile-bottom {
+        margin-bottom: 30px;
+    }
+    .clients-area {
+        padding: 60px 0;
+    }
+    .clients-area h1 {
+        font-size: 25px;
+    }
+    .portfolio-item,
+    #recent-works .col-xs-12.col-sm-4.col-md-3 {
+        padding: 0 15px;
+    }
+    ul.social_icons li {
+        margin-right: 0;
+    }
+    .blog .blog-item .entry-meta {
+        margin-bottom: 20px;
+    }
+    .blog .blog-item .blog-content h3 {
+        margin-bottom: 20px;
+    }
+    .post_reply_comments {
+        padding-left: 20px;
+    }
+    .plan-box3 h6,
+    .plan-box4 h6 {
+        font-size: 35px;
+    }
+    .center-h2 {
+	  line-height: 1.3;
+	}
+	table.vert-middle-small{
+		vertical-align: middle !important;
+	}
+}
+/* XS Portrait */
+
+@media (max-width: 480px) {
+    .h4-5 {
+        font-size: 18px;
+        line-height: 36px;
+    }
+    .other-benefits ul.bullets {
+        font-size: 18px;
+        line-height: 42px;
+    }
+    .testimonials-wrap .testimonials-inner p {
+        line-height: 30px;
+        font-size: 18px;
+    }
+    .plan-box3 {
+        border: 1px solid #616163;
+    }
+    .other-share {
+        line-height: 60px;
+    }
+    .plan-box h4 {
+        margin-left: 25px;
+    }
+    /*.tool-tip{position: absolute;left: 173px;margin-top: -49px;}
+.tool-tip.account{position: absolute;left: 80px;margin-top: -49px;}*/
+    
+    .gry-bg {
+        height: auto;
+        background-color: #fff;
+    }
+    .marg-t1 {
+        margin-top: 55px;
+    }
+    .mob-pad {
+        padding: 0px 20px;
+    }
+    .mob-pad {
+        padding: 0px 30px;
+    }
+    .h4-5 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .plan-box h2 {
+        margin-left: 10px;
+        font-size: 20px;
+    }
+    .plan-box3 h2 {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    .plan-box4 h2 {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    .navbar-brand img {
+        margin-left: 20px;
+    }
+    .border-right {
+        border: 0px;
+    }
+    .offset-1 {
+        margin-left: 10%;
+    }
+    .tab-content .padding3 {
+        padding-left: 10px;
+    }
+    table.acc-form .form-control {
+        width: 90%;
+        margin-left: 40px;
+    }
+    .margin-left-3 {
+        margin-left: 0px;
+    }
+    .purchase-history td {
+        padding: 0px;
+    }
+    .bck-btn {
+        padding: 20px 10px;
+        width: 100%;
+        font-size: 24px;
+    }
+    .nxt-btn {
+        padding: 20px 10px;
+        width: 100%;
+        font-size: 24px;
+    }
+    #cn .bck-btn {
+        padding: 20px 10px;
+        width: 100%;
+        font-size: 24px;
+    }
+    #cn .nxt-btn {
+        padding: 20px 10px;
+        width: 100%;
+        font-size: 24px;
+    }
+    .travel-tb td {
+        padding: 5px 0px;
+    }
+    .travel-tb th {
+        padding: 5px 0px;
+    }
+    .bold-500 {
+        font-size: 18px;
+    }
+    .insure-travel .bold-500 {
+        font-size: 18px;
+    }
+    .select-label {
+        font-size: 18px;
+    }
+    .insure-travel .select-label {
+        font-size: 18px;
+    }
+    
+    .full-control::-webkit-input-placeholder {
+       font-size: 18px;
+    }
+    
+    .full-control:-moz-placeholder { /* Firefox 18- */
+       font-size: 18px;
+    }
+    
+    .full-control::-moz-placeholder {  /* Firefox 19+ */
+       font-size: 18px;
+    }
+    
+    .full-control:-ms-input-placeholder {  
+       font-size: 18px;
+    }
+    
+    table.plandetail-form td .control-label {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .checkbox label {
+        font-size: 16px;
+    }
+    .h4-4-full {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .h4-5 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h2-1-td {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h4-6-td {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h2-1 {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .h4-4-orange-b {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    #no-more-tables td {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .h2-3-existing-fwd-head {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    #no-more-tables table,
+    #no-more-tables thead,
+    #no-more-tables tbody,
+    #no-more-tables th,
+    #no-more-tables td,
+    #no-more-tables tr {
+        display: inline-block;
+    }
+    h2.from-control {
+        font-size: 24px;
+    }
+    .input-block-level {
+        padding-left: 3px;
+        font-size: 20px;
+    }
+    #tr-wizard.shop-tracking-status .image-order-status{
+    	margin-top: -28px;
+    }
+    #tr-wizard.shop-tracking-status .image-order-status .icon {
+        height: 25px;
+        width: 25px;
+        font-size: 15px;
+        line-height: 25px;
+        font-weight: bold;
+    }
+    .btn-box h3 {
+        font-size: 24px;
+    }
+    .plan-box3 h6,
+    .plan-box4 h6 {
+        font-size: 35px;
+    }
+    table.activation-form {
+        width: calc(100% - 20px);
+    }
+    table.activation-form .form-control {
+        width: 96%;
+    }
+    table.activation-form .form-control.full-control {
+        width: 100%;
+    }
+    
+    table.plandetail-form {
+        width: calc(100% - 20px);
+    }
+    table.plandetail-form .form-control {
+        width: 96%;
+    }
+    table.plandetail-form .form-control.full-control {
+        width: 100%;
+    }
+    .acc-tool-input {
+        width: 100%;
+    }
+    .plan-box2
+    {
+        border:1px solid #616163;
+    }
+    .plan-box2 h2
+    {
+          margin-left:0px;
+    }
+    table.activation-form td .control-label{
+        line-height: 1.3;
+    }
+    
+    table.plandetail-form td .control-label{
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 991px) {
+    .drop-width {
+      min-width: 300px !important;
+    }
+    .login-form {
+      padding: 0px;
+    }
+    .drop-width .btn-lg {
+        padding: 12px 22px !important;
+    }
+    .navmenu .btn-lg a{
+        font-size: 16px;
+    }
+    .full-width-button{ padding: 0;}
+}

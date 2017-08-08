@@ -1,0 +1,8 @@
+{
+  "name": "General Insurance @ TATA AIG",
+  "description": "General Insurance @ TATA AIG",
+  "manifest_version": 2,
+  "version": "0.1",
+  "permissions": ["gcm", "storage", "notifications"],
+  "gcm_sender_id": "971472426305"
+}

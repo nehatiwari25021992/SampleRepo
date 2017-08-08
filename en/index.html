@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:ng="https://angularjs.org" id="ng-app" ng-app="demoApp" >
+
+    <!-- Mirrored from www.aia.com.hk/en/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 May 2017 01:53:55 GMT -->
+    <!-- Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <!-- /Added by HTTrack -->
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="">
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+        <meta name="google-site-verification" content="54r_aeWlMn4GlJ3E33iIBXCVRWlQ9u3NirgocpAQpz4"/>
+        <link rel="manifest" href="manifest.json">
+        <script src="App42.js"></script>
+        <script src="Sample.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+        <script type="text/javascript" src="service-worker.js"></script>
+        <script type="text/javascript" src="../etc/clientlibs/aia/aia-header.min.0e0a259e5b0465d894c27c2f951779d0.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="jquery-1.10.2.min.js"></script>
+        <script src="appwarp.min.js"></script>
+        <script src="angularApp.js"></script>
+
+        <link rel="stylesheet" href="../etc/clientlibs/aia/aia-header.min.bcd411696935f5791900a3b839f536d9.css" type="text/css">
+        <link rel="stylesheet" href="../content/css/aig-header.css" type="text/css">
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Roboto+Condensed:300,400,700' rel='stylesheet'
+              type='text/css'>
+        <link rel='stylesheet' href='custom_style.css'>
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <title>AIG</title>
+        <style type="text/css" media="(max-width: 767px)"> 
+            .carousel-container .quick{
+                display: none;
+            }
+        </style>
+        <style type="text/css" media="(min-width: 768px)"> 
+            .carousel-container .quick {
+                position: absolute;
+                z-index: 50;
+                right: 0;
+                top: 12%;
+                margin-top: 0%;
+            }
+            .carousel-container .quick li{
+                list-style: none;
+                width: 150px;
+                /*height: 45px;*/
+                margin-top: 1px; 
+            }
+            .carousel-container .quick li:first-child {
+                margin-top: 0px;
+            }
+            .carousel-container .quick li:nth-child(1) {
+                height: 80px;
+            }
+            .carousel-container .quick li a {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                background: url(../content/dam/kr/ko/images/iframe/icons/icon-main-arr.png) no-repeat right;
+                background-color: rgba(0, 0, 0, 0.2);
+                color: #fff;
+                font-weight: normal;
+                padding-left: 16px;
+                line-height: 3;
+            }
+            .carousel-container .quick li:nth-child(1) a, .carousel-container .quick li:nth-child(3) a {
+                line-height: 1.5;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            .carousel-container .quick li a:hover, .carousel-container .quick li a:focus {
+                background-color: rgba(184, 18, 62, 0.6);
+            }
+        </style>
+        <style type="text/css" media="(min-width: 1200px)"> 
+            .carousel-container .quick {
+                top: 10%;
+            }
+        </style>
+    </head>
+
+    <body data-ng-controller="MainController" >
+        <script>
+            var facebook = ''
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '433510467023905',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v2.8'
+                });
+                FB.AppEvents.logPageView(); 
+                facebook = FB	
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+   
+            function checkLoginState() {
+                facebook.getLoginStatus(function(response) {
+                    console.log("FACEBOOK response :::::::::::  ",response)
+                    //statusChangeCallback(response);
+                });
+            }
+
+            window._q=[];
+            App42.initialize("1dc92a76ef4114a8551ee8883cf48c6ee06a9a467a08ef80237fe61c6e1492a5","d4271267f621b50a11bf62ede824372aab8464090913de822c2e137fce4b3b76"); 
+
+            var search = {};
+            search.productString = "Product with:";
+            search.articleString = "Article with:";
+            search.formString = "Form with:";
+            search.emptyMsg = "Please type your question.";
+
+            App42.initialize("1dc92a76ef4114a8551ee8883cf48c6ee06a9a467a08ef80237fe61c6e1492a5","d4271267f621b50a11bf62ede824372aab8464090913de822c2e137fce4b3b76"); 
+            App42.enableEventService(true);
+            App42.enableAppStateEventTracking(true);
+            var aiaDatalayer ={
+                pageInfo:{
+                    'pageType':'AIA Home Page',
+                    'channel':'corporate'
+                },
+                profile:{
+                    'myAIAUserLoginID':''
+                }
+            }
+			
+            function openChatWindow(id) {
+
+     
+                $('#chat').fadeOut(500);
+                $('#appwarpchatRoomForm').fadeIn(1000);
+                countMsg = 0
+                $("#chatnote").text("");
+            }
+    
+        </script>
+
+        <div>
+            <div class="grid-control-1-col section">
+                <div class="row">  
+                    <div ng-view></div>                  
+                </div>
+            </div>
+            <script>
+                // Set basic variables
+                var oAuthEndPoint = "https://accounts.google.com/o/oauth2/auth";
+                var oAuthClientID = "702841265150-iaravt3jmu0c67k892pivj9kgkb8dbco.apps.googleusercontent.com";
+                var oAuthScope = "https://www.googleapis.com/auth/userinfo.profile";
+
+                // Check if page is secure
+                if (IsSecure()) {
+                    // Check url for token
+                    if (GetURLParameter("access_token") != undefined) {
+                        // Make request if token is avalible
+                        LoadUserInfo(GetURLParameter("access_token"), GetURLParameter("expires_in"));
+                    }
+                }
+
+                // Checks if the page is secured
+                // If it is it will show the login button
+                // If not it will show the button for switching to https
+                function IsSecure() {
+                    var retval = false;
+
+                    if (location.protocol === 'https:') {
+                        retval = true;
+                        // Set the login href
+                        $("#btnGoogleOAuth").attr("href", GetOAuthURL());
+
+                        // Show demo and hide redirect
+                        $("#login").show();
+                        $("#redirect").hide();
+                    } else {
+                        // Build the redirect link
+                        var a = document.createElement('a');
+                        a.href = document.referrer;
+                        $("#btnSwitchToSSL").attr("href", ['https://', a.host, a.pathname].join('\n'));
+                        a = '';
+
+                        // Hide demo and show redirect
+                        $("#login").hide();
+                        $("#redirect").show();
+                    }
+
+                    return retval;
+                }
+
+                // Function for building the oauth url for the authentication link
+                function GetOAuthURL() {
+                    // Get the referrer (URL of the JSFiddle)
+                    var a = document.createElement('a');
+                    a.href = document.referrer;
+
+                    // Replace the jsfiddle.net with the fiddle.jshell.net domain
+                    var redirect_uri = ['https://fiddle.jshell.net', a.pathname].join('');
+                    a = '';
+
+                    // URL Encode parameters
+                    var redirect_uri = encodeURIComponent(redirect_uri); // Get current URL
+                    var client_id = encodeURIComponent(oAuthClientID);
+                    var scope = encodeURIComponent(oAuthScope);
+
+                    // Build the actuall url
+                    var oauth_url = oAuthEndPoint + "?client_id=" + client_id + "&redirect_uri=" + redirect_uri + "&scope=" + scope + "&response_type=token";
+
+                    return oauth_url;
+                }
+
+                function LoadUserInfo(access_token, expires_in) {
+                    $.ajax({
+                        url: 'https://www.googleapis.com/userinfo/v2/me',
+                        type: 'GET',
+                        dataType: 'json',
+                        headers: {
+                            'Authorization': 'Bearer ' + access_token
+                        },
+                        success: function (data) {
+                            // Hide login
+                            $("#login").hide();
+
+                            // Populate demo, img and name
+                            $("#user_pic").attr("src", data.picture);
+                            $("#user_name").attr("href", data.link);
+                            $("#user_name").text(data.name);
+
+                            // Show raw data
+                            for (var property in data) {
+                                if (data.hasOwnProperty(property)) {
+                                    $("#raw_data").append("<b>" + property + ":</b>" + data[property] + "<br/>");
+                                }
+                            }
+
+                            // Display demo
+                            $("#demo").show();
+                        },
+                        error: function () {
+                            $('#demo').html('<p>An error has occurred</p>');
+                        }
+                    });
+                }
+
+                // Function for extracting URL parameters returned to the page after oauth
+                function GetURLParameter(sParam) {
+                    var sPageURL = window.parent.location.hash.substring(1);
+                    var sURLVariables = sPageURL.split('&');
+                    for (var i = 0; i < sURLVariables.length; i++) {
+                        var sParameterName = sURLVariables[i].split('=');
+                        if (sParameterName[0] == sParam) {
+                            return sParameterName[1];
+                        }
+                    }
+                }
+            </script>
+
+        </div>
+        <div class="modal-content"> 
+            <script type="text/javascript">
+                $(function(){
+        
+                    function loadModalContent() {
+
+                        var list = [], modalId = [];
+
+                        $.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
+                            var requestUrl = options.url || originalOptions.url;
+                            if (( options.dataType == 'script' || originalOptions.dataType == 'script')
+                                && requestUrl.indexOf(location.host) >= 0) {
+                                options.cache = true;
+                            }
+                        });
+
+                        $('.aia-modal').each(function(){
+
+                            var self = $(this);
+                            var target = $(this).attr('data-target'),
+                            container = $(this).find('.modal-container');
+
+                            var wcmmode = '';
+
+                            if(target && container && typeof target!='undefined' && target.length>0 && container.length>0) {
+                                var idx = -1,
+                                btnId = self.attr('id'),
+                                param = { parentUrl: "/content/hk/en/index" };
+
+                                if(!Array.prototype.indexOf) {
+                                    for(var i=0;i<list.length;i++) {
+                                        if(list[i]==target) {
+                                            idx=i;
+                                            break;
+                                        }
+                                    }
+                                } else {
+                                    idx = list.indexOf(target);
+                                }
+
+                                if(wcmmode!='') {
+                                    param.wcmmode = wcmmode;
+                                }
+
+                                if (idx<0) {
+                                    if(btnId.length>0) {
+                                        list.push(target);
+                                        modalId.push(btnId);
+                                    }
+                                    $.ajax({
+                                        url:target,
+                                        method:'GET',
+                                        data: param
+                                    }).success(function(data) {
+                                        container.html(data);
+                                        if( self.data("modalTagMoveTo") == "body" ){
+                                            self.appendTo(document.body)
+                                        }
+                                    });
+                                } else {
+                                    $('[data-target="#' + btnId +'"]').attr('data-target','#'+modalId[idx]);
+                                }
+                            } else if(self.data("modalTagMoveTo")) {
+                                if( self.data("modalTagMoveTo") == "body" ){
+                                    self.detach().appendTo(document.body)
+                                }
+                            }
+                        });
+                    }
+        
+                    $(document).ready(function () {
+                        loadModalContent();
+                    });
+                });
+                function openChatWindow(id) {
+                    $('#chat').fadeOut(500);
+                    $('#appwarpchatRoomForm').fadeIn(1000);
+                    $("#chatnote").text("");
+                }
+            </script></div>
+        <input type="hidden" value="en" id="website-locale" />
+        <div class="cloudservices servicecomponents"> </div>
+        <div class="row send">
+            <!--// Notification widget begins-->
+            <div class="row chatwin" id="chat" style="display: block;">
+                <div class="create-chat-message-w">
+                    <div class="input-group"> <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary" onclick="openChatWindow()"><i class="fa fa-comment-o" style="margin-right: 7px;"></i>Chat<span id="chatnote" class="badge"></span></button>
+                        </span> </div>
+                </div>
+            </div>
+            <div id="appwarpchatRoomForm" class="chatBox">
+                <div class="widget widget-blue">
+                    <div class="widget-title">
+                        <div class="widget-controls">
+                            <button type="button" class="close" onclick="closeChat()" id="close"><i class="fa fa-times-circle mz"></i></button>
+                        </div>
+                        <h3>Chat Room</h3>
+                    </div>
+                </div>
+                <div class="row pdrb15 hg400 widget-content" style="margin: 0px !important;"> 
+                    <!--<div class="col-md-4 user_col">
+                            <h3>Support</h3>
+                            <div id="getUsers"></div>
+                          </div>
+                    --> 
+                    <!--// Button widget ends--> 
+
+                    <!--// Left Column  ends--> 
+                    <!--// Right Column  begins-->
+                    <div class="col-md-12 chat_col">
+                        <div class="row">
+                            <h3>Chat</h3>
+                            <div id="responseManager">
+                                <div id="chatDiv">
+                                    <ul class="chat-messages-list" id="response">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row send"> 
+                            <!--// Notification widget begins-->
+                            <div class="widget widget-green" id="notificationManagerWidget">
+                                <div class="widget-foot">
+                                    <div class="create-chat-message-w">
+                                        <div class="input-group">
+                                            <input type="text" id="chatText" maxlength="500" placeholder="Your message here..." class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" id="chatBtn" class="btn btn-primary" >Send</button>
+                                            </span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// Notification widget ends--> 
+                        </div>
+                    </div>
+                    <!--// Right Column  ends--> 
+                </div>
+            </div>
+            <!--// Notification widget ends-->
+    </body>
+
+    <!-- Mirrored from www.aia.com.hk/en/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 May 2017 01:57:22 GMT -->
+</html>

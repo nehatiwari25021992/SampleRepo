@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.aia.com.hk/en/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 May 2017 01:53:55 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<!-- /Added by HTTrack -->
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="description" content="AIA Hong Kong provides insurance products for both individuals and businesses. Find out more about our services and get the latest updates!">
+    <meta name="format-detection" content="telephone=no">
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $(window).scrollTop(0);
+});
+        function fallbackSvgs() {
+            if (!/Safari|iPhone|iPad|iPod/.test(navigator.userAgent) || !/Apple Computer/.test(navigator.vendor)) return;
+            var svgs = document.getElementsByTagName('svg');
+            while (svgs.length) {
+                var svg = svgs[0];
+                var img = svg.getElementsByTagName('image')[0];
+                img.classList.remove('icon-fallback');
+                svg.outerHTML = img.outerHTML.replace('image', 'img');
+            }
+        }
+
+        if (document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', function(event) {
+                fallbackSvgs();
+            });
+        }
+
+        function loginWithFB() {
+            console.log("**********************************************************");
+        }
+    </script>
+
+    <style>
+        #mapIDForLocation {
+            width: 100%;
+        }
+    </style>
+     <link rel='stylesheet' href='custom_style.css'>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Roboto+Condensed:300,400,700' rel='stylesheet'
+    type='text/css'>
+  <script src="jquery-1.10.2.min.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWnatsjlP280e1emFSK5ztodIcNVAQQG0&callback=initMap"
+            type="text/javascript"></script>
+  <script src="appwarp.min.js"></script>
+  <script type="text/javascript">
+  
+  <!--  var apiKey = "af4dc8deae4602107b53dc00320ffbe6f4601c181097332210247042c0b2e"; -->
+ <!--  var secreteKey = "acedbf2c30df3cff12a6592e09441986ffa136e1caedbfd6b4c72ea57dddc3f6"; -->
+	
+	 var apiKey = "cf077a193208596a23db85efe861c415f07b02ab3c605a234e594cb49b617762";
+    var secreteKey = "8ee63e66e9a576fa64bec60f5bc3ddf1c3f1b1ada22ad3e25a39984fb8bd8275";
+    var _warpclient;
+    var nameId = "";
+    var roomsText = "";
+    var inRoom = false;
+    var roomId = "";
+
+    function onConnectDone(res) {
+      if (res == AppWarp.ResultCode.Success) {
+        console.log("Client Connected");
+        console.log("Checking If Admin is Online!!!!");
+        _warpclient.getUserStatus("ADMIN");
+      }
+      else {
+        console.log("Error in Connection");
+      }
+    }
+
+    function onGetUserStatusDone(res) {
+
+      $("#roomInfo").html("onGetUserStatusDone Success");
+      if (res.json.status) {
+        console.log("Admin is Online!!!!");
+        $("#getUsers").html("Admin is available");
+      } else {
+        console.log("Admin is not Online!!!!");
+        $("#getUsers").html("Admin is not available");
+      }
+
+    }
+
+    //sendPrivateChat(toUser, message) 
+
+    function onSendPrivateChatDone(res) {
+      var msg = "onSendPrivateChatDone : <strong>" + AppWarp.ResultCode[res] + "</strong>";
+      console.log(msg);
+      if (AppWarp.ResultCode[res] == "Success") {
+
+      } else {
+
+      }
+    }
+
+    function onPrivateChatReceived(sender, chat) {
+      var msg = "<strong>" + sender + "</strong> privately says <i> " + chat + "</i>";
+      console.log(msg);
+      setResponse(sender, chat)
+    }
+
+    function setResponse(sender, chat) {
+      Date.prototype.monthNames = [
+        "January", "February", "March",
+        "April", "May", "June",
+        "July", "August", "September",
+        "October", "November", "December"
+      ];
+
+      Date.prototype.getShortMonthName = function () {
+        return this.monthNames[this.getMonth()].substr(0, 3);
+      };
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getShortMonthName();
+      var currDate = mm + " " + dd
+
+      if (sender === nameId) {
+        var liHtml = '<li><div class="row"><div class="col-xs-12"><div class="meta-info user_info_right"><a href="#">' + sender + '</a> on ' + currDate + '</div></div></div><div class="row"><div class="col-xs-2"> </div><div class="col-xs-10"><div class="chat-bubble chat-bubble-right"><div class="bubble-arrow"></div><p class="pd0 mr0">' + chat + '</p></div></div></div></li>'
+        $("#response").html($("#response").html() + liHtml);
+      }
+      else {
+        var liHtml = '<li><div class="row"><div class="col-xs-12"><div class="meta-info user_info_left"><a href="#">' + sender + '</a> on ' + currDate + '</div></div></div><div class="row"><div class="col-xs-10"><div class="chat-bubble chat-bubble-left"><div class="bubble-arrow"></div><p class="pd0 mr0">' + chat + '</p> </div>  </div> <div class="col-xs-2"> </div></div></li>'
+        $("#response").html($("#response").html() + liHtml);
+      }
+
+
+      var fixedScroll = document.getElementById("chatDiv");
+      fixedScroll.scrollTop = fixedScroll.scrollHeight;
+
+
+    }
+
+    function openChatWindow() {
+      $('#chat').fadeOut(500);
+      $('#appwarpchatRoomForm').fadeIn(1000);
+      countMsg = 0
+      $("#chatnote").text("");
+    }
+    function closeChat() {
+      $('#appwarpchatRoomForm').fadeOut(500);
+      $('#chat').fadeIn(1000);
+    }
+
+
+
+
+    $(document).ready(function () {
+      nameId = "User1"
+      console.log("Connecting...");
+      AppWarp.WarpClient.initialize(apiKey, secreteKey);
+      _warpclient = AppWarp.WarpClient.getInstance();
+      _warpclient.setResponseListener(AppWarp.Events.onConnectDone, onConnectDone);
+      _warpclient.setResponseListener(AppWarp.Events.onUserStatusDone, onGetUserStatusDone);
+      _warpclient.setResponseListener(AppWarp.Events.onSendPrivateChatDone, onSendPrivateChatDone);
+      _warpclient.setNotifyListener(AppWarp.Events.onPrivateChatReceived, onPrivateChatReceived);
+      _warpclient.connect(nameId);
+
+      $("#chatBtn").click(function () {
+
+        if ($("#chatText").val() != "") {
+          _warpclient.sendPrivateChat("ADMIN", $("#chatText").val());
+          setResponse(nameId, $("#chatText").val())
+          $("#chatText").val("");
+        }
+
+      });
+
+
+    });
+  </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="http://www.aia.com.hk/favicon.ico">
+    <meta name="google-site-verification" content="54r_aeWlMn4GlJ3E33iIBXCVRWlQ9u3NirgocpAQpz4" />
+ <!--    <link rel="stylesheet" href="../resources/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../etc/clientlibs/aia/aia-header.min.bcd411696935f5791900a3b839f536d9.css" type="text/css">
+    
+    <link rel="stylesheet" href="term-life-insurance/css/custom_style.css">
+
+     <script type="text/javascript" src="../resources/js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../etc/clientlibs/aia/aia-header.min.0e0a259e5b0465d894c27c2f951779d0.js"></script>
+   
+    <link rel="canonical" href="index.html" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lte IE 9]>
+<link rel="stylesheet" href="/etc/clientlibs/aia/ie-fixes.min.css" type="text/css">
+<script type="text/javascript" src="/etc/clientlibs/aia/ie-fixes.min.js"></script>
+
+<![endif]-->
+
+    <title>AIA Life Insurance Hong Kong - AIA Hong Kong</title>
+</head>
+
+<body>
+    <div> <a id="gotocontent" href="#main" class="lk2 gotocontent" tabindex="1">Skip to main content</a></div>
+    <div>
+        <script type="text/javascript">
+            window._q = [];
+        </script>
+        <div class="topnav global-nav parbase">
+            <div class="navmenu-backdrop"></div>
+            <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+                <ul class="navmenu-nav-inline">
+                    <li><a href="index.html">ENG</a></li>
+                    <li><a href="http://www.aia.com.hk/zh-hk/index.html">繁體</a></li>
+                    <li><a href="http://www.aia.com.hk/zh-cn/index.html">简体</a></li>
+                </ul>
+                <ul class="nav navmenu-nav" data-user-menu="individual">
+                    <li>
+                        <a class="clearfix" href="index.html"> <svg class="icon icon-xs hide-on-fallback " role="img">
+          <g>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#home-menu"></use>
+            <image class="icon icon-xs " src="../content/dam/aia/icons/menu/home-menu.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+          </g>
+          </svg> <span class="h5 w">home</span> </a>
+                    </li>
+                    <li class="dropdown">
+                        <div class="mobile-firstlevel">
+                            <a class="" href="our-products.html"> <svg class="icon icon-xs hide-on-fallback " role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#life-menu"></use>
+              <image class="icon icon-xs " src="../content/dam/aia/icons/menu/life-menu.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <span>Our Products</span> </a>
+                            <a class="dropdown-toggle pull-right" data-toggle="dropdown"> <svg class="icon icon-xs hide-on-fallback pull-right closed-show" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#open-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-show" src="../content/dam/aia/icons/secondary/open-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <svg class="icon icon-xs hide-on-fallback pull-right closed-hide" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#close-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-hide" src="../content/dam/aia/icons/secondary/close-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> </a>
+                        </div>
+                        <ul class="dropdown-menu navmenu-nav navmenu-dropdown-menu" role="menu">
+                            <li><a class="h6 b5" href="our-products/savings.html">Savings</a></li>
+                            <li><a class="h6 b5" href="our-products/insurance-with-investment-focus.html">Insurance with Investment Focus</a></li>
+                            <li><a class="h6 b5" href="our-products/life-protection.html">Life Protection</a></li>
+                            <li><a class="h6 b5" href="our-products/critical-illness-protection.html">Critical Illness Protection</a></li>
+                            <li><a class="h6 b5" href="our-products/medical-protection.html">Medical Protection</a></li>
+                            <li><a class="h6 b5" href="our-products/retirement-income.html">Retirement Income</a></li>
+                            <li><a class="h6 b5" href="our-products/investment-linked-assurance-scheme.html">Investment-Linked Assurance Schemes</a></li>
+                            <li><a class="h6 b5" href="our-products/accident-other-protections.html">Accident &amp; Other Protections</a></li>
+                            <li><a class="h6 b5" href="our-products/aia-vitality.html">AIA Vitality</a></li>
+                            <li><a class="h6 b5" href="our-products/employee-benefits.html">Employee Benefits</a></li>
+                            <li><a class="h6 b5" href="http://www.aia-pt.com.hk/en/index.html">MPF / ORSO / MACAU PENSION</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <div class="mobile-firstlevel">
+                            <a class="" href="life-challenges.html"> <svg class="icon icon-xs hide-on-fallback " role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#myclaims-menu"></use>
+              <image class="icon icon-xs " src="../content/dam/aia/icons/menu/myclaims-menu.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <span>Life Challenges</span> </a>
+                            <a class="dropdown-toggle pull-right" data-toggle="dropdown"> <svg class="icon icon-xs hide-on-fallback pull-right closed-show" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#open-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-show" src="../content/dam/aia/icons/secondary/open-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <svg class="icon icon-xs hide-on-fallback pull-right closed-hide" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#close-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-hide" src="../content/dam/aia/icons/secondary/close-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> </a>
+                        </div>
+                        <ul class="dropdown-menu navmenu-nav navmenu-dropdown-menu" role="menu">
+                            <li><a class="h6 b5" href="life-challenges/vitality.html">Leading a Healthier Life</a></li>
+                            <li><a class="h6 b5" href="life-challenges/childrens-education.html">Plan for Your Children’s Education</a></li>
+                            <li><a class="h6 b5" href="life-challenges/ci-expenses.html">Lessen the Impact of Critical Illness</a></li>
+                            <li><a class="h6 b5" href="life-challenges/medical.html">Prepare for Medical Expenses</a></li>
+                            <li><a class="h6 b5" href="life-challenges/wealth-accumulation.html">Start Building Your Fortune</a></li>
+                            <li><a class="h6 b5" href="life-challenges/retirement.html">Enjoy Your Retirement</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <div class="mobile-firstlevel">
+                            <a class="" href="about-aia.html"> <svg class="icon icon-xs hide-on-fallback " role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#aia-menu"></use>
+              <image class="icon icon-xs " src="../content/dam/aia/icons/menu/aia-menu.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <span>About AIA</span> </a>
+                            <a class="dropdown-toggle pull-right" data-toggle="dropdown"> <svg class="icon icon-xs hide-on-fallback pull-right closed-show" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#open-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-show" src="../content/dam/aia/icons/secondary/open-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <svg class="icon icon-xs hide-on-fallback pull-right closed-hide" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#close-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-hide" src="../content/dam/aia/icons/secondary/close-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> </a>
+                        </div>
+                        <ul class="dropdown-menu navmenu-nav navmenu-dropdown-menu" role="menu">
+                            <li><a class="h6 b5" href="about-aia/messages-from-our-leaders.html">Messages from Our Leaders</a></li>
+                            <li><a class="h6 b5" href="about-aia/careers.html">Careers</a></li>
+                            <li><a class="h6 b5" href="about-aia/our-commitments.html">Our Commitments</a></li>
+                            <li><a class="h6 b5" href="about-aia/media-centre.html">Media Centre</a></li>
+                            <li><a class="h6 b5" href="about-aia/recent-promotion.html">Recent Promotion</a></li>
+                            <li><a class="h6 b5" href="about-aia/breeze-e-zine.html">Breeze e-zine</a></li>
+                            <li><a class="h6 b5" href="about-aia/agency-recognition.html">Agency Recognition</a></li>
+                            <li><a class="h6 b5" href="about-aia/distribution-partners.html">Distribution Partners</a></li>
+                            <li><a class="h6 b5" href="about-aia/our-awards.html">Awards</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown freefrom-mobile-section">
+                        <div class="mobile-firstlevel">
+                            <a class="" href="help-and-support/individuals.html"> <svg class="icon icon-xs hide-on-fallback " role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#agents-nav"></use>
+              <image class="icon icon-xs " src="../content/dam/aia/icons/navigation/agents-nav.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <span>Help &amp; Support</span> </a>
+                            <a class="dropdown-toggle pull-right" data-toggle="dropdown"> <svg class="icon icon-xs hide-on-fallback pull-right closed-show" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#open-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-show" src="../content/dam/aia/icons/secondary/open-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <svg class="icon icon-xs hide-on-fallback pull-right closed-hide" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#close-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-hide" src="../content/dam/aia/icons/secondary/close-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> </a>
+                        </div>
+                        <ul class="dropdown-menu navmenu-nav navmenu-dropdown-menu" role="menu">
+                            <li> <a class="h6 b5" href="help-and-support/individuals/contact.html" target="_self">Contact Information</a> </li>
+                            <li> <a class="h6 b5" href="help-and-support/individuals/premium-payment-channels.html" target="_self">Payment Options</a> </li>
+                            <li> <a class="h6 b5" href="help-and-support/individuals/exchange-rates.html" target="_self">Foreign Exchange Rates</a> </li>
+                            <li> <a class="h6 b5" href="help-and-support/individuals/claims-corner.html" target="_self">Claims Corner</a> </li>
+                            <li> <a class="h6 b5" href="help-and-support/individuals/health-care-support.html" target="_self">Health Care Support</a> </li>
+                            <li> <a class="h6 b5" href="help-and-support/individuals/investment-information.html" target="_self">Investment Information</a> </li>
+                            <li> <a class="h6 b5" href="help-and-support/aias.html" target="_self">Worldwide Emergency Assistance Services</a> </li>
+                            <li> <a class="h6 b5" href="help-and-support/individuals/form-library.html" target="_self">Form Library</a> </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown myaia-mobile-section">
+                        <div class="mobile-firstlevel">
+                            <a class="" href="#"> <svg class="icon icon-xs hide-on-fallback " role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#myinsurance-menu"></use>
+              <image class="icon icon-xs " src="../content/dam/aia/icons/menu/myinsurance-menu.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <span>My AIA</span> </a>
+                            <a class="dropdown-toggle pull-right" data-toggle="dropdown"> <svg class="icon icon-xs hide-on-fallback pull-right closed-show" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#open-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-show" src="../content/dam/aia/icons/secondary/open-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> <svg class="icon icon-xs hide-on-fallback pull-right closed-hide" role="img">
+            <g>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#close-2ndg"></use>
+              <image class="icon icon-xs pull-right closed-hide" src="../content/dam/aia/icons/secondary/close-2ndg.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg> </a>
+                        </div>
+                        <ul class="dropdown-menu navmenu-nav navmenu-dropdown-menu" role="menu">
+                            <li> <a class="h6 b5" href="https://www3.aia.com.hk/customer/vitality/login.do" target="_self">AIA Vitality</a> </li>
+                            <li> <a class="h6 b5" href="https://www3.aia.com.hk/customer/agreement.do" target="_self">Customer Corner</a> </li>
+                            <li> <a class="h6 b5" href="https://www3.aia.com.hk/agency/loginb.do" target="_self">Agency Corner</a> </li>
+                            <li> <a class="h6 b5" href="https://www3.aia.com.hk/ebusiness/" target="_self">Partnership Distribution Corner</a> </li>
+                            <li> <a class="h6 b5" href="https://www3.aia.com.hk/iAES" target="_self">Assignee Corner</a> </li>
+                            <li> <a class="h6 b5" href="https://gmd.aia.com.hk/eCOMPASS/com/aig/ecompass/admin/jsp/Login.jsp?locale=en_HK" target="_blank">Employee Benefits</a> </li>
+                            <li> <a class="h6 b5" href="https://www3.aia-pt.com.hk/mpf/ee/login.jspa?lang=en_US" target="_blank">MPF</a> </li>
+                            <li> <a class="h6 b5" href="https://www3.aia-pt.com.hk/orso/ee/login.jsp?es=ORSO&amp;lang=en_US" target="_blank">ORSO</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav promomenu-nav">
+                    <li>
+                        <a href="about-aia/recent-promotion/aia-vitality-weekly-challenge.html">
+                            <div class="h5 w">AIA Vitality Weekly Challenge Lucky Draw</div>
+                            <div class="b5 bt5">Stay active and grab every chance to win!</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="our-products/life-stages.html">
+                            <div class="h5 w">Life Stages</div>
+                            <div class="b5 bt5">Learn more about the needs of different life stages and the solutions we can offer.</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="help-and-support/individuals/important-information.html">
+                            <div class="h5 w">Important Information</div>
+                            <div class="b5 bt5"></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar navbar-default navbar-fixed">
+                <div class="navbar-slim">
+                    <div class="navbar-title-slim">AIA</div>
+                </div>
+                <div class="navbar-one">
+                    <button type="button" class="navbar-btn hide-sd-up" data-toggle="offcanvas" data-target=".navmenu"> <svg  class="icon icon-xs hide-on-fallback " role="img">
+        <!--g>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#menu-nav"></use>
+          <image class="icon icon-xs " src="../content/dam/aia/icons/navigation/menu-nav.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+        </g-->
+        </svg> </button>
+                    <a class="navbar-brand" href="index.html" tabindex="99"> <svg class="icon icon-s hide-on-fallback visible-xs-inline-block" role="img">
+        <g>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#aiawhite-logo"></use>
+          <image class="icon icon-s visible-xs-inline-block" src="../content/dam/aia/logos/aiawhite-logo.png" alt="" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+        </g>
+        </svg> <img class="navbar-brand-img hidden-xs mrlt50neg" src="../content/dam/aia/logos/aia-logo-lockup-2x.png" /> </a>
+                    <ul class="nav navbar-nav" data-user-menu="individual">
+                        <li class="dropdown"> <a href="our-products.html" class="dropdown-toggle h6" data-hover="dropdown" data-delay="100" data-hover-delay="300" style="width:100px" tabindex="100"> Our Products </a>
+                            <div class="dropdown-menu">
+                                <div class="container-fluid margin-bottom-xxl">
+                                    <div class="row">
+                                        <div class="col-sm-3 margin-top-3xl">
+                                            <div class="margin-bottom-5xl">
+                                                <h4 class="p1 margin-bottom-m">Our Products</h4>
+                                                <p class="bt3 p3 margin-bottom-xxl">Find our products and services according to your insurance needs.</p>
+                                                <a class="lk1" href="our-products.html">See more</a>
+                                                <div class="link-arrow"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="p1 margin-bottom-m">Life Stages</h4>
+                                                <p class="bt3 p3 margin-bottom-xxl">Which life stages are you in? We understand your needs and are committed to offering the right solutions that cater to your evolving needs.​</p>
+                                                <a class="lk1" href="our-products/life-stages.html">See more</a>
+                                                <div class="link-arrow"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9 border-left margin-top-4xl">
+                                            <div class="row">
+                                                <div class="col-sm-8">
+                                                    <p class="p2 bt9 margin-bottom-m">For Individuals</p>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <p class="p2 bt9 margin-bottom-m">For Business</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/savings.html" tabindex="110">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/savings-prime1.png" alt="undefined"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Savings</h6>
+                                                                    <p class="p3 bt5">Grow and protect your wealth</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/insurance-with-investment-focus.html" tabindex="111">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-m " src="../content/dam/aia/icons/primary/normal/investment_insurance-prime1.png" alt="Insurance with Investment Focus"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Insurance with Investment Focus</h6>
+                                                                    <p class="p3 bt5">Grow your savings with investments</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/life-protection.html" tabindex="112">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/lifepro-prime1.png" alt="undefined"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Life Protection</h6>
+                                                                    <p class="p3 bt5">Provide financial peace of mind in case worst should happen</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/critical-illness-protection.html" tabindex="113">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/criticalillnesspro-prime1.png" alt="Critical Illness Protection"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Critical Illness Protection</h6>
+                                                                    <p class="p3 bt5">Relieve financial burden when serious illness strikes</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/medical-protection.html" tabindex="114">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/medicalpro-prime1.png" alt="undefined"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Medical Protection</h6>
+                                                                    <p class="p3 bt5">Support for medical expenses</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/retirement-income.html" tabindex="140">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/retirement_shield-prime1.png" alt="undefined"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Retirement Income</h6>
+                                                                    <p class="p3 bt5">Prepare for your retirement</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/investment-linked-assurance-scheme.html" tabindex="141">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-s " src="../content/dam/aia/icons/Primary/normal/investment-prime1.html" alt="undefined"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Investment-Linked Assurance Schemes</h6>
+                                                                    <p class="p3 bt5"> Make your own investment decisions</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/accident-other-protections.html" tabindex="142">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/accidentpro-prime1.png" alt="undefined"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Accident &amp; Other Protections</h6>
+                                                                    <p class="p3 bt5">Protect against accidents and other unforeseen events</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/aia-vitality.html" tabindex="143">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/vitality-prime1.png" alt="undefined"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">AIA Vitality</h6>
+                                                                    <p class="p3 bt5">The science-backed wellness programme that works with you and rewards you for the healthy choices you make. </p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="our-products/employee-benefits.html" tabindex="170">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#userphoto-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/userphoto-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Employee Benefits</h6>
+                                                                    <p class="p3 bt5">Support your HR strategies with flexible and cost-effective plans to protect your employees</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="http://www.aia-pt.com.hk/en/index.html" tabindex="171">
+                                                                <div class="thumbnail">
+                                                                    <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/pension_business-prime1.png" alt="undefined"></image>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">MPF / ORSO / MACAU PENSION</h6>
+                                                                    <p class="p3 bt5">Check out our range of retirement solutions for employers, employees and self-employed people.</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-glyph close-nav-dropdown-btn" data-dismiss="navbar-dropdown" tabindex="199"> <svg title='Dismiss' class="icon icon-xs hide-on-fallback " role="img">
+              <g>
+                <title>Dismiss</title>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#closedark-glyph"></use>
+                <image class="icon icon-xs " src="../content/dam/aia/icons/glyph/closedark-glyph.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+              </g>
+              </svg> </button>
+                            </div>
+                        </li>
+                        <li class="dropdown"> <a href="life-challenges.html" class="dropdown-toggle h6" data-hover="dropdown" data-delay="100" data-hover-delay="300" style="width:100px" tabindex="200"> Life Challenges </a>
+                            <div class="dropdown-menu">
+                                <div class="container-fluid margin-bottom-xxl">
+                                    <div class="row">
+                                        <div class="col-sm-3 margin-top-3xl">
+                                            <h4 class="p1 margin-bottom-m">Life Challenges</h4>
+                                            <p class="bt3 p3 margin-bottom-xxl">What matters to you most?</p>
+                                            <a class="lk1" href="life-challenges.html" tabindex="201">View all life challenges</a>
+                                            <div class="link-arrow"></div>
+                                        </div>
+                                        <div class="col-sm-9 border-left margin-top-4xl">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="life-challenges/vitality.html" tabindex="210">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#lc_runningshoes-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/lc_runningshoes-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Leading a Healthier Life</h6>
+                                                                    <p class="p3 bt5">There is no better feeling in life than being healthy.</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="life-challenges/childrens-education.html" tabindex="211">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#education-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/education-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Plan for Your Children’s Education</h6>
+                                                                    <p class="p3 bt5">Start an education fund as soon as possible to ensure your children’s bright future</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="life-challenges/ci-expenses.html" tabindex="240">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#health-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/health-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Lessen the Impact of Critical Illness</h6>
+                                                                    <p class="p3 bt5">Concentrate on getting well without financial worries</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="life-challenges/medical.html" tabindex="241">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#medicalcare-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/medicalcare-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Prepare for Medical Expenses</h6>
+                                                                    <p class="p3 bt5">Comprehensive protection saves you the financial hassle in dealing with the unexpected</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="life-challenges/wealth-accumulation.html" tabindex="270">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#calculator-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/calculator-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Start Building Your Fortune</h6>
+                                                                    <p class="p3 bt5">Realise your lifelong dreams by accumulating wealth today</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="life-challenges/retirement.html" tabindex="271">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#retirement-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/retirement-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Enjoy Your Retirement</h6>
+                                                                    <p class="p3 bt5">Move towards a fulfilling life in retirement</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-glyph close-nav-dropdown-btn" data-dismiss="navbar-dropdown" tabindex="299"> <svg title='Dismiss' class="icon icon-xs hide-on-fallback " role="img">
+              <g>
+                <title>Dismiss</title>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#closedark-glyph"></use>
+                <image class="icon icon-xs " src="../content/dam/aia/icons/glyph/closedark-glyph.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+              </g>
+              </svg> </button>
+                            </div>
+                        </li>
+                        <li class="dropdown"> <a href="about-aia.html" class="dropdown-toggle h6" data-hover="dropdown" data-delay="100" data-hover-delay="300" style="width:100px" tabindex="300"> About AIA </a>
+                            <div class="dropdown-menu">
+                                <div class="container-fluid margin-bottom-xxl">
+                                    <div class="row">
+                                        <div class="col-sm-3 margin-top-3xl">
+                                            <h4 class="p1 margin-bottom-m">About AIA</h4>
+                                            <p class="bt3 p3 margin-bottom-xxl">For almost a century, AIA as The Real Life Company has served the ever-changing needs of millions of people all across the Asia-Pacific region.</p>
+                                            <a class="lk1" href="about-aia.html" tabindex="301">The Real Life Company</a>
+                                            <div class="link-arrow"></div>
+                                        </div>
+                                        <div class="col-sm-9 border-left margin-top-4xl">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/messages-from-our-leaders.html" tabindex="310">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#aboutus_leadership-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/aboutus_leadership-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Messages from Our Leaders</h6>
+                                                                    <p class="p3 bt5">Our people are the founders of our success</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/careers.html" tabindex="311">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#aboutus_careers-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/aboutus_careers-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Careers</h6>
+                                                                    <p class="p3 bt5">Explore opportunities to work at AIA</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/our-commitments.html" tabindex="312">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#aboutus_ourcommiment-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/aboutus_ourcommiment-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Our Commitments</h6>
+                                                                    <p class="p3 bt5">Find out more about AIA&#39;s community initiatives and partnership</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/media-centre.html" tabindex="340">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#aboutus_mediacenter-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/aboutus_mediacenter-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Media Centre</h6>
+                                                                    <p class="p3 bt5">News and information about AIA</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/recent-promotion.html" tabindex="341">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#bonus-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/bonus-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Recent Promotion</h6>
+                                                                    <p class="p3 bt5">Our latest campaigns</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/breeze-e-zine.html" tabindex="342">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#annual_report-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/annual_report-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Breeze e-zine</h6>
+                                                                    <p class="p3 bt5">AIA Newsletter</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/agency-recognition.html" tabindex="370">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#recruiting_challenge-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/recruiting_challenge-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Agency Recognition</h6>
+                                                                    <p class="p3 bt5">Recognising the achievement of our agency force</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/distribution-partners.html" tabindex="371">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#agent-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/agent-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Distribution Partners</h6>
+                                                                    <p class="p3 bt5">Find out more about our network of partners</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/our-awards.html" tabindex="372">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#trophy_contest-prime1"></use>
+                                <image class="icon icon-s " src="../content/dam/aia/icons/primary/normal/trophy_contest-prime1.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Awards</h6>
+                                                                    <p class="p3 bt5">Our Awards</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-glyph close-nav-dropdown-btn" data-dismiss="navbar-dropdown" tabindex="399"> <svg title='Dismiss' class="icon icon-xs hide-on-fallback " role="img">
+              <g>
+                <title>Dismiss</title>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#closedark-glyph"></use>
+                <image class="icon icon-xs " src="../content/dam/aia/icons/glyph/closedark-glyph.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+              </g>
+              </svg> </button>
+                            </div>
+                        </li>
+                        <li class="dropdown"> <a href="help-and-support/individuals.html" tabindex="9500" class="dropdown-toggle h6" data-hover="dropdown" data-delay="100" data-hover-delay="300" style="width:100px"> Help &amp; Support </a>
+                            <div class="dropdown-menu">
+                                <div class="container-fluid margin-bottom-xxl">
+                                    <div class="row">
+                                        <div class="col-sm-3 margin-top-3xl">
+                                            <div class="margin-bottom-5xl">
+                                                <h4 class="p1 margin-bottom-m">Help &amp; Support</h4>
+                                                <p class="bt3 p3 margin-bottom-xxl">We strive to assist you for all your inquiries with high touch customer service.</p>
+                                                <a class="lk1" href="help-and-support/individuals.html" tabindex="1">Contact AIA</a>
+                                                <div class="link-arrow"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="p1 margin-bottom-m">Service Appreciation</h4>
+                                                <p class="bt3 p3 margin-bottom-xxl">Show your appreciation for someone who has helped you.</p>
+                                                <a class="lk1" href="help-and-support/service-appreciation.html" tabindex="1">SAY THANK YOU</a>
+                                                <div class="link-arrow"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9 border-left margin-top-4xl">
+                                            <div class="row">
+                                                <div class="col-sm-8">
+                                                    <p class="p2 bt9 margin-bottom-m">For Individuals</p>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <p class="p2 bt9 margin-bottom-m">For Business</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/contact.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#schedulecall-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/schedulecall-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Contact Information</h6>
+                                                                    <p class="p3 bt5">Have a question? Let us help you</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/premium-payment-channels.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#deductible-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/deductible-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Payment Options</h6>
+                                                                    <p class="p3 bt5">Find a payment option that works for you</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/exchange-rates.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#multi_currency-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/multi_currency-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">FOREIGN EXHANGE RATES</h6>
+                                                                    <p class="p3 bt5">Exchange rate of foreign currencies to Hong Kong Dollar</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/claims-corner.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#myclaims-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/myclaims-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Claims Corner</h6>
+                                                                    <p class="p3 bt5">Get help with your claims</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/health-care-support.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#nursing-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/nursing-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Health Care Support</h6>
+                                                                    <p class="p3 bt5">Getting support while sick</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/investment-information.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#investment-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/investment-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Investment Information</h6>
+                                                                    <p class="p3 bt5">Get information on investment options and valuation day</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/form-library.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#start-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/start-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Form Library</h6>
+                                                                    <p class="p3 bt5">A selection of forms you can download, fill in and send back to us</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/product-brochure-library.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#annual_report-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/annual_report-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Product Brochure Library</h6>
+                                                                    <p class="p3 bt5">A selection of product brochures you can download</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/easy-medsearch.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#mobileapp-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/mobileapp-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Easy Medsearch</h6>
+                                                                    <p class="p3 bt5">Find out more about the mobile app that can help you find medical help</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/useful-information.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#information-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/information-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Useful Information</h6>
+                                                                    <p class="p3 bt5">Common Reporting Standard (CRS) video</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/individuals/important-information.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#annoucements-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/annoucements-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Important Information</h6>
+                                                                    <p class="p3 bt5">Important information that you should know</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/employee-benefits/contact.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#schedulecall-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/schedulecall-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Contact Information</h6>
+                                                                    <p class="p3 bt5">Have a question? Let us help you</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/employee-benefits/claims-corner.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#myclaims-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/myclaims-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Claims Corner</h6>
+                                                                    <p class="p3 bt5">Get help with your claims</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/employee-benefits/product-brochure-library.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#annual_report-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/annual_report-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Product Brochure Library</h6>
+                                                                    <p class="p3 bt5">A selection of product brochures you can download</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/employee-benefits/useful-information.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#information-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/information-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Useful Information</h6>
+                                                                    <p class="p3 bt5">Useful information for Employee Benefits customers</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="help-and-support/employee-benefits/important-information.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#annoucements-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/annoucements-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">Important Information</h6>
+                                                                    <p class="p3 bt5">Important information that you should know</p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-ele" style="height:84px">
+                                                            <a href="about-aia/recent-promotion/aia-vitality-go.html" tabindex="1">
+                                                                <div class="thumbnail"> <svg class="icon icon-s hide-on-fallback " role="img">
+                              <g>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#reallife_tea-prime1"></use>
+                                <image class="icon-s " src="../content/dam/aia/icons/primary/normal/reallife_tea-prime1.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                              </g>
+                              </svg> </div>
+                                                                <div class="content">
+                                                                    <h6 class="p3">“VITALITY GO” WEEKLY CHALLENGE</h6>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-glyph close-nav-dropdown-btn" data-dismiss="navbar-dropdown" tabindex="9599"> <svg title='Dismiss' class="icon icon-xs hide-on-fallback " role="img">
+              <g>
+                <title>Dismiss</title>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#closedark-glyph"></use>
+                <image class="icon icon-xs " src="../content/dam/aia/icons/glyph/closedark-glyph.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+              </g>
+              </svg> </button>
+                            </div>
+                        </li>
+                        <li class="dropdown"> <a href="#" tabindex="9600" class="dropdown-toggle h6" data-hover="dropdown" data-delay="100" data-hover-delay="300" style="width:100px"> My AIA </a>
+                            <div class="dropdown-menu">
+                                <div class="container-fluid margin-bottom-xxl">
+                                    <div class="row">
+                                        <script src="../../assets.adobedtm.com/90c58d4aa8a1b33beefab4bf8138774c1a1a4147/satelliteLib-72d1fecbbc346a769925f204be0817313df1a301.js"></script>
+                                        <style>
+                                            .myaia-list-margin {
+                                                margin-bottom: 10px;
+                                            }
+                                            
+                                            .navbar-default .navbar-nav .open .dropdown-menu .list-ele.normal-height {
+                                                height: initial;
+                                            }
+                                            
+                                            .link-arrow.brown {
+                                                border-left: 8px solid #554344;
+                                            }
+                                            
+                                            .navbar-default .navbar-nav .open .dropdown-menu .list-ele a:hover h6:hover .link-arrow.brown {
+                                                border-left: 8px solid #D31145;
+                                            }
+                                            
+                                            .myaia-list-link {
+                                                display: block;
+                                                margin: 10px 0;
+                                            }
+                                        </style>
+                                        <div class="col-sm-3 margin-top-3xl">
+                                            <h4 class="p1 margin-bottom-m">My AIA</h4>
+                                            <p class="bt3 p3 margin-bottom-xxl"> Login or register to access and manage all your policies, claims and more. </p>
+                                        </div>
+                                        <div class="col-sm-9 border-left margin-top-4xl">
+                                            <div class="col-sm-12">
+                                                <p class="p1 margin-bottom-l"> <b>This service for MY AIA is temporarily suspended from 9 p.m. 27 May to 6 a.m. 29 May (HKT) for regular maintenance. Sorry for any inconvenience caused.</b> </p>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-unstyled">
+                                                        <li class="list-ele normal-height">
+                                                            <a href="https://www3.aia.com.hk/customer/vitality/login.do" target="_blank">
+                                                                <h6 class="p3 myaia-list-margin">AIA Vitality<span class="link-arrow brown"></span></h6>
+                                                            </a>
+                                                            <a href="https://www3.aia.com.hk/customer/agreement.do" target="_blank">
+                                                                <h6 class="p3 myaia-list-margin">Customer Corner<span class="link-arrow brown"></span></h6>
+                                                            </a>
+                                                            <a href="https://www3.aia.com.hk/agency/loginb.do" target="_blank">
+                                                                <h6 class="p3 myaia-list-margin">Agency Corner<span class="link-arrow brown"></span></h6>
+                                                            </a>
+                                                            <a href="https://www3.aia.com.hk/ebusiness/" target="_blank">
+                                                                <h6 class="p3 myaia-list-margin">Partnership Distribution Corner
+
+                                                                    <span class="link-arrow brown"></span></h6>
+                                                            </a>
+                                                            <a href="https://www3.aia.com.hk/iAES" target="_blank">
+                                                                <h6 class="p3">Assignee Corner<span class="link-arrow 
+
+brown"></span></h6>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-unstyled ">
+                                                        <h6 class="p3 myaia-list-margin">Employee Benefits</h6>
+                                                        <li class="list-ele normal-height "> <a href="https://gmd.aia.com.hk/eCOMPASS/com/aig/ecompass/admin/jsp/Login.jsp?locale=en_HK" target="_blank" class=" myaia-list-link p3"> Employer / HR<span class="link-arrow brown"></span> </a>
+                                                            <a href="https://gmd.aia.com.hk/eCOMPASS/com/aig/ecompass/admin/jsp/Login.jsp?locale=en_HK" target="_blank" class=" myaia-list-link p3"> Employee<span class="link-arrow brown"></span> </a>
+                                                            <a href="https://gmd.aia.com.hk/eCOMPASS/com/aig/ecompass/admin/jsp/Login.jsp?locale=en_HK" target="_blank" class=" myaia-list-link p3"> Doctor<span class="link-arrow brown"></span> </a> <a href="https://gmd.aia.com.hk/eCOMPASS/com/aig/ecompass/admin/jsp/Login.jsp?locale=en_HK"
+                                                                target="_blank" class=" myaia-list-link p3"> Agent/Broker<span class="link-arrow brown"></span> </a> </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-unstyled">
+                                                        <h6 class="p3 myaia-list-margin">MPF</h6>
+                                                        <li class="list-ele normal-height "> <a href="https://www3.aia-pt.com.hk/mpf/er/login.jspa?lang=en_US" target="_blank" class=" myaia-list-link p3"> Employer<span class="link-arrow brown"></span> </a> <a href="https://www3.aia-pt.com.hk/mpf/ee/login.jspa?lang=en_US"
+                                                                target="_blank" class=" myaia-list-link p3"> Member<span class="link-arrow brown"></span> </a> </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-unstyled ">
+                                                        <h6 class="p3 myaia-list-margin">ORSO</h6>
+                                                        <li class="list-ele normal-height "> <a href="https://www3.aia-pt.com.hk/orso/er/login.jspa?es=ORSO&amp;lang=en_US" target="_blank" class=" myaia-list-link p3"> Employer<span class="link-arrow brown"></span> </a> <a href="https://www3.aia-pt.com.hk/orso/ee/login.jsp?es=ORSO&amp;lang=en_US"
+                                                                target="_blank" class=" myaia-list-link p3"> Member<span class="link-arrow brown"></span> </a> </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn-glyph close-nav-dropdown-btn" data-dismiss="navbar-dropdown" tabindex="9699"> <svg title='Dismiss' class="icon icon-xs hide-on-fallback " role="img">
+              <g>
+                <title>Dismiss</title>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#closedark-glyph"></use>
+                <image class="icon icon-xs " src="../content/dam/aia/icons/glyph/closedark-glyph.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+              </g>
+              </svg> </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-tools pull-right">
+                        <li class="dropdown visible-sm-block visible-md-block visible-lg-block" tabindex="9700">
+                            <div class="dropdown-toggle navbar-text text-center h6 w" data-toggle="dropdown">
+                                <div class="navbar-tool-label">ENG</div>
+                            </div>
+                            <ul class="dropdown-menu lang-dropdown-menu">
+                                <li>
+                                    <a href="index.html" tabindex="9700">
+                                        <h6 class="p3">ENG</h6>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.aia.com.hk/zh-hk/index.html" tabindex="9701">
+                                        <h6 class="p3">繁體</h6>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.aia.com.hk/zh-cn/index.html" tabindex="9702">
+                                        <h6 class="p3">简体</h6>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" tabindex="9800">
+                            <div class="dropdown-toggle" data-toggle="dropdown">
+                                <div class="navbar-tool-label">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#contact-nav"></use>
+                                    <image class="icon icon-xs " src="../content/dam/aia/icons/navigation/contact-nav.png" alt="Contact Us"></image>
+                                </div>
+                            </div>
+                            <ul class="dropdown-menu contact-dropdown-menu">
+                                <li>
+                                    <a href="tel:85222328888" target="_self" tabindex="9801">
+                                        <h6 class="p3">Call Us</h6>
+                                        <p class="p3 bt5">Monday - Friday: 8:45 a.m. – 7 p.m.;<br /> Saturday: 9:00 a.m. – 1:00 p.m.;<br /> Sunday &amp; Public Holidays: Closed</p>
+                                    </a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="#" data-toggle="modal" tabindex="9802" data-target="#callOption0">
+                                        <h6 class="p3">Email Us</h6>
+                                        <p class="p3 bt5"></p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown navbar-search-btn" tabindex="9900">
+                            <div class="dropdown-toggle" data-toggle="dropdown">
+                                <div class="navbar-tool-label">
+                                    <image class="icon icon-xs " src="../content/dam/aia/icons/navigation/search-nav.png" alt="Search" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                                </div>
+                            </div>
+                            <ul class="dropdown-menu search-dropdown-menu">
+                                <li class="search-bar">
+                                    <form class="search-form" id="search-form1">
+                                        <input type="hidden" name="searchExecutor" value="/en/search" id="searchExecutor" />
+                                        <input type="hidden" name="type" value="123" id="search_type" />
+                                        <!--*/ end, by Ocean Lan */-->
+                                        <div class="search-col-left">
+                                            <input name="keyword" data-id="search-input" class="search-input" type="search" placeholder="Type your question" tabindex="9901" data-search-options="{&#34;hideAllFilter&#34;:false,&#34;hideProductsFilter&#34;:false,&#34;hideArticlesFilter&#34;:false,&#34;hideFormsFilter&#34;:false}"
+                                            />
+                                        </div>
+                                        <div class="search-col-right">
+                                            <button class="btn btn-primary go-btn" tabindex="9902">Go</button>
+                                            <button class="btn dismiss-search-btn" tabindex="9903"> <svg title='Dismiss' class="icon icon-xs hide-on-fallback " role="img">
+                    <g>
+                      <title>Dismiss</title>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#closewhite-glyph"></use>
+                      <image class="icon icon-xs " src="../content/dam/aia/icons/glyph/closewhite-glyph.png" alt="undefined" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                    </g>
+                    </svg> </button>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search-suggest-box" data-id="search-suggest-box1"> </div>
+            </div>
+            <div class="navbar-fixed-spacer"></div>
+            <div id="callOption0" class="modal fade aia-modal" data-target="/content/hk/en/tools/modal-pages/individuals-contact-form/individuals-contact-us/jcr:content/content.html">
+                <div class="modal-dialog partial-screen-modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-t2">
+                            <button class="modal-header-btn pull-left" data-dismiss="modal"><svg class="icon icon-xs hide-on-fallback" title="Dismiss" role="img">
+            <g>
+              <title>Dismiss</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.aia.com.hk/content/dam/aia/icons/icons.svg#closewhite-glyph"></use>
+              <image class="icon icon-xs icon-fallback" src="../content/dam/aia/icons/glyph/closewhite-glyph.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+            </g>
+            </svg></button>
+                            <h6 class="w text-center">Get in touch</h6>
+                        </div>
+                        <div class="modal-container padding-top-3xl"></div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var search = {};
+                search.productString = "Product with:";
+                search.articleString = "Article with:";
+                search.formString = "Form with:";
+                search.emptyMsg = "Please type your question.";
+            </script>
+            <a href="#" class="back-to-top">Back to Top</a> </div>
+    </div>
+    <div role="main" id="main" tabindex="11000"></div>
+    <script type="text/javascript">
+        var aiaDatalayer = {
+            pageInfo: {
+                'pageType': 'AIA Home Page',
+                'channel': 'corporate'
+            },
+            profile: {
+                'myAIAUserLoginID': ''
+            }
+        }
+    </script>
+
+    <div>
+        <div class="grid-control-1-col section">
+            <div class="row">
+                <div class="col col-md-12 col-sm-12 col-xs-12 col-md-offset-0 col-sm-offset-0 col-xs-offset-0 ">
+                    <div class="banner_section">
+                        <img src="term-life-insurance/images/Chiro-Banner_s3.jpg">
+                        <div class="banner_content">
+                        <!--<h4 class="banner_heading">
+                        AIA
+                        </h4>-->
+                        <h3 class="banner_title">Online Term Plan Plus</h3>
+                        <div class="pera">
+                        Securing your family has never been more affordable get a life cover of HK$ 100k at just HK$ 149.40/month*
+                        </div>
+                          
+    
+                        <a class="login_btn" data-toggle="modal" data-target="#login_popup" href="#">Buy Now</a>
+                         <!--<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="feature_section">
+                <div class="container">
+                   <div class="row tab-pane fade in card-row margin-bottom-xxl active ">
+                   <div class="grid-control-1-col section">
+    <div class="row">
+    <div class="col col-md-12 col-sm-12 col-xs-12 col-md-offset-0 col-sm-offset-0 col-xs-offset-0 ">
+        <div>
+<div class="card-column-container section">
+
+<div id="" data-id="cards" class="row tab-pane card-row margin-bottom-xxl active in">
+    <h1 class="h2 text-center p4 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l margin-top-sm-4xl margin-top-xxl" style="margin-bottom: 45px;">
+    
+        Product Feature 
+    </h1>
+        <div class="col-card-sm-12 col-sm-6 col-md-3 card-col">
+            <div class="par6 parsys"><div class="card-product-category section">
+    
+        <a href="#" aria-labelledby="card-title1204709706" data-target="#product-category-card-modal-1646180621" data-toggle="modal">
+    
+    <div class="card-col" style="float:initial;">
+        <div class="block single_section press-card " style="text-align: center; height: 305px;">
+            <div class="thumbnail">
+                
+                    <img src="term-life-insurance/images/1496166437_Savings.png">
+                
+            </div>
+            <div class="content">
+                <h4 class="margin-bottom-xs" id="card-title1204709706">Lump Sum Benefit </h4>
+                <p>20% of Basic or Indexed Sum Insured (whichever is applicable)<br>
+
+</p>
+        </div>
+        </div>
+    </div>
+    </a>
+    
+        
+    
+
+</div>
+
+</div>
+
+        </div>
+        <div class="col-card-sm-12 col-sm-6 col-md-3 card-col">
+            <div class="par6 parsys"><div class="card-product-category section">
+    
+        <a href="#" aria-labelledby="card-title1204709706" data-target="#product-category-card-modal-1646180621" data-toggle="modal">
+    
+    <div class="card-col" style="float:initial;">
+        <div class="block single_section press-card " style="text-align: center; height: 305px;">
+            <div class="thumbnail">
+                
+                    <img src="term-life-insurance/images/health.png">
+                
+            </div>
+            <div class="content">
+                <h4 class="margin-bottom-xs" id="card-title1204709706">Death Benefit </h4>
+                <p>On death during the term of the policy, a lump sum Death Benefit will be paid to the nominee of the life insured.<br>
+
+</p>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    </a>
+    
+        
+    
+
+</div>
+
+</div>
+
+        </div>
+        <div class="col-card-sm-12 col-sm-6 col-md-3 card-col">
+            <div class="par6 parsys"><div class="card-product-category section">
+    
+        <a href="#" aria-labelledby="card-title1204709706" data-target="#product-category-card-modal-1646180621" data-toggle="modal">
+    
+    <div class="card-col" style="float:initial;">
+        <div class="block single_section press-card " style="text-align: center; height: 305px;">
+            <div class="thumbnail">
+                
+                    <img src="term-life-insurance/images/1496166738_money.png">
+                
+            </div>
+            <div class="content">
+                <h4 class="margin-bottom-xs" id="card-title1204709706">Tax Benefits</h4>
+                <p>You may be entitled to certain tax benefits on your premiums and Policy benefits<br>
+
+</p>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    </a>
+    
+        
+    
+
+</div>
+
+</div>
+
+        </div>
+        <div class="col-card-sm-12 col-sm-6 col-md-3 card-col">
+            <div class="par6 parsys"><div class="card-product-category section">
+    
+        <a href="#" aria-labelledby="card-title1204709706" data-target="#product-category-card-modal-1646180621" data-toggle="modal">
+    
+    <div class="card-col" style="float:initial;">
+        <div class="block single_section press-card " style="text-align: center; height: 305px;">
+            <div class="thumbnail">
+                
+                    <img src="term-life-insurance/images/cash.png">
+                
+            </div>
+            <div class="content">
+                <h4 class="margin-bottom-xs" id="card-title1204709706">Maturity Benefit </h4>
+                <p>At the end of Policy Term, the Policyholder will get Guaranteed Maturity Sum<br>
+
+</p>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    </a>
+    
+        
+    
+
+</div>
+
+</div>
+
+        </div>
+    
+</div>
+</div>
+
+</div>
+    </div>
+</div>
+</div>
+
+</div>
+                </div>
+            </section>
+
+<section class="plans_section">
+              <div class="container">
+                  <div class="row">                
+                    <div class="tab-content">
+                      <div id="individual" data-id="cards" class="row tab-pane fade in card-row margin-bottom-xxl active ">
+                       <h1 class="h2 text-center p4 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l margin-top-sm-4xl margin-top-xxl" style="margin-bottom: 45px;">
+    
+        our recommended
+    </h1>
+                        <div class="product-hero-icon section">
+                          <ul class="text-center margin-bottom-sm-l">
+                            <li data-toggle="modal" data-target="#location_popup">
+                              <div class="hover-thumb"> <a href="#">
+                                <img class="icon icon-l " src="../content/dam/aia/icons/primary/normal/savings-prime1.png" alt="Savings">
+                                </a> </div>
+                              <p class="bt5 b6"> <a href="our-products/savings.html" class="bt5 b6" aria-hidden="true" tabindex="-1"> Savings </a> </p>
+                            </li>
+                            <li data-toggle="modal" data-target="#location_popup">
+                              <div class="hover-thumb"> <a href="#">
+                                <img class="icon icon-l " src="../content/dam/aia/icons/primary/normal/investment_insurance-prime1.png" alt="Insurance with Investment Focus">
+                                </a> </div>
+                              <p class="bt5 b6"> <a href="our-products/insurance-with-investment-focus.html" class="bt5 b6" aria-hidden="true" tabindex="-1"> Insurance with Investment Focus </a> </p>
+                            </li>
+                            <li data-toggle="modal" data-target="#location_popup">
+                              <div class="hover-thumb"> <a href="#">
+                                <img class="icon icon-l " src="../content/dam/aia/icons/primary/normal/lifepro-prime1.png" alt="undefined">
+                                </a> </div>
+                              <p class="bt5 b6"> <a href="our-products/life-protection.html" class="bt5 b6" aria-hidden="true" tabindex="-1"> Life Protection </a> </p>
+                            </li>
+                            <li data-toggle="modal" data-target="#location_popup">
+                              <div class="hover-thumb"> <a href="#">
+                                <img class="icon icon-l " src="../content/dam/aia/icons/primary/normal/criticalillnesspro-prime1.png" alt="Critical Illness Protection">
+                                </a> </div>
+                              <p class="bt5 b6"> <a href="our-products/critical-illness-protection.html" class="bt5 b6" aria-hidden="true" tabindex="-1"> Critical Illness Protection </a> </p>
+                            </li>
+                            <li data-toggle="modal" data-target="#location_popup">
+                              <div class="hover-thumb"> <a href="#">
+                                <img class="icon icon-l " src="../content/dam/aia/icons/primary/normal/medicalpro-prime1.png" alt="Medical Protection">
+                                </a> </div>
+                              <p class="bt5 b6"> <a href="our-products/medical-protection.html" class="bt5 b6" aria-hidden="true" tabindex="-1"> Medical Protection </a> </p>
+                            </li>
+                            <li data-toggle="modal" data-target="#location_popup">
+                              <div class="hover-thumb"> <a href="#">
+                                <img class="icon icon-l " src="../content/dam/aia/icons/primary/normal/retirement-prime1.png" alt="Retirement Income">
+                                </a> </div>
+                              <p class="bt5 b6"> <a href="our-products/retirement-income.html" class="bt5 b6" aria-hidden="true" tabindex="-1"> Retirement Income </a> </p>
+                            </li>
+                            <li data-toggle="modal" data-target="#location_popup">
+                              <div class="hover-thumb"> <a href="#">
+                                <img class="icon icon-l " src="../content/dam/aia/icons/primary/normal/vitality-prime1.png" alt="AIA Vitality">
+                                </a> </div>
+                              <p class="bt5 b6"> <a href="our-products/aia-vitality.html" class="bt5 b6" aria-hidden="true" tabindex="-1"> AIA Vitality </a> </p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </section>
+
+        </div>
+        </div>
+        <div class="html-script section">
+            <script>
+                $(function() {
+                    var links = [];
+                    $("ul.nav.promomenu-nav > li > a").each(function(i, elem) {
+                        var $lnk = $(elem);
+                        var href = $.trim($lnk.attr("href")),
+                            linkable = href && href.length > 0;
+                        var content = $.trim($lnk.find("div.h5.w").html());
+                        links.push({
+                            href: href,
+                            target: "_self",
+                            content: content
+                        });
+                    });
+
+                    if (links.length > 0) {
+                        var $p = $("<div class='quick'><ul></ul></div>");
+                        var $list = $p.find("ul");
+                        for (var i = 0; i < links.length; i++) {
+                            var $lnk = $("<a></a>");
+                            $lnk.attr({
+                                href: links[i].href,
+                                target: links[i].target
+                            });
+                            $lnk.html(links[i].content);
+                            $list.append($("<li></li>").append($lnk));
+                        }
+
+                        var $pnl = $("div.carousel-container > div.hero-carousel");
+                        $pnl.parent().prepend($p);
+
+                        $p = $("div.carousel-container > div.quick");
+                        $p.css("margin-top", -($p.height() / 3) + 1);
+                    }
+                });
+            </script>
+            <style type="text/css" media="(max-width: 767px)">
+                .carousel-container .quick {
+                    display: none;
+                }
+            </style>
+            <style type="text/css" media="(min-width: 768px)">
+                .carousel-container .quick {
+                    position: absolute;
+                    z-index: 50;
+                    right: 0;
+                    top: 12%;
+                    margin-top: 0%;
+                }
+                
+                .carousel-container .quick li {
+                    list-style: none;
+                    width: 150px;
+                    /*height: 45px;*/
+                    margin-top: 1px;
+                }
+                
+                .carousel-container .quick li:first-child {
+                    margin-top: 0px;
+                }
+                
+                .carousel-container .quick li:nth-child(1) {
+                    height: 80px;
+                }
+                
+                .carousel-container .quick li a {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    background: url(../content/dam/kr/ko/images/iframe/icons/icon-main-arr.png) no-repeat right;
+                    background-color: rgba(0, 0, 0, 0.2);
+                    color: #fff;
+                    font-weight: normal;
+                    padding-left: 16px;
+                    line-height: 3;
+                }
+                
+                .carousel-container .quick li:nth-child(1) a,
+                .carousel-container .quick li:nth-child(3) a {
+                    line-height: 1.5;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+                
+                .carousel-container .quick li a:hover,
+                .carousel-container .quick li a:focus {
+                    background-color: rgba(184, 18, 62, 0.6);
+                }
+            </style>
+            <style type="text/css" media="(min-width: 1200px)">
+                .carousel-container .quick {
+                    top: 10%;
+                }
+            </style>
+        </div>
+        <div class="html-script section"> </div>
+    </div>
+    <div class="footer global-footer parbase">
+        <footer class="footer">
+            <div class="container bg-b8 footer-main">
+                <div class="row margin-bottom-xxl margin-bottom-sm-xxl"></div>
+                <div class="row margin-bottom-xxl">
+                    <div class="col-md-3 hidden-xs hidden-sm">
+                        <h5 class="h5 text-left b5 margin-bottom-md-l margin-bottom-sm-l">Contact AIA</h5>
+                        <div class="text parbase">
+                            <div class="aia-text  text-left p4 bt3 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                <h4 class="h4   w margin-bottom-md-l margin-bottom-sm-l margin-bottom-l">Hong Kong</h4>
+                                <h4 class="h4   w margin-bottom-md-l margin-bottom-sm-l margin-bottom-l">(852) 2232-8888<br>
+                                </h4>
+                                <p class="bt4 b5"><u>Hong Kong Island</u><br> AIA Wealth Select Centre<br> 12/F, AIA Tower,<br> 183 Electric Road,<br> North Point, Hong Kong</p>
+                                <p class="bt4 b5"><u>Kowloon</u><br> Suite 1313, 13/F,<br> AIA Kowloon Tower,<br> Landmark East, 100 How Ming Street,<br> Kwun Tong, Kowloon, Hong Kong</p>
+                                <p class="bt4 b5">Mon-Fri 8:45am - 6:00pm<br> (Open through lunch)<br> Sat, Sun &amp; Public Holidays Closed</p>
+                            </div>
+                        </div>
+                        <div class="text parbase">
+                            <div class="aia-text  text-left p4 bt3 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                <h3 class="h4  w margin-bottom-md-l margin-bottom-sm-l margin-bottom-l">Macau</h3>
+                                <h4 class="h4   w margin-bottom-md-l margin-bottom-sm-l margin-bottom-l">(853) 8988-1822</h4>
+                                <p class="bt4 b5">1903, AIA Tower,<br> Nos. 251A-301, Avenida Comercial de Macau, Macau</p>
+                                <p class="bt4 b5">Mon-Fri 8:45am - 5:15pm<br> (Open through lunch)<br> Sat, Sun &amp; Public Holidays Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 hidden-sd hidden-md hidden-lg text-center">
+                        <h6 class="h4 text-left b5 margin-bottom-md-s margin-bottom-sm-s margin-bottom-l">Contact aia</h6>
+                        <div class="grid-control-2-col">
+                            <div class="row ">
+                                <div class="col col-md-6 col-sm-6 col-xs-12 col-md-offset-0 col-sm-offset-0 col-xs-offset-0 ">
+                                    <div>
+                                        <div class="text parbase section">
+                                            <div class="aia-text  text-left p4 bt3 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                                <h3 class="h3 w margin-bottom-md-l margin-bottom-sm-l margin-bottom-s">Hong Kong</h3>
+                                                <h4 class="h4 w margin-bottom-md-l margin-bottom-sm-l margin-bottom-s">T: (852) &nbsp;2232-8888</h4>
+                                                <div class="bt4 b5"> <u>Hong Kong Island</u> </div>
+                                                <div class="bt4 b5"> AIA Wealth Select Centre <br> 12/F, AIA Tower, <br> 183 Electric Road, <br> North Point, Hong Kong </div>
+                                                <div class="bt4 b5"> &nbsp; </div>
+                                                <div class="bt4 b5"> <u>Kowloon</u> </div>
+                                                <div class="bt4 b5"> Suite 1313, 13/F, <br> AIA Kowloon Tower, <br> Landmark East, 100 How Ming Street, <br> Kwun Tong, Kowloon, Hong Kong <br>
+                                                </div>
+                                                <div class="bt4 b5"> &nbsp; </div>
+                                                <div class="bt4 b5"> Mon-Fri 8:45am - 6:00pm </div>
+                                                <div class="bt4 b5"> (Open through lunch) <br> Sat, Sun &amp; Public Holidays Closed </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-md-6 col-sm-6 col-xs-12 ">
+                                    <div>
+                                        <div class="text parbase section">
+                                            <div class="aia-text  text-left p4 bt3 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                                <h3 class="h3  w margin-bottom-md-l margin-bottom-sm-l margin-bottom-l">Macau</h3>
+                                                <h4 class="h4   w margin-bottom-md-l margin-bottom-sm-l margin-bottom-l">T : (853) &nbsp;8988-1822</h4>
+                                                <div class="bt4 b5"> 1903, AIA Tower, <br> Nos. 251A-301, Avenida Comercial de Macau, Macau </div>
+                                                <p>&nbsp;</p>
+                                                <div class="bt4 b5"> Mon-Fri 8:45am - 5:15pm </div>
+                                                <div class="bt4 b5"> (Open through lunch) <br> Sat, Sun &amp; Public Holidays Closed </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- xs viewport -->
+                    <div class="col-xs-12 visible-xs margin-bottom-xxl margin-bottom-sm-xxl">
+                        <div class="col-xs-offset-1 col-xs-5">
+                            <div class="sub-title">
+                                <h4 class="h4   b5 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l">Explore aia</h4>
+                            </div>
+                            <div class="text parbase">
+                                <div class="aia-text  text-left w bt4 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                    <div class="bt5 b6 margin-bottom-s"> <a href="http://www.aia.com/" target="_blank">AIA.COM</a> </div>
+                                    <div class="bt5 b6 margin-bottom-s"> <a href="https://www.aiavitality.com.hk/vmp-hk/" target="_blank">AIA Vitality</a> </div>
+                                    <div class="bt5 b6 margin-bottom-s"> <a href="https://www.aia-pt.com.hk/mpf/en/" target="_blank">AIA MPF</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5">
+                            <div class="sub-title">
+                                <h4 class="h4 text-left b5 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l">about aia</h4>
+                            </div>
+                            <div class="text parbase">
+                                <div class="aia-text  text-left w bt4 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                    <div class="bt5 b6 margin-bottom-s"> <a href="about-aia/media-centre.html">Media Center</a> </div>
+                                    <div class="bt5 b6 margin-bottom-s"> <a href="about-aia/careers.html">Career</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- sm and md viewport -->
+                    <div class="col-md-3 col-sm-4 hidden-xs">
+                        <h5 class="h5 text-left b5 margin-bottom-md-l margin-bottom-sm-l">Go to</h5>
+                        <div class="text parbase">
+                            <div class="aia-text  text-left w bt2 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                <h4><a href="http://www.aia.com/" target="_blank">AIA.COM</a></h4>
+                            </div>
+                        </div>
+                        <div class="text parbase">
+                            <div class="aia-text  text-left w bt4 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                <p>Visit our corporate site to learn more about AIA.<br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 hidden-xs">
+                        <h5 class="h5 text-left b5 margin-bottom-md-l margin-bottom-sm-l">Explore AIA</h5>
+                        <div class="text parbase">
+                            <div class="aia-text  text-left w bt4 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                <div class="bt4 b5 margin-bottom-s"> <a href="https://www.aiavitality.com.hk/vmp-hk/" target="_blank">AIA Vitality</a> </div>
+                                <div class="bt4 b5 margin-bottom-s"> <a href="https://www.aia-pt.com.hk/mpf/en/" target="_blank">AIA MPF</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 hidden-xs">
+                        <h5 class="h5   b5 margin-bottom-md-l margin-bottom-sm-l">About AIA </h5>
+                        <div class="text parbase">
+                            <div class="aia-text    p4 bt3 margin-bottom-md-l margin-bottom-sm-l margin-bottom-l" data-emptytext="Text">
+                                <div class="bt4 b5 margin-bottom-s"> <a href="about-aia/media-centre.html">Media Centre</a> </div>
+                                <div class="bt4 b5 margin-bottom-s"> <a href="about-aia/careers.html">Career</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <hr class="bg-b7 margin-bottom-l">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <a href="http://www.facebook.com/AIAHongKong" target="_blank">
+                            <image class="icon icon-s " src="../content/dam/aia/icons/secondary/facebook-2nd.png" alt="Facebook - AIA" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                            <image class="icon icon-s " src="../content/dam/aia/icons/secondary/youtube-2nd.png" alt="Youtube - AIA" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                            <image class="icon icon-s " src="../content/dam/aia/icons/secondary/wechat-2nd.png" alt="Follow us: AIA_HK_MACAU" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+                    </div>
+                </div>
+                <div class="row hidden-sm hidden-xs margin-bottom-m"></div>
+                <div class="row hidden-md hidden-lg margin-bottom-m margin-bottom-sm-s"></div>
+                <div class="row">
+                    <div class="col-xs-12 text-center bt5 b5"> Copyright © 2016, AIA Group Limited and its subsidiaries. All rights reserved.&#34;AIA Hong Kong&#34;, &#34;AIA Macau&#34;, &#34;AIA&#34;, the &#34;Company&#34;, &#34;we&#34;, &#34;us&#34; or &#34;our&#34; as used in this webpage refers
+                        to AIA International Limited (Incorporated in Bermuda with limited liability) </div>
+                </div>
+                <div class="row hidden-sm hidden-xs margin-bottom-xl"></div>
+                <div class="row hidden-md hidden-lg margin-bottom-xxl margin-bottom-sm-xl"></div>
+            </div>
+            <div class="container bg-b9">
+                <div class="row">
+                    <div class="col-xs-12 margin-bottom-l margin-bottom-sm-l"></div>
+                    <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 text-center margin-bottom-l margin-bottom-sm-l"> <a href="terms-of-use.html" class="b5 bt5" target="_self">Terms of Use</a> <span class="b5 link-seperator"> | </span> <a href="privacy-statement-main.html" class="b5 bt5" target="_self">Privacy Statement</a> </div>
+                </div>
+            </div>
+        </footer>
+        <div class="cloudservices servicecomponents">
+            <script type="text/javascript">
+                _satellite.pageBottom();
+            </script>
+        </div>
+    </div>
+    <div class="modal-content">
+        <script type="text/javascript">
+            $(function() {
+
+                function loadModalContent() {
+
+                    var list = [],
+                        modalId = [];
+
+                    $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+                        var requestUrl = options.url || originalOptions.url;
+                        if ((options.dataType == 'script' || originalOptions.dataType == 'script') &&
+                            requestUrl.indexOf(location.host) >= 0) {
+                            options.cache = true;
+                        }
+                    });
+
+                    $('.aia-modal').each(function() {
+
+                        var self = $(this);
+                        var target = $(this).attr('data-target'),
+                            container = $(this).find('.modal-container');
+
+                        var wcmmode = '';
+
+                        if (target && container && typeof target != 'undefined' && target.length > 0 && container.length > 0) {
+                            var idx = -1,
+                                btnId = self.attr('id'),
+                                param = {
+                                    parentUrl: "/content/hk/en/index"
+                                };
+
+                            if (!Array.prototype.indexOf) {
+                                for (var i = 0; i < list.length; i++) {
+                                    if (list[i] == target) {
+                                        idx = i;
+                                        break;
+                                    }
+                                }
+                            } else {
+                                idx = list.indexOf(target);
+                            }
+
+                            if (wcmmode != '') {
+                                param.wcmmode = wcmmode;
+                            }
+
+                            if (idx < 0) {
+                                if (btnId.length > 0) {
+                                    list.push(target);
+                                    modalId.push(btnId);
+                                }
+                                $.ajax({
+                                    url: target,
+                                    method: 'GET',
+                                    data: param
+                                }).success(function(data) {
+                                    container.html(data);
+                                    if (self.data("modalTagMoveTo") == "body") {
+                                        self.appendTo(document.body)
+                                    }
+                                });
+                            } else {
+                                $('[data-target="#' + btnId + '"]').attr('data-target', '#' + modalId[idx]);
+                            }
+                        } else if (self.data("modalTagMoveTo")) {
+                            if (self.data("modalTagMoveTo") == "body") {
+                                self.detach().appendTo(document.body)
+                            }
+                        }
+                    });
+                }
+
+                $(document).ready(function() {
+                    loadModalContent();
+                });
+            });
+        </script>
+    </div>
+    <input type="hidden" value="en" id="website-locale" />
+    <script type="text/javascript" src="../etc/clientlibs/aia/aia-footer.min.26662511a9eccc290c94140746cd126c.js"></script>
+    <script type="text/javascript" src="../etc/clientlibs/aia/country-footer/hk.min.98f8a9d2435a1a03199d2d66a3f1ce53.js"></script>
+    <div class="cloudservices servicecomponents"> </div>
+
+        <div class="row send">
+              <!--// Notification widget begins-->
+<div class="row chatwin" id="chat" style="display: block;">
+        <div class="create-chat-message-w">
+          <div class="input-group">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-primary" onclick="openChatWindow()"><i class="fa fa-comment-o" style="margin-right: 7px;"></i>Chat<span id="chatnote" class="badge"></span></button>
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+            <div id="appwarpchatRoomForm" class="chatBox">
+        <div class="widget widget-blue">
+          <div class="widget-title">
+            <div class="widget-controls">
+              <button type="button" class="close" onclick="closeChat()" id="close"><i class="fa fa-times-circle mz"></i></button>
+            </div>
+            <h3>Chat Room</h3>
+          </div>
+        </div>
+        <div class="row pdrb15 hg400 widget-content" style="margin: 0px !important;">
+          <!-- <div class="col-md-4 user_col">
+            <h3>Support</h3>
+            <div id="getUsers"></div>
+          </div>
+		  -->
+          <!--// Button widget ends-->
+
+          <!--// Left Column  ends-->
+          <!--// Right Column  begins-->
+          <div class="col-md-12 chat_col">
+            <div class="row">
+              <h3>Chat</h3>
+              <div id="responseManager">
+                <div id="chatDiv">
+                  <ul class="chat-messages-list" id="response"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="row send">
+              <!--// Notification widget begins-->
+              <div class="widget widget-green" id="notificationManagerWidget">
+                <div class="widget-foot">
+                  <div class="create-chat-message-w">
+                    <div class="input-group">
+                      <input type="text" id="chatText" maxlength="500" placeholder="Your message here..." class="form-control">
+                      <span class="input-group-btn">
+                          <button type="button" id="chatBtn" class="btn btn-primary" >Send</button>
+                        </span>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              <!--// Notification widget ends-->
+            </div>
+
+          </div>
+          <!--// Right Column  ends-->
+        </div>
+      </div>
+    <!--// Notification widget ends-->
+</body>
+
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1940214672925056',
+            cookie: true,
+            xfbml: true,
+            version: 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            //statusChangeCallback(response);
+            setTimeout(function() {
+                window.location.href = "/en/term-life-insurance/select-plan.html";
+            }, 10);
+
+        });
+    }
+</script>
+<!-- Mirrored from www.aia.com.hk/en/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 May 2017 01:57:22 GMT -->
+
+
+<!-- Modal -->
+<div id="location_popup" data-modal-tag-move-to="body" class="modal fade aia-modal in"
+     data-target="/content/group/en/tools/modal-pages/home-our-products/critical-illness-protection/jcr:content/content.html">
+    <div class="modal-dialog partial-screen-modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-t2">
+                <button class="modal-header-btn pull-left" data-dismiss="modal"><img
+                        src="term-life-insurance/images/closewhite-glyph.png" alt="close"></button>
+                <h6 class="w text-center"> Map Location</h6></div>
+            <div class="modal-container padding-top-3xl">
+                <div class="section-container section">
+                    <section style="background-color:bg-w;">
+                        <div class="map_container" style="margin-top:-48px; margin-left:-24px; margin-right:-24px; position: relative;">
+
+
+
+
+                            <select name="" id=""  style="position: absolute; left:10px; top:60px; z-index: 99;">
+                                <option selected="selected">AGENT</option>
+                                <option value="">AIA OFFICES</option>
+                                <option value="">DOCTOR</option>
+
+                            </select>
+
+
+                            <div id="map" style="height: 400px; width: 100%;"></div>
+                        </div>
+
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function init() {
+        var locations = [
+            ['Jeng Qui', 22.286394, 114.149139, 4, "85265376263, 85287645398"],
+            ['Bingwen Jan', 22.267,114.189, 5, "85283776426, 8527687326"],
+            ['Wan Chai Gap', 22.267950, 114.170566, 3, "85287365387"],
+            ['Sui Ma Sha', 22.272609, 114.203178, 2, "85239873654"],
+            ['Chai Wan', 22.266441, 114.235368, 1, "85273628765"]
+        ];
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: new google.maps.LatLng(22.22, 114.25),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    var contentString = '<div id="content">' +
+                        '<div id="siteNotice">' +
+                        '</div>' +
+                        '<h5 id="firstHeading" class="firstHeading">' + locations[i][0] + '</h5>' +
+                        '<div id="bodyContent">' +
+                        '<p>Contacts: ' + locations[i][4] +
+                        '</p>' +
+                        '</div>' +
+                        '</div>';
+
+
+                    infowindow.setContent(contentString);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    }
+
+    $('#location_popup').on('shown.bs.modal', function () {
+        init();
+    });
+</script>
+
+
+<div id="login_popup" data-modal-tag-move-to="body" class="modal fade aia-modal in">
+<div class="modal-dialog partial-screen-modal-dialog"><div class="modal-content"><div class="modal-header bg-t2" style="background-color: #4867AA"><button class="modal-header-btn pull-left" data-dismiss="modal"><img src="term-life-insurance/images/closewhite-glyph.png" alt="close"></button>
+<h6 class="w text-center"> Facebook Login</h6></div><div class="modal-container padding-top-3xl"><div class="section-container section"><section style="background-color:bg-w;">
+    <div class="container login_content">
+        <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>-->
+        <!--<button class="loginBtn loginBtn--facebook" onlogin="checkLoginState();">>
+  Login with Facebook
+</button>-->
+<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();"></div>
+      <!--<fb:login-button  scope="public_profile,email" style="width:200px;height:50px" onlogin="checkLoginState();">Login with Facebook</fb:login-button>-->
+   </div>
+</section>
+</div>
+
+</div></div></div></div>
+
+</html>

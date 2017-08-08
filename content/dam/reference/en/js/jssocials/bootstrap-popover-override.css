@@ -1,0 +1,124 @@
+.action-calltoaction .popover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1010;
+        display: none;
+        max-width: 350px;
+        padding: 1px;
+        text-align: left;
+        white-space: normal;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0, 0, 0, .2);
+        border-radius: 0px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    }
+    
+.action-calltoaction     .popover.top {
+        margin-top: -10px;
+    }
+    
+    .action-calltoaction .popover.right {
+        margin-left: 10px;
+    }
+    
+    .action-calltoaction .popover.bottom {
+        margin-top: 0px;
+    }
+    
+    .action-calltoaction .popover.left {
+        margin-left: -10px;
+    }
+    
+    .action-calltoaction .popover-content {
+        padding: 0;
+    }
+    
+    .action-calltoaction .popover > .arrow,
+    .action-calltoaction .popover > .arrow:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+    }
+    
+    .action-calltoaction .popover > .arrow {
+        border-width: 11px;
+    }
+    
+    .action-calltoaction .popover > .arrow:after {
+        content: "";
+        border-width: 10px;
+    }
+    
+    .action-calltoaction .popover.top > .arrow {
+        bottom: -11px;
+        left: 50%;
+        margin-left: -11px;
+        border-top-color: #999;
+        border-top-color: rgba(0, 0, 0, .25);
+        border-bottom-width: 0;
+    }
+    
+    .action-calltoaction .popover.top > .arrow:after {
+        bottom: 1px;
+        margin-left: -10px;
+        content: " ";
+        border-top-color: #fff;
+        border-bottom-width: 0;
+    }
+    
+    .action-calltoaction .popover.right > .arrow {
+        top: 50%;
+        left: -11px;
+        margin-top: -11px;
+        border-right-color: #999;
+        border-right-color: rgba(0, 0, 0, .25);
+        border-left-width: 0;
+    }
+    
+    .action-calltoaction .popover.right > .arrow:after {
+        bottom: -10px;
+        left: 1px;
+        content: " ";
+        border-right-color: #fff;
+        border-left-width: 0;
+    }
+    
+    .action-calltoaction .popover.bottom > .arrow {
+        top: -11px;
+        left: 50%;
+        margin-left: -11px;
+        border-top-width: 0;
+        border-bottom-color: #999;
+        border-bottom-color: rgba(0, 0, 0, .25);
+    }
+    
+    .action-calltoaction .popover.bottom > .arrow:after {
+        top: 1px;
+        margin-left: -10px;
+        content: " ";
+        border-top-width: 0;
+        border-bottom-color: #fff;
+    }
+    
+    .action-calltoaction .popover.left > .arrow {
+        top: 50%;
+        right: -11px;
+        margin-top: -11px;
+        border-right-width: 0;
+        border-left-color: #999;
+        border-left-color: rgba(0, 0, 0, .25);
+    }
+    
+    .action-calltoaction .popover.left > .arrow:after {
+        right: 1px;
+        bottom: -10px;
+        content: " ";
+        border-right-width: 0;
+        border-left-color: #fff;
+    }

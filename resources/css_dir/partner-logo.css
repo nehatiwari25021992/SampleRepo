@@ -1,0 +1,43 @@
+/* line 5, ../sass/partner-logo.scss */
+.partner-logo {
+  margin: 0 auto 15px auto;
+  padding: 0;
+  max-width: 220px;
+  width: 80%;
+  height: 80px;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/* line 15, ../sass/partner-logo.scss */
+.partner-logo.threehk-logo {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 70px;
+}
+/* line 24, ../sass/partner-logo.scss */
+.partner-logo.csl-logo {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  height: 70px;
+}
+/* line 29, ../sass/partner-logo.scss */
+.partner-logo.klook-logo {
+  width: 100%;
+}
+@media (max-width: 991px) {
+  /* line 39, ../sass/partner-logo.scss */
+  .partner-logo.seveneleven-logo {
+    height: 50px;
+  }
+  /* line 42, ../sass/partner-logo.scss */
+  .partner-logo.cx-logo {
+    height: 45px;
+  }
+  /* line 50, ../sass/partner-logo.scss */
+  .partner-logo.theclub-logo {
+    height: 70px;
+  }
+}
+
+/*# sourceMappingURL=partner-logo.css.map */
