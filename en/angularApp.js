@@ -43,6 +43,15 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
     $scope.goToPayment = function(){
         $location.path("/payment")
     }
+    
+    $scope.paymentCheckout = function(){
+         $location.path("/payment")
+    } 
+    $scope.goToPolicySummary =  function(){
+        
+        $location.path("/policySummary")
+    }
+    
     $scope.policyTableContent=[
         
         {
