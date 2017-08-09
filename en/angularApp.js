@@ -20,7 +20,7 @@ demoApp.config(['$routeProvider', '$httpProvider',
         .when('/payment',{
             templateUrl: '../en/payment.html'
         }) 
-            .when('/policySummary',{
+        .when('/policySummary',{
             templateUrl: '../en/policySummary.html'
         }) .when('/profile',{
             templateUrl: '../en/profile.html'
@@ -34,14 +34,15 @@ demoApp.config(['$routeProvider', '$httpProvider',
 demoApp.controller("MainController", function($rootScope,$scope,$location) {
     $scope.pendingPolicy = 1
     $scope.totalCost = "1,110"
-	$scope.showCongrats = false
-	$scope.productName = "Motar Inc."
+    $scope.showCongrats = false
+    $scope.productName = "Motar Inc."
     $scope.productPrice = "$1,110"
     $scope.goToDashboard = function(){
         $location.path("/dashboard")
     }
     $scope.goToDashboardCongrats = function(){
         $scope.showCongrats = true
+        $scope.pendingPolicy = 0
         $location.path("/dashboard")
     }
     $scope.goToShoppingCart = function(){
@@ -61,66 +62,67 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
     }
     
     $scope.paymentCheckout = function(){
-         $location.path("/payment")
+        $location.path("/payment")
     } 
     $scope.goToPolicySummary =  function(){
         
         $location.path("/policySummary")
     }
     $scope.goToLogin = function(){
-        $location.path("/login")
+        $scope.showCongrats = false
+        $location.path("/dashboard")
     }
     
     $scope.policyTableContent=[
         
-        {
-           policyType:'home',
-            policyIssueDate:'30-Mar-2016',
-            policyId:'*111',
-            policyName:'Home',
-            policyToDate:'20-apr2016',
-             policyFromDate:'20-apr2016',
-             policyStatus:'20-apr2016',
-             policyDetails:'Download',
-             policyAction:'Change Plan',
+    {
+        policyType:'home',
+        policyIssueDate:'30-Mar-2016',
+        policyId:'*111',
+        policyName:'Home',
+        policyToDate:'20-apr2016',
+        policyFromDate:'20-apr2016',
+        policyStatus:'20-apr2016',
+        policyDetails:'Download',
+        policyAction:'Change Plan',
             
-        },
-        {
-           policyType:'home1',
-            policyIssueDate:'30-Mar-2016',
-            policyId:'*111',
-            policyName:'Home',
-            policyToDate:'20-apr2016',
-             policyFromDate:'20-apr2016',
-             policyStatus:'20-apr2016',
-             policyDetails:'Download',
-             policyAction:'Change Plan',
+    },
+    {
+        policyType:'home1',
+        policyIssueDate:'30-Mar-2016',
+        policyId:'*111',
+        policyName:'Home',
+        policyToDate:'20-apr2016',
+        policyFromDate:'20-apr2016',
+        policyStatus:'20-apr2016',
+        policyDetails:'Download',
+        policyAction:'Change Plan',
             
-        },
-        {
-           policyType:'home2',
-            policyIssueDate:'30-Mar-2016',
-            policyId:'*111',
-            policyName:'Home',
-            policyToDate:'20-apr2016',
-             policyFromDate:'20-apr2016',
-             policyStatus:'20-apr2016',
-             policyDetails:'Download',
-             policyAction:'Change Plan',
+    },
+    {
+        policyType:'home2',
+        policyIssueDate:'30-Mar-2016',
+        policyId:'*111',
+        policyName:'Home',
+        policyToDate:'20-apr2016',
+        policyFromDate:'20-apr2016',
+        policyStatus:'20-apr2016',
+        policyDetails:'Download',
+        policyAction:'Change Plan',
             
-        },
-        {
-           policyType:'home3',
-            policyIssueDate:'30-Mar-2016',
-            policyId:'*111',
-            policyName:'Home',
-            policyToDate:'20-apr2016',
-             policyFromDate:'20-apr2016',
-             policyStatus:'20-apr2016',
-             policyDetails:'Download',
-             policyAction:'Change Plan',
+    },
+    {
+        policyType:'home3',
+        policyIssueDate:'30-Mar-2016',
+        policyId:'*111',
+        policyName:'Home',
+        policyToDate:'20-apr2016',
+        policyFromDate:'20-apr2016',
+        policyStatus:'20-apr2016',
+        policyDetails:'Download',
+        policyAction:'Change Plan',
             
-        },
+    },
     ]
 });
     
