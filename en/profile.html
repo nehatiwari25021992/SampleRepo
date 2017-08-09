@@ -1,0 +1,216 @@
+<style>
+    .policyCol{
+        margin: 20px 76px;
+    } 
+    .policyCol button{
+        font: normal 19px "AIASans", "Calibri", sans-serif;
+    }
+    
+    
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>    
+<div class="topnav global-nav parbase">
+    <div class="navmenu-backdrop"></div>
+    
+                                </div>
+                        
+             
+        <div class="search-suggest-box" data-id="search-suggest-box1"> </div>
+    </div>
+    <div class="navbar-fixed-spacer"></div>
+    <div id="callOption0"  class="modal fade aia-modal" data-target="">
+        <div class="modal-dialog partial-screen-modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-t2">
+                    <button class="modal-header-btn pull-left" data-dismiss="modal"><svg class="icon icon-xs hide-on-fallback" title="Dismiss" role="img">
+
+                        <title>Dismiss</title>
+                        <image class="icon icon-xs icon-fallback" src="../content/dam/aia/icons/glyph/closewhite-glyph.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+
+                        </svg></button>
+                    <h6 class="w text-center">Get in touch</h6>
+                </div>
+                <div class="modal-container padding-top-3xl"></div>
+            </div>
+        </div>
+    </div>
+                  
+    <div class="row policyCol">
+    <div class="row">
+        
+        <div class="col-md-4">
+            <h6> Profile</h6> 
+        </div>
+        <div class="col-md-8">
+             <button class="btn btn-primary col-md-offset-8" ng-click="goToLogin()">Logout</button>    
+            
+        </div>
+    </div>
+       <div class="row">
+        
+                    <div class="col-md-4">
+                        <p> <a href="../examples/non-responsive/" class="btn btn-default"><Font size="2">Personal Information</font> </a> </p>
+                          <p> <a href="../examples/non-responsive/" class="btn btn-primary"><Font size="2">Account & Notification Setting</font> </a> </p>
+                            <p> <a href="../examples/non-responsive/" class="btn btn-default"><Font size="2">Auto Renewal & payment setting</font> </a> </p>
+                        
+                    </div>
+                    <div class="col-md-8">
+                       <div class="row">
+                           <div class="col-md-12" >
+                             <font size="4">Change Your Password</font> 
+                           </div>
+                       </div></br> 
+                        <div class="row">
+                    <div class="col-md-4" >
+                        Existing pasword
+                    </div>
+                    <div class="col-md-8" >
+                        <input type="text" name="Existing password" >
+                    </div>
+                    </div></br>
+                    
+                      <div class="row">
+                    <div class="col-md-4" >
+                        New pasword
+                    </div>
+                    <div class="col-md-8" >
+                        <input type="text" name="New password" >
+                    </div>
+                    </div></br>
+                    
+                      <div class="row">
+                    <div class="col-md-12" > 
+                    
+                     <button class="btn btn-primary col-md-offset-6" ng-click="goToDashboardCongrats()">Buy Now</button>
+                       </div>
+                    
+                    </div>
+                    </br>
+                    </br>
+                    
+                    <div class="row">
+                           <div class="col-md-12" >
+                             <font size="4">Policy Document Notification</font> 
+                           </div>
+                       </div></br>
+                       <div class="row">
+                           <div class="col-md-4" >
+                    <p>Email Notification</p>
+                           </div>
+                           <div class="col-md-8" >
+                               <label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label> 
+                           </div>
+                           </div> 
+                           
+                        <div class="row">
+                           <div class="col-md-4" >
+                    <p>Hard Copy Notification</p>
+                           </div>
+                           <div class="col-md-8" >
+                               <label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label> 
+                           </div>
+                           </div> </br>
+                            <div class="row">
+                           <div class="col-md-12" >
+                           <footer>*you can change the address in personal information for updating contact, past address & email address</footer>
+                    </div>
+                    </div></br>
+                         
+                         <div class="row">
+                           <div class="col-md-12" >
+                             <font size="4">Promotional Material Opt Out</font> 
+                           </div>
+                       </div></br>
+                          
+                          <div class="row">
+                           <div class="col-md-4" >
+                    <label>Opt Out marketing materials</label>
+                           
+                    </div>
+                    <div class="col-md-8" >
+                           <label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label> 
+                           
+                    </div>
+                    </div>
+                          
+                          <div class="row">
+                    <div class="col-md-12" > 
+                    
+                     <button class="btn btn-primary col-md-offset-6" ng-click="goToDashboardCongrats()">Buy Now</button>
+                       </div>
+                    
+                    </div>
+                    </div>
+                    
+                    
+                    </div>
+       
+          
+        </div>
+         
+    </div>
+    
+</div>

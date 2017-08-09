@@ -53,6 +53,9 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
     $scope.goToProductDetails=function(){
         $location.path("/productDetails")
     }
+    $scope.goToProfile = function(){
+        $location.path("/profile")
+    }
     $scope.goToPayment = function(){
         $location.path("/payment")
     }
@@ -63,6 +66,9 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
     $scope.goToPolicySummary =  function(){
         
         $location.path("/policySummary")
+    }
+    $scope.goToLogin = function(){
+        $location.path("/login")
     }
     
     $scope.policyTableContent=[
