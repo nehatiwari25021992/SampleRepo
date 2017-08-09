@@ -113,6 +113,7 @@
                 facebook.getLoginStatus(function(response) {
                     console.log("FACEBOOK response :::::::::::  ",response)
                     //statusChangeCallback(response);
+                    window.location.href = "#/dashboard";
                 });
             }
 
@@ -126,8 +127,8 @@
             search.emptyMsg = "Please type your question.";
 
             App42.initialize("1dc92a76ef4114a8551ee8883cf48c6ee06a9a467a08ef80237fe61c6e1492a5","d4271267f621b50a11bf62ede824372aab8464090913de822c2e137fce4b3b76"); 
-            App42.enableEventService(true);
-            App42.enableAppStateEventTracking(true);
+            //App42.enableEventService(true);
+            //App42.enableAppStateEventTracking(true);
             var aiaDatalayer ={
                 pageInfo:{
                     'pageType':'AIA Home Page',
