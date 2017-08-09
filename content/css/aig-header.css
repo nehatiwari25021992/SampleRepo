@@ -14334,7 +14334,6 @@ button.close {
     line-height: 80px;
     text-align: center;
 }	
-.sub-nav{background: #fff; border-bottom: 1px solid #cfcfcf; padding: 0;}
-.sub-nav ul{margin: 0; padding: 0; height: 40px; width: 90%; margin: 0 auto;}
+.sub-nav{background: #fff; border-bottom: 1px solid #cfcfcf; padding: 0; margin-top: -10px;}
+.sub-nav ul{margin: 0; padding: 0; height: 40px; width: 92%; margin: 0 auto;}
 .sub-nav ul li{float: left; display: inline-block; color: #00a4e4; padding: 0 50px; line-height: 40px;}
-.navbar-fixed-spacer{padding-top: 81px;}

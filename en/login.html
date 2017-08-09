@@ -1,29 +1,35 @@
-
 <div class="contentWrapper">
 <div class="contentWrapperInner">
-<div class="row pd20tb">
-
-<div class="col-lg-5 pull-left login-block">
+<div class="row policyCol ng-scope" style="padding-top: 30px;">
+        <div class="col-md-4" style="padding-left: 0;">
+            <div class="login-block">
     <h1>Log in with your email account </h1>
-    <label>Email</label>
-    <input type="text" value="" placeholder="name@domain.com" id="username" />
-    <label>Password</label>
+    <div>
+	  <label>Email</label>
+      <input type="text" value="" placeholder="name@domain.com" id="username" style="float: left; width: 70%;" />
+	</div>  
+    <div>
+	<label>Password</label>
     <input type="password" value="" placeholder="Password" id="password" />
+	</div>
     <button ng-click="goToDashboard()">Login</button>
     <div class="links"><a href="javascript:void(0)">Forgot your password</a> | <a href="javascript:void(0)">Register as member</a></div>
 	<div class="or_wrapper"></div>
-    <fb:login-button 
-        scope="public_profile,email"
-        onlogin="checkLoginState();">
+	<div class="social_login ">
+	  <a href="" onclick="" class="fbLogin">Login with Facebook</a>
+	  <a href="" onclick="" class="googleLogin">Login with Google</a>
+	</div>
+<!--    <fb:login-button scope="public_profile,email"  onlogin="checkLoginState();">
     </fb:login-button>   
     <div id="login"> <a id="btnGoogleOAuth" class="btn btn-primary" href="#" target="_blank" role="button">
-            <i class="fa fa-google-plus"></i> Login with Google</a>
-
-    </div> 
+      <i class="fa fa-google-plus"></i> Login with Google</a>
+    </div>--> 
 </div> 
-<div class="col-lg-7  pull-right">
-
-</div>
-</div>
+        </div>
+        <div class="col-md-8 ">
+           <div class="banner" style=""> </div>
+        </div>
+       
+    </div>
 </div>
 </div>

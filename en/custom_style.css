@@ -509,41 +509,42 @@ body {
 }
 
 .login-block {
-    width: 320px;
-    padding: 20px;    
+    width: 370px;
+    padding: 20px;
     margin: 0 auto;
-	box-shadow: 1px 1px 2px rgba(0,0,0,0.14902);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.14902);
     background: #fff;
+	height: 450px;
 }
 
 .login-block h1 {
     text-align: center;
     color: #003e5b;
-    font-size: 18px;
+    font-size: 20px;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 20px;
-	line-height: 40px;
+    line-height: 40px;
 }
-.login-block label{margin-bottom: 10px;}
+.login-block label{margin-bottom: 10px;line-height: 44px;float: left;width: 23%;}
 
 .login-block input {
-    width: 100%;
+    width: 60%;
     height: 42px;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-bottom: 20px;
-	margin-top: 20px;
+    /* margin-top: 20px; */
     font-size: 14px;
     font-family: Montserrat;
-    padding: 0 20px 0 50px;
-    outline: none;	
+    padding: 0px 20px 0 40px;
+    outline: none;
 }
 
 .login-block input#username {
-    background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
-    background-size: 16px 80px;
+    background: #fff url('http://i.imgur.com/u0XmBmv.png') 10px top no-repeat;
+    background-size: 15px 80px;
 }
 
 .login-block input#username:focus {
@@ -596,7 +597,22 @@ body {
     float: left;
     width: 100%;
     height: 36px;
-    margin: 30px 0 0 0;
-    background: url(images/registration/or_img.png)no-repeat;
+    background: url(images/or_img.png) no-repeat;
     background-position: center;
 }
+.login-block  .social_login    a {
+    float: left;
+    padding: 10px 20px 10px 40px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    font-family: Raleway;
+}
+.login-block  .social_login  .googleLogin{ background-color:#dd4b39; background-image:url(images/google-login.png); background-repeat:no-repeat; background-position:8px center; float:right; width:100%;  margin-top: 10px;}
+.login-block  .social_login    .googleLogin:hover{ background-color:#cd3b29}
+.login-block   .social_login   .fbLogin{ background-color:#3b5998; background-image:url(images/facebook-login.png); background-repeat:no-repeat; background-position:8px center; float:left; margin:15px 0 0 0;  width:100%}
+.login-block   .social_login   .fbLogin:hover{ background-color:#2b4988}
+
+.banner{background: #cfcfcf;max-width: 760px;width: 100%; background: url(images/banner.png); height: 450px;}
+.banner img{width: 100%;}
