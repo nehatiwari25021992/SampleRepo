@@ -22,6 +22,8 @@ demoApp.config(['$routeProvider', '$httpProvider',
         }) 
             .when('/policySummary',{
             templateUrl: '../en/policySummary.html'
+        }) .when('/profile',{
+            templateUrl: '../en/profile.html'
         })
         .otherwise({
             redirectTo: '/dashboard'
@@ -46,6 +48,10 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
         $scope.productName = "Motar Inc."
         $scope.productPrice = "$1,110"
         $location.path("/shoppingCart")
+    }
+    
+    $scope.goToProductDetails=function(){
+        $location.path("/productDetails")
     }
     $scope.goToPayment = function(){
         $location.path("/payment")
