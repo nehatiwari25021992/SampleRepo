@@ -485,7 +485,7 @@ appbox-menu .item:hover .member-details { margin-top: -212px; }
 .chatwin{position: fixed;right: 0px; bottom:0;margin: 0 !important;text-align: right;}
 .chatwin button{background-image: linear-gradient(to bottom, #409ad5 0%, #2980b9 100%);width: 250px;text-align: left;}
 .chatwin button san{ background-image: url('../images/chat-icon.png'); background-position: 5px 5px;}
-.chatwin #chatnote{background-color: #fff;min-width: 21px; height: 21px; color: #131313;line-height: 16px; text-shadow: none; text-align: center; width: auto;position:absolute; right: 15px; top: 10px;}
+.chatwin #chatnote{min-width: 21px; height: 21px; color: #131313;line-height: 16px; text-shadow: none; text-align: center; width: auto;position:absolute; right: 15px; top: 10px;}
 .chatBox{ display:none; position: fixed; width:440px; height:450px; padding:0; background:#fff none repeat scroll 0 0;  border-radius: 5px 5px 0 0; box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.8); color:#FF7700; text-align:center; font-family:Cambria; font-size:20px; bottom:0px; right:0; cursor:pointer;}
 .chatBox .widget .widget-title h3{ text-align: left;}
 .chatBox .widget{ margin-bottom: 0}
