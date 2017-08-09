@@ -38,6 +38,10 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
     $scope.goToDashboard = function(){
         $location.path("/dashboard")
     }
+    $scope.goToDashboardCongrats = function(){
+        $scope.showCongrats = true
+        $location.path("/dashboard")
+    }
     $scope.goToShoppingCart = function(){
         $scope.productName = "Motar Inc."
         $scope.productPrice = "$1,110"
