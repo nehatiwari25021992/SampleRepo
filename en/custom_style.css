@@ -509,11 +509,10 @@ body {
 
 .login-block {
     width: 320px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    border-top: 5px solid #ff656c;
+    padding: 20px;    
     margin: 0 auto;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.14902);
+    background: #fff;
 }
 
 .login-block h1 {
@@ -581,3 +580,7 @@ body {
 .login-block button:hover {
     background: #ff7b81;
 }
+
+.contentWrapper{width: 100%; clear: both;}
+.contentWrapperInner{width: 80%; clear: both; margin: 0 auto;}
+.pd20tb{padding: 20px 0;}
