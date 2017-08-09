@@ -5,17 +5,8 @@
     .policyCol button{
         font: normal 19px "AIASans", "Calibri", sans-serif;
     }
-</style>    
-    <div class="navmenu-backdrop"></div>
-    
-                              
-                     
-               
-          
-        <div class="search-suggest-box" data-id="search-suggest-box1"> </div>
-    
-    <div class="navbar-fixed-spacer"></div>
-    <div id="callOption0"  class="modal fade aia-modal" data-target="">
+</style> 
+ <!--   <div id="callOption0"  class="modal fade aia-modal" data-target="">
         <div class="modal-dialog partial-screen-modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-t2">
@@ -30,12 +21,12 @@
                 <div class="modal-container padding-top-3xl"></div>
             </div>
         </div>
-    </div>
-    <div class="row policyCol" ng-show="showCongrats">
+    </div> -->
+    <div class="row policyCol pdtp30" ng-show="showCongrats">
         <div class="col-md-2 "></div>
         <div class="col-md-8 ">
             <i class="fa fa-check" aria-hidden="true"></i>
-            <h4>Congratulations!</h4><br/>
+            <h4>Congratulations!</h4>
             <h4>You have successfully renewed your policy.</h4><br/>
 <!--
             <input type="text" placeholder="Subscribe for e-communication"/>
@@ -46,29 +37,35 @@
     </div>
 </div>
     <div class="row policyCol">
-        <div class="col-md-4 ">
-            <h5>My Active Policy</h5><br/>
-            <span>#ID:7493553939</span><br/>
-            <span>Home Insurance</span><br/>
-            <span>Effective from 1-September-2017</span><br/>
-            <a href="javascript;;">View all<i class="fa fa-plus" aria-hidden="true"></i></a>
+        <div class="col-md-4">
+          <div class="card">
+            <h5>My Active Policy</h5>
+            <div>#ID:7493553939</div><br/>
+            <div>Home Insurance</div><br/>
+            <div>Effective from 1-September-2017</div>
+            <a href="javascript:void(0)" class="fixedLink">View all <i class="fa fa-plus" aria-hidden="true"></i></a>
+          </div>  
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <h5>Pending to renew Policy <a href="#/policySummary" class="pending">{{pendingPolicy}}</a></h5>
+            <div>#ID:7493553939</div>
+            <div>Motar Insurance</div>
+            <div>Effective from 1-November-2017</div>
+            <a href="javascript;;">View all <i class="fa fa-plus" aria-hidden="true"></i></a><br/>
+            <div class="row setup">
+                <div class="col-md-6 pd0" style="font-size: 14px; color: #00a4e4;">Setup auto renewal to earn extra 10% off of the premium.</div>
+                <div class="col-md-6"><button class="blue-btn" ng-click="goToProfile()">Activate Now</button></div>
+            </div>            
+           </div>  
         </div>
         <div class="col-md-4 ">
-            <h5>Pending to renew Policy <a href="#/policySummary">{{pendingPolicy}}</a></h5></br>
-            <span>#ID:7493553939</span><br/>
-            <span>Motar Insurance</span><br/>
-            <span>Effective from 1-November-2017</span><br/>
-            <a href="javascript;;">View all<i class="fa fa-plus" aria-hidden="true"></i></a><br/>
-            <div class="row">
-                <div class="col-md-6">Setup auto renewal to earn extra 10% off of the premium.</div>
-                <div class="col-md-6"><button class="btn btn-primary" ng-click="goToProfile()">activate now</button></div>
-            </div>
-        </div>
-        <div class="col-md-4 ">
-            <h5>My InActive Policy</h5><br/>
-            <span>#ID:7493553939</span><br/>
-            <span>Health Insurance</span><br/>
-            <span>Effective from 1-May-2017</span><br/>
-            <a href="javascript;;">View all<i class="fa fa-plus" aria-hidden="true"></i></a>
+          <div class="card">
+            <h5>My InActive Policy</h5>
+            <div>#ID:7493553939</div>
+            <div>Health Insurance</div>
+            <div>Effective from 1-May-2017</div>
+            <a href="javascript:void(0)" class="fixedLink">View all <i class="fa fa-plus" aria-hidden="true"></i></a>
+          </div>  
         </div>
     </div>

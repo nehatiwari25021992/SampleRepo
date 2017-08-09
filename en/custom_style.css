@@ -590,6 +590,8 @@ body {
 .contentWrapper{width: 100%; clear: both;}
 .contentWrapperInner{width: 80%; clear: both; margin: 0 auto;}
 .pd20tb{padding: 20px 0;}
+.pdtp30{padding-top: 30px;}
+.pd0{padding: 0;}
 .links{color: #00a4e4; line-height: 40px; font-size: 13px; padding-bottom:5px;}
 .links a{color: #00a4e4; line-height: 40px; font-size: 13px; padding-bottom:5px;}
 .links a:hover{border-bottom: 1px solid #00a4e4;}
@@ -616,3 +618,66 @@ body {
 
 .banner{background: #cfcfcf;max-width: 760px;width: 100%; background: url(images/banner.png); height: 450px;}
 .banner img{width: 100%;}
+.card{background: #fff; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2); padding: 25px 15px;  line-height: 25px; position: relative; min-height: 350px;}
+.card h5{font-size: 24px; margin-bottom: 20px; text-transform: none;}
+.card a{color: #00a4e4;}
+.card .fixedLink{position: absolute; bottom: 20px;}
+.setup{position: absolute; bottom: 20px; width: 100%; margin: 0 auto;}
+.transparent-btn{    padding: 11px 8px;
+    transition: all .2s ease-in-out;
+    border: none;
+    color: #00a4e4;
+    text-align: center;
+    width: 100%;
+    outline: 0;
+    background: transparent;
+    font-size: 15px!important;}
+.blue-btn{    padding: 11px 8px;
+    transition: all .2s ease-in-out;
+    border: 1px solid #00a4e4;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    outline: 0;
+    background: #00a4e4;
+    font-size: 15px!important;}
+.logout-btn{
+	 position: absolute;
+    width: 10% !important;
+    right: 3%;
+    padding: 11px 8px;
+    transition: all .2s ease-in-out;
+    border: 1px solid #cacaca;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    outline: 0;
+    background: #eaeaea;
+    font-size: 18px !important;
+    color: #8c8c8c;}	
+	
+.pending{background: #c84a36;
+    color: #fff !important;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    top: 15px;
+    right: 15px;}
+	
+.profileWrapper{ background: #fff;
+    padding: 25px;
+    width: 90%;
+    margin: 0 auto;}
+.profileWrapper h6{
+    font-size: 24px;
+    line-height: 20px;
+}
+.posRel{position: relative;}
+.table-responsive th{padding: 10px; border-right: 1px solid #dcdcdc; border-bottom: 1px solid #dcdcdc;}
+.table-responsive td, .table-responsive th {padding: 10px; border-right: 1px solid #dcdcdc;  border-bottom: 1px solid #dcdcdc;}
+.table-responsive th:last-child{border-right: none;}
+.table-responsive td:last-child, .table-responsive th:last-child {border-right: none;}
+.table-responsive tbody{ background: #f7f8f7;}
