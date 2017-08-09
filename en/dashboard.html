@@ -7,15 +7,40 @@
     }
 </style>    
     <div class="navmenu-backdrop"></div>
-    <div class="navbar navbar-default-aig navbar-fixed">
+    
+                              
+                     
+               
+          
+        <div class="search-suggest-box" data-id="search-suggest-box1"> </div>
+    
+    <div class="navbar-fixed-spacer"></div>
+    <div id="callOption0"  class="modal fade aia-modal" data-target="">
+        <div class="modal-dialog partial-screen-modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-t2">
+                    <button class="modal-header-btn pull-left" data-dismiss="modal"><svg class="icon icon-xs hide-on-fallback" title="Dismiss" role="img">
+
+                        <title>Dismiss</title>
+                        <image class="icon icon-xs icon-fallback" src="../content/dam/aia/icons/glyph/closewhite-glyph.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
+
+                        </svg></button>
+                    <h6 class="w text-center">Get in touch</h6>
+                </div>
+                <div class="modal-container padding-top-3xl"></div>
+            </div>
+        </div>
+    </div>
     <div class="row policyCol" ng-show="showCongrats">
         <div class="col-md-2 "></div>
         <div class="col-md-8 ">
             <i class="fa fa-check" aria-hidden="true"></i>
             <h4>Congratulations!</h4><br/>
             <h4>You have successfully renewed your policy.</h4><br/>
+<!--
             <input type="text" placeholder="Subscribe for e-communication"/>
             <button class="btn btn-primary">SUBSCRIBE</button>
+-->
             
         </div>
     </div>
@@ -29,7 +54,7 @@
             <a href="javascript;;">View all<i class="fa fa-plus" aria-hidden="true"></i></a>
         </div>
         <div class="col-md-4 ">
-            <h5>Pending to renew Policy <a href="#/productDetails">{{pendingPolicy}}</a></h5></br>
+            <h5>Pending to renew Policy <a href="#/policySummary">{{pendingPolicy}}</a></h5></br>
             <span>#ID:7493553939</span><br/>
             <span>Motar Insurance</span><br/>
             <span>Effective from 1-November-2017</span><br/>
