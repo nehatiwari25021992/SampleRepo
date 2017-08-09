@@ -498,6 +498,7 @@ body {
    
     background-size: cover;
     font-family: Montserrat;
+	background-color: #e5e5e5;
 }
 
 .logo {
@@ -517,12 +518,14 @@ body {
 
 .login-block h1 {
     text-align: center;
-    color: #000;
+    color: #003e5b;
     font-size: 18px;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 20px;
+	line-height: 40px;
 }
+.login-block label{margin-bottom: 10px;}
 
 .login-block input {
     width: 100%;
@@ -531,10 +534,11 @@ body {
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-bottom: 20px;
+	margin-top: 20px;
     font-size: 14px;
     font-family: Montserrat;
     padding: 0 20px 0 50px;
-    outline: none;
+    outline: none;	
 }
 
 .login-block input#username {
@@ -564,10 +568,10 @@ body {
 .login-block button {
     width: 100%;
     height: 40px;
-    background: #ff656c;
+    background: #ff9800;
     box-sizing: border-box;
     border-radius: 5px;
-    border: 1px solid #e15960;
+    border: 1px solid #ff9800;
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
@@ -578,9 +582,21 @@ body {
 }
 
 .login-block button:hover {
-    background: #ff7b81;
+    background: #ef8f01;
+	border: 1px solid #ef8f01;
 }
 
 .contentWrapper{width: 100%; clear: both;}
 .contentWrapperInner{width: 80%; clear: both; margin: 0 auto;}
 .pd20tb{padding: 20px 0;}
+.links{color: #00a4e4; line-height: 40px; font-size: 13px; padding-bottom:5px;}
+.links a{color: #00a4e4; line-height: 40px; font-size: 13px; padding-bottom:5px;}
+.links a:hover{border-bottom: 1px solid #00a4e4;}
+.login-block .or_wrapper {
+    float: left;
+    width: 100%;
+    height: 36px;
+    margin: 30px 0 0 0;
+    background: url(images/registration/or_img.png)no-repeat;
+    background-position: center;
+}

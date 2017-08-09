@@ -5,12 +5,13 @@
 
 <div class="col-lg-5 pull-left login-block">
     <h1>Log in with your email account </h1>
-    <span>Email</span>
+    <label>Email</label>
     <input type="text" value="" placeholder="name@domain.com" id="username" />
-    <span>Password</span>
+    <label>Password</label>
     <input type="password" value="" placeholder="Password" id="password" />
     <button ng-click="goToDashboard()">Login</button>
-
+    <div class="links"><a href="javascript:void(0)">Forgot your password</a> | <a href="javascript:void(0)">Register as member</a></div>
+	<div class="or_wrapper"></div>
     <fb:login-button 
         scope="public_profile,email"
         onlogin="checkLoginState();">
