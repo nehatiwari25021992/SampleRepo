@@ -14314,3 +14314,26 @@ button.close {
 .card-col:last-child {
     border-bottom: none !important;
 }
+.navbar-default-aig{ 
+    height: 80px;
+    font-size: 1.000em;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #fff;
+    background: rgba(0,164,228,0.8);
+}
+.navbar-brand-aig{
+    padding-top: 22px;
+    padding-bottom: 22px;
+    text-align: center;
+}
+.navbar-brand-aig .navbar-brand-img {
+    height: 44px;
+}	
+.navbar-default-aig .navbar-one {
+    line-height: 80px;
+    text-align: center;
+}	
+.sub-nav{background: #fff; border-bottom: 1px solid #cfcfcf;}
+.sub-nav ul{margin: 0; padding: 0; height: 40px; width: 90%; margin: 0 auto;}
+.sub-nav ul li{float: left; display: inline-block; color: #00a4e4; padding: 5px 50px;}
