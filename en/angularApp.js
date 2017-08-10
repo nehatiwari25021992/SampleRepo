@@ -77,10 +77,10 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
     $scope.policyTableContent=[
         
     {
-        policyType:'home',
+        policyType:'Auto',
         policyIssueDate:'30-Mar-2016',
         policyId:'*111',
-        policyName:'Motor',
+        policyName:'Motor Insurance',
         policyToDate:'20-apr2016',
         policyFromDate:'20-apr2016',
         policyStatus:'20-apr2016',
@@ -89,10 +89,10 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
             
     },
     {
-        policyType:'home1',
+        policyType:'Travel',
         policyIssueDate:'30-Mar-2016',
         policyId:'*111',
-        policyName:'car',
+        policyName:'TravelWise Protection',
         policyToDate:'20-apr2016',
         policyFromDate:'20-apr2016',
         policyStatus:'20-apr2016',
@@ -101,10 +101,10 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
             
     },
     {
-        policyType:'home2',
+        policyType:'Home',
         policyIssueDate:'30-Mar-2016',
         policyId:'*111',
-        policyName:'Life Insurance',
+        policyName:'Rental Protector',
         policyToDate:'20-apr2016',
         policyFromDate:'20-apr2016',
         policyStatus:'20-apr2016',
@@ -113,10 +113,10 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
             
     },
     {
-        policyType:'home3',
+        policyType:'Home',
         policyIssueDate:'30-Mar-2016',
         policyId:'*111',
-        policyName:'Medical',
+        policyName:'Home Insurance',
         policyToDate:'20-apr2016',
         policyFromDate:'20-apr2016',
         policyStatus:'20-apr2016',
