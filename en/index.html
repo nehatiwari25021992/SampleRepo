@@ -118,6 +118,8 @@
                             FB.api('/me', function(response) {
                                 console.log('Good to see you, ' + response.name + '.');
                                 UserNAme = response.name
+                                $("#userfbname").text(UserNAme)
+                                $('#profile').css("display","block")
                             });
                         } else {
                             console.log('User cancelled login or did not fully authorize.');
@@ -185,8 +187,8 @@
 
             </div>
             <div class="search-suggest-box" data-id="search-suggest-box1"> </div>
-		<div style="height: 88px;line-height: 88px;position: absolute;top: 0px; right: 3%;"><a href=" #"="" style="color:#fff; font-size: 13px;"><img class="icon" src="images/user.png" style="margin-top: -5px;"> Peter Chan (logout)</a>
-		  </div>
+            <div style="height: 88px;line-height: 88px;position: absolute;top: 0px; right: 3%;"><a href=" #"="" style="color:#fff; font-size: 13px;display: none" id="profile"><img class="icon" src="images/user.png" style="margin-top: -5px;" ng-click="goToProfile()"><span id="userfbname"> </span>(logout)</a>
+ 		  </div>
     </div>
         <div class="navbar-fixed-spacer"></div>
         <div class="col-lg-12 sub-nav">
