@@ -22,7 +22,8 @@ demoApp.config(['$routeProvider', '$httpProvider',
         }) 
         .when('/policySummary',{
             templateUrl: '../en/policySummary.html'
-        }) .when('/profile',{
+        }) 
+		.when('/profile',{
             templateUrl: '../en/profile.html'
         })
         .otherwise({
