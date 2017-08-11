@@ -93,7 +93,7 @@
             var UserNAme = ""
             window.fbAsyncInit = function() {
                 FB.init({
-                    appId      : '433510467023905',
+                    appId      : '272369879934339',
                     cookie     : true,
                     xfbml      : true,
                     version    : 'v2.8'
@@ -112,20 +112,29 @@
    
             function checkLoginState() {
                 facebook.getLoginStatus(function(response) {
-                    console.log("FACEBOOK response :::::::::::  ",response)
-                        if (response.authResponse) {
+                        if (response.status==='connected') {
                             console.log('Welcome!  Fetching your information.... ');
                             FB.api('/me', function(response) {
                                 console.log('Good to see you, ' + response.name + '.');
                                 UserNAme = response.name
                                 $("#userfbname").text(UserNAme)
                                 $('#profile').css("display","block")
+								 window.location.href = "#/dashboard";
                             });
                         } else {
-                            console.log('User cancelled login or did not fully authorize.');
+                            FB.login(function(response){
+							  if (response.status==='connected') {
+									console.log('Welcome!  Fetching your information.... ');
+									FB.api('/me', function(response) {
+										
+										UserNAme = response.name
+										$("#userfbname").text(UserNAme)
+										$('#profile').css("display","block")
+										 window.location.href = "#/dashboard";
+									});
+								}
+							});
                         }
-                    //statusChangeCallback(response);
-                    window.location.href = "#/dashboard";
                 });
             }
 
