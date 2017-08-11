@@ -701,7 +701,7 @@ body {
     background: #cfcfcf;
     max-width: 760px;
     width: 100%;
-    background: url(images/banner.png);
+    background: url(images/bannerprj.png);
     height: 450px;
     margin-left: 20px;
     background-size: cover;
@@ -712,4 +712,5 @@ body {
     .policyCol button{font-size: 16px !important;}
     .btn{min-width: 130px !important;}
     .pdrg0{padding-right: 0 !important;}
+	h4, .h4 {font-size: 24px;}
 }
