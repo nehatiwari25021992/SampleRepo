@@ -11,14 +11,12 @@
 	<div class="row ">
       <div class="col-md-12" style="margin-bottom: 26px; padding: 0 0 10px 0; border-bottom: 1px dashed #cfcfcf; width: 94%; margin: 0 3% 4% 3%;">
         <h6>Shopping cart</h6>
-		<div style="text-align: right;"><p><b>Price</b></p></div>
+		<!--<div style="text-align: right;"><p><b>Price</b></p></div> -->
       </div>
     </div>
        
            <div style="min-height: 200px;height: auto !important;min-height: 200px;clear: both;width: 100%;float: left;background-color: #fff;">
-                <div class="col col-md-12 col-sm-12 col-xs-12" style="
-    padding: 0;
-">
+                <div class="col col-md-12 col-sm-12 col-xs-12">
                     <div><div class="list-benefit aiabase parbase section">
                             <ul class="benefit-list margin-bottom-s" data-role="listview" data-filter="true" data-theme="b" id="cartList">
                                 <li><div class="row no-margin no-padding">
@@ -36,8 +34,9 @@
                                             </div>
                                             <div class="content">
                                                 <div class="benefit-details">
-                                         
-                                                    <p style="position: absolute; right: 0; top: 0; font-weight: bold;" class="ng-binding">$1,110</p>
+                                                    <p style="font-weight: bold; text-align: right;">Price : $1,110</p>
+							<p style="font-weight: bold; text-align: right;">Estimated Tax : $237</p>
+                                                    <!--p style="position: absolute; right: 0; top: 0; font-weight: bold;" class="ng-binding">$1,110</p-->
                                                     <p class="description bt3 p3 margin-bottom-xl"></p>
                                                     <div>
                                                         <button id="btn1183832977" class="btn btn-default btn-secondary buy-now-small" type="button" onclick="deleteDocumentById()" data-target="_self">Delete</button>
@@ -47,8 +46,9 @@
                                         </div>
                                     </div>
                                 </li>
-                            </ul>
-                            <ul class="benefit-list margin-bottom-s" data-role="listview" data-filter="true" data-theme="b" id="subtotal"></ul>
+                            </ul>							
+							<p style="text-align: right;">Subtotal : $1,347</p>
+                            <!-- <ul class="benefit-list margin-bottom-s" data-role="listview" data-filter="true" data-theme="b" id="subtotal">$1,110 </ul> -->
                         </div>
 
                     </div>
@@ -57,6 +57,7 @@
 				
             </div>
             <div style="clear: both;"></div>
+			<br><br><br><br>
             <div style="float: right; margin-top: -50px"><button id="btn1183832977" class="blue-btn" type="button" ng-click="paymentCheckout()" data-link="/content/group/en/about-aia/the-real-life-company.html" data-target="_self">Proceed To Checkout</button>
             </div>
         </div>

@@ -1,3 +1,18 @@
+@font-face{font-family:'futura_light';src:url('fonts/pt-aigfutura-light-webfont.eot');src:url('fonts/pt-aigfutura-light-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/pt-aigfutura-light-webfont.ttf') format('truetype'),url('fonts/pt-aigfutura-light-webfont.woff') format('woff'),url('fonts/pt-aigfutura-light-webfont.svg#aig_futura_lightitalic') format('svg')}
+@font-face{font-family:'futura_lightitalic';src:url('fonts/pt-aigfutura-lightitalic-webfont.eot');src:url('fonts/pt-aigfutura-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/pt-aigfutura-lightitalic-webfont.ttf') format('truetype'),url('fonts/pt-aigfutura-lightitalic-webfont.woff') format('woff'),url('fonts/pt-aigfutura-lightitalic-webfont.svg#aig_futura_lightitalic') format('svg')}
+@font-face{font-family:'futuraregular';src:url('fonts/pt-aigfutura-book-webfont.eot');src:url('fonts/pt-aigfutura-book-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/pt-aigfutura-book-webfont.ttf') format('truetype'),url('fonts/pt-aigfutura-book-webfont.woff') format('woff'),url('fonts/pt-aigfutura-book-webfont.svg#aig_futuraregular') format('svg')}
+@font-face{font-family:'futura_regularitalic';src:url('fonts/pt-aigfutura-bookitalic-webfont.eot');src:url('fonts/pt-aigfutura-bookitalic-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/pt-aigfutura-bookitalic-webfont.ttf') format('truetype'),url('fonts/pt-aigfutura-bookitalic-webfont.woff') format('woff'),url('fonts/pt-aigfutura-bookitalic-webfont.svg#aig_futura_italic') format('svg')}
+@font-face{font-family:'futura_medregular';src:url('fonts/pt-aigfutura-medium-webfont.eot');src:url('fonts/pt-aigfutura-medium-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/pt-aigfutura-medium-webfont.ttf') format('truetype'),url('fonts/pt-aigfutura-medium-webfont.woff') format('woff'),url('fonts/pt-aigfutura-medium-webfont.svg#aig_futura_medregular') format('svg')}
+@font-face{font-family:'futura_mediumitalic';src:url('fonts/pt-aigfutura-mediumitalic-webfont.eot');src:url('fonts/pt-aigfutura-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/pt-aigfutura-mediumitalic-webfont.ttf') format('truetype'),url('fonts/pt-aigfutura-mediumitalic-webfont.woff') format('woff'),url('fonts/pt-aigfutura-mediumitalic-webfont.svg#aig_futura_medium_italic') format('svg')}
+@font-face{font-family:'futurabold';src:url('fonts/pt-aigfutura-bold-webfont.eot');src:url('fonts/pt-aigfutura-bold-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/pt-aigfutura-bold-webfont.ttf') format('truetype'),url('fonts/pt-aigfutura-bold-webfont.woff') format('woff'),url('fonts/pt-aigfutura-bold-webfont.svg#aig_futurabold') format('svg')}
+@font-face{font-family:'futura_bolditalic';src:url('fonts/pt-aigfutura-bolditalic-webfont.eot');src:url('fonts/pt-aigfutura-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/pt-aigfutura-bolditalic-webfont.ttf') format('truetype'),url('fonts/pt-aigfutura-bolditalic-webfont.woff') format('woff'),url('fonts/pt-aigfutura-bolditalic-webfont.svg#aig_futurabold') format('svg')}
+@font-face{font-family:'sourcesanspro_light';src:url("fonts/source-sanspro-light.otf") format("opentype");src:url("fonts/source-sanspro-light.ttf") format('truetype')}
+@font-face{font-family:'sourcesanspro_semibold';src:url("fonts/source-sanspro-semibold.otf") format("opentype");src:url("fonts/source-sanspro-semibold.ttf") format('truetype')}
+@font-face{font-family:'sourcesanspro_regular';src:url("fonts/source-sanspro-regular.otf") format("opentype");src:url("fonts/source-sanspro-regular.ttf") format('truetype')}
+@font-face{font-family:'source-sans-pro'}
+@font-face{font-family:'sourcesanspro_italic';src:url("fonts/source-sanspro-italic.ttf") format('truetype')}
+@font-face{font-family:'sourcesanspro_bold';src:url("fonts/source-sanspro-bold.otf") format("opentype");src:url("fonts/source-sanspro-bold.ttf") format('truetype')}
+
 :focus { outline: 0!important }
 table{font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:13px; color:#294c60;}{}
 #logo{ float:left; margin:9px 0 0 10px}
@@ -494,10 +509,9 @@ appbox-menu .item:hover .member-details { margin-top: -212px; }
 .tempTitle .left h1{font-family: "Source Sans Pro",sans-serif; font-size:14px; margin:5px 0 0 0; padding:0}
 .tempTitle .right{ float:right} 
 .labelPos{ margin:0 20px 0 0 }
-body {
-   
+body {   
     background-size: cover;
-    font-family: Montserrat;
+    font-family: sourcesanspro_light;
 	background-color: #e5e5e5;
 }
 
@@ -510,23 +524,24 @@ body {
 
 .login-block {
     width: 370px;
-    padding: 20px;
+    padding: 10px 20px;
     margin: 0 auto;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.14902);
     background: #fff;
-	height: 450px;
+	height: 460px;
 }
 
 .login-block h1 {
-    text-align: center;
+    text-align: left;
     color: #003e5b;
     font-size: 20px;
-    text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 20px;
     line-height: 40px;
+	font-family: 'futurabold';
+	text-transform: none;
 }
-.login-block label{margin-bottom: 10px;line-height: 44px;float: left;width: 23%;}
+.login-block label{margin-bottom: 10px; line-height: 44px; float: left; width: 23%; font-family: futura_medregular; letter-spacing: .5px; font-size: 16px; color: #333;}
 
 .login-block input {
     width: 60%;
@@ -536,10 +551,10 @@ body {
     border: 1px solid #ccc;
     margin-bottom: 20px;
     /* margin-top: 20px; */
-    font-size: 14px;
-    font-family: Montserrat;
+    font-size: 16px;
+    font-family: futuraregular;
     padding: 0px 20px 0 40px;
-    outline: none;
+    outline: none;	
 }
 
 .login-block input#username {
@@ -567,19 +582,24 @@ body {
 }
 
 .login-block button {
-    width: 100%;
-    height: 40px;
-    background: #ff9800;
     box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #ff9800;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-family: Montserrat;
+    border: 1px solid #e36f1e;
     outline: none;
+    background: #e36f1e;
+    color: white;
     cursor: pointer;
+    display: block;
+    font-family: 'futurabold';
+    height: 40px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+    padding-top: 5px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 15px;
 }
 
 .login-block button:hover {
@@ -592,8 +612,8 @@ body {
 .pd20tb{padding: 20px 0;}
 .pdtp30{padding-top: 30px;}
 .pd0{padding: 0;}
-.links{color: #00a4e4; line-height: 40px; font-size: 13px; padding-bottom:5px;}
-.links a{color: #00a4e4; line-height: 40px; font-size: 13px; padding-bottom:5px;}
+.links{color: #00a4e4; line-height: 40px; font-size: 16px; padding-bottom: 5px; font-family: futuraregular;}
+.links a{color: #00a4e4; line-height: 40px;}
 .links a:hover{border-bottom: 1px solid #00a4e4;}
 .login-block .or_wrapper {
     float: left;
@@ -616,10 +636,10 @@ body {
 .login-block   .social_login   .fbLogin{ background-color:#3b5998; background-image:url(images/facebook-login.png); background-repeat:no-repeat; background-position:8px center; float:left; margin:15px 0 0 0;  width:100%; font-family: Montserrat;}
 .login-block   .social_login   .fbLogin:hover{ background-color:#2b4988}
 
-.banner{background: #cfcfcf;max-width: 760px;width: 100%; background: url(images/banner.png); height: 450px;}
+.banner{background: #cfcfcf;max-width: 760px;width: 100%; background: url(images/banner.png); height: 460px; background-size: cover; background-repeat: no-repeat;}
 .banner img{width: 100%;}
-.card{background: #fff; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2); padding: 25px 15px;  line-height: 25px; position: relative; min-height: 350px;}
-.card h5{font-size: 24px; margin-bottom: 20px; text-transform: none;}
+.card{background: #fff; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2); padding: 25px 15px;  line-height: 25px; position: relative; min-height: 350px; margin-top: 30px;}
+.card h5{font-size: 24px; margin-bottom: 20px; text-transform: none; font-family: futuraregular; color: #0073ae;}
 .card a{color: #00a4e4;}
 .card .fixedLink{position: absolute; bottom: 20px;}
 .setup{position: absolute; bottom: 20px; width: 100%; margin: 0 auto;}
@@ -672,8 +692,10 @@ body {
     width: 90%;
     margin: 0 auto;}
 .profileWrapper h6{
-    font-size: 24px;
+    font-size: 25px;
     line-height: 20px;
+    font-family: futuraregular;
+    color: #0073ae;
 }
 .posRel{position: relative;}
 .table-responsive th{padding: 10px; border-right: 1px solid #dcdcdc; border-bottom: 1px solid #dcdcdc;}

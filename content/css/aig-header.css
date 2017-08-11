@@ -4495,7 +4495,6 @@ label.radio-button input[type="radio"]:checked+span {
     color: #fff;
     border: 0;
     text-align: center;
-    text-transform: uppercase;
     -webkit-font-smoothing: antialiased;
     outline: 0
 }
@@ -6614,13 +6613,13 @@ tbody.collapse.in {
     }
 }
 
-.navbar-fixed {
+/** .navbar-fixed {
     position: fixed;
     right: 0;
     left: 0;
     top: 0
 }
-
+***/
 .navbar-fixed-slim .navbar-slim {
     visibility: visible;
     opacity: 1;
@@ -14335,5 +14334,23 @@ button.close {
     text-align: center;
 }	
 .sub-nav{background: #fff; border-bottom: 1px solid #cfcfcf; padding: 0; margin-top: -10px;}
-.sub-nav ul{margin: 0; padding: 0; height: 40px; width: 92%; margin: 0 auto;}
-.sub-nav ul li{float: left; display: inline-block; color: #00a4e4; padding: 0 50px; line-height: 40px;}
+.sub-nav ul{
+    padding: 0;
+    width: 80%;
+    margin: 0 10%;
+	list-style: none;
+}
+.sub-nav ul li {
+    float: left;
+    display: inline-block;
+    padding: 25px;
+}
+.sub-nav ul li a{    
+    position: relative;
+    letter-spacing: 1px;
+    color: #000;
+    font-family: 'futura_medregular';
+    font-size: 20px;
+    text-decoration: none !important;
+}
+.sub-nav ul li a:hover{border-bottom: 2px solid #19ade7;}
