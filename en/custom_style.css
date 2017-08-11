@@ -734,5 +734,6 @@ body {
     .policyCol button{font-size: 16px !important;}
     .btn{min-width: 130px !important;}
     .pdrg0{padding-right: 0 !important;}
-	h4, .h4 {font-size: 24px;}
+    .actBtn{right: -4.6%;}
+    h4, .h4 {font-size: 22px;line-height: 28px;}
 }
