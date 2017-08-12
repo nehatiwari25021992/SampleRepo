@@ -60,16 +60,26 @@ demoApp.directive('onlyDigits', function () {
 });
 demoApp.controller("MainController", function($rootScope,$scope,$location,$timeout) {
 
-
-
+$scope.CardNumber= ""
+$scope.card = 'nocard'
 $scope.checkCard = function(){
    if ($('.cleaveCustom').length) {
   new Cleave('.cleaveCustom', {
-       blocks: [4, 4, 4,4 ],
-    delimiter: '-',
-   creditCard: true
+      creditCard: true,
+       blocks: [4,4,4,4],
+    delimiter: ' ',
+   
   });
 } 
+    
+    console.log("CardNumber",$scope.CardNumber)
+   $scope.CardNumber= document.getElementById('cardNumber').value
+       console.log("CardNumber",$scope.CardNumber.length)
+       if($scope.CardNumber.length == 19){
+           $scope.card = "master"
+           
+       }
+       
 }
 
 
