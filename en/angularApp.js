@@ -228,6 +228,7 @@ $scope.paymentDone = function(){
     $scope.pendingPolicyJson.policyFromDate  =  dateNewAdd1
     $scope.pendingPolicyJson.policyToDate  =  dateNewAdd
     $scope.policyTableContent.push( $scope.pendingPolicyJson);
+	$scope.policyTableContent.reverse();
 }
     
 });
