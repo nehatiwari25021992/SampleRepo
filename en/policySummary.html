@@ -2,7 +2,7 @@
   <div class="profileWrapper pdtp30">    
 	<div class="row">
       <div class="col-md-12"> 
-	  <h6 style=" padding: 0 0 10px 0; border-bottom: 1px dashed #cfcfcf; margin-bottom: 20px;">PRODUCT SUMMARY</h6>
+	  <h6 style="padding: 0 0 10px 0; border-bottom: 1px dashed #cfcfcf; margin-bottom: 20px;text-transform:none;" >Product Summary</h6>
 	  </div>
      
     </div>
@@ -13,10 +13,10 @@
             <button type="button" class="btn btn-default" style="background: #00a4e4; color: #fff;">Active</button>
           </div>
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">InActive</button>
+            <button type="button" class="btn btn-default">Inactive Policy</button>
           </div>
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Pending to Review</button>
+            <button type="button" class="btn btn-default">Pending to review</button>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
           </div>
           <div class="col-md-7 pdrg0">
             <label>
-              <button class="blue-btn" ng-click="goToShoppingCart()">Activate Now</button>
+              <button class="orange-btn" >Activate Now</button>
             </label>
           </div>
         </div>
@@ -63,7 +63,7 @@
               <td>{{policyJson.policyFromDate }}</td>
               <td>{{policyJson.policyToDate }}</td>
               <td>{{policyJson.policyStatus }}</td>
-              <td><i class="fa fa-download" aria-hidden="true"></i> {{policyJson.policyDetails }}</td>
+              <td><i class="fa fa-download" aria-hidden="true"></i> {{policyJson.policyDetails}}</td>
               <td>{{policyJson.policyAction }}</td>
             </tr>
           </tbody>

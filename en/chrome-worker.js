@@ -1,4 +1,4 @@
-var apiKey = "1dc92a76ef4114a8551ee8883cf48c6ee06a9a467a08ef80237fe61c6e1492a5"
+var apiKey = "4a18bbe2c8146dc9d35e83082830aaecb94dce74df440bd2f53749c7f4533007"
 var CLICK_URL ,title
 var iconURL = "images/logo.png"
 self.addEventListener('install', function(event) {
@@ -9,7 +9,7 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('push', function(event) {
-var FETCH_ENDPOINT = "https://api.shephertz.com/cloud/1.0/storage/getAllNotications/deviceId/";  
+var FETCH_ENDPOINT = "https://in-api.shephertz.com/cloud/1.0/storage/getAllNotications/deviceId/";  
 	event.waitUntil(self.registration.pushManager.getSubscription().then(function(subscription) {
         var regID = null;
         if ('subscriptionId' in subscription) {

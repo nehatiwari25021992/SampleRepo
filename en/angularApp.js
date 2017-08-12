@@ -1,5 +1,6 @@
 var demoApp = angular.module('demoApp', ['ngRoute','ngAnimate']);
 
+
 // Routes configurations
 demoApp.config(['$routeProvider', '$httpProvider',
     function ($routeProvider, $httpProvider) {
@@ -29,23 +30,114 @@ demoApp.config(['$routeProvider', '$httpProvider',
         .otherwise({
             redirectTo: '/dashboard'
         });
-    }])
+    }]);
 
 
-demoApp.controller("MainController", function($rootScope,$scope,$location) {
+
+demoApp.directive('onlyDigits', function () {
+    return {
+        require: 'ngModel',
+        restrict: 'A',
+        link: function (scope, element, attr, ctrl) {
+            function inputValue(val) {
+                if (val) {
+                    var digits = val
+                    if (!Number.isInteger(val)) {
+                        digits = val.replace(/[^0-9]/g, '');
+                    }
+                    if (digits !== val) {
+                        ctrl.$setViewValue(digits);
+                        ctrl.$render();
+                    }
+                    return parseInt(digits, 10);
+
+                }
+                return undefined;
+            }
+            ctrl.$parsers.push(inputValue);
+        }
+    };
+});
+demoApp.controller("MainController", function($rootScope,$scope,$location,$timeout) {
+
+
+
+$scope.checkCard = function(){
+   if ($('.cleaveCustom').length) {
+  new Cleave('.cleaveCustom', {
+       blocks: [4, 4, 4,4 ],
+    delimiter: '-',
+   creditCard: true
+  });
+} 
+}
+
+
+    
+$scope.expiry = function(){
+    console.log($scope.Expiry)
+    if ($('.cleaveCustom').length) {
+ new Cleave('.input-3', {
+    date: true,
+     datePattern: ['m', 'Y'], 
+      delimiter: '/'
+});
+    }
+}
+
+$scope.validate = function(){
+    console.log($scope.Expiry)
+    
+}
+    
+//    document.addEventListener('DOMContentLoaded', () => {
+//    new Cleave('.cleaveCustom', {
+//    blocks: [3, 3, 3, 3],
+//      delimiter: '-'
+//  });
+//});
+
+$scope.pendingPolicyJson = {
+	"policyAction": "Change Plan",
+	"policyIssueDate": "30-July-2016",
+	"policyName": "Protection Plan",
+	"policyId": "598de063",
+	"policyFromDate": "01-August-2017",
+	"policyStatus": "Active",
+	"policyToDate": "30-July-2018",
+	"policyType": "Travel",
+	"policyDetails": "Download"
+}
+
+    
     $scope.pendingPolicy = 1
     $scope.totalCost = "1,110"
     $scope.showCongrats = false
-    $scope.productName = "Motar Inc."
+    $scope.productName = "Travel Insurance"
     $scope.productPrice = "$1,110"
     $scope.goToDashboard = function(){
         $location.path("/dashboard")
     }
+    
     $scope.goToDashboardCongrats = function(){
-        $scope.showCongrats = true
+        $scope.paymentLoader =  false
+           $scope.showCongrats = true
         $scope.pendingPolicy = 0
         $location.path("/dashboard")
     }
+    $scope.paymentToDashBoard = function(){
+        
+        
+     $scope.paymentLoader = true
+         $timeout(function () {
+        $scope.goToDashboardCongrats()
+        $scope.paymentDone() 
+    }, 3000);
+    
+    }
+    
+   
+    
     $scope.goToShoppingCart = function(){
         $scope.productName = "Motar Inc."
         $scope.productPrice = "$1,110"
@@ -57,6 +149,9 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
     }
     $scope.goToProfile = function(){
         $location.path("/profile")
+    }
+    $scope.logout = function(){
+        $location.path("/login")
     }
     $scope.goToPayment = function(){
         $location.path("/payment")
@@ -73,57 +168,59 @@ demoApp.controller("MainController", function($rootScope,$scope,$location) {
         $scope.showCongrats = false
         $location.path("/dashboard")
     }
+    $scope.policyTableContent = [{
+        "policyAction": "Change Plan",
+        "policyIssueDate": "30-July-2017",
+        "policyName": "Auto Prestige",
+        "policyId": "598de061",
+        "policyFromDate": "01-August-2017",
+        "policyStatus": "Active",
+        "_$createdAt": "2017-08-11T16:50:41.478Z",
+        "_$updatedAt": "2017-08-12T09:02:45.546Z",
+        "policyToDate": "30-July-2018",
+        "policyType": "Auto",
+        "policyDetails": "Download"
+    }, {
+        "policyAction": "Change Plan",
+        "policyIssueDate": "30-July-2017",
+        "policyName": "Auto Select",
+        "policyId": "598de02a",
+        "policyFromDate": "01-August-2017",
+        "policyStatus": "Active",
+        "_$createdAt": "2017-08-11T16:51:49.405Z",
+        "_$updatedAt": "2017-08-12T09:23:36.790Z",
+        "policyToDate": "30-July-2018",
+        "policyType": "Auto",
+        "policyDetails": "Download"
+    }, {
+        "policyAction": "Change Plan",
+        "policyIssueDate": "30-July-2017",
+        "policyName": "Home Insurance",
+        "policyId": "598de221",
+        "policyFromDate": "01-August-2017",
+        "policyStatus": "Active",
+        "_$createdAt": "2017-08-11T16:57:56.744Z",
+        "_$updatedAt": "2017-08-12T09:03:03.077Z",
+        "policyToDate": "30-July-2018",
+        "policyType": "Home",
+        "policyDetails": "Download"
+    }]
     
-    $scope.policyTableContent=[
-        
-    {
-        policyType:'Auto',
-        policyIssueDate:'30-Mar-2016',
-        policyId:'*111',
-        policyName:'Motor Insurance',
-        policyToDate:'20-apr2016',
-        policyFromDate:'20-apr2016',
-        policyStatus:'20-apr2016',
-        policyDetails:'Download',
-        policyAction:'Change Plan',
-            
-    },
-    {
-        policyType:'Travel',
-        policyIssueDate:'30-Mar-2016',
-        policyId:'*111',
-        policyName:'TravelWise Protection',
-        policyToDate:'20-apr2016',
-        policyFromDate:'20-apr2016',
-        policyStatus:'20-apr2016',
-        policyDetails:'Download',
-        policyAction:'Change Plan',
-            
-    },
-    {
-        policyType:'Home',
-        policyIssueDate:'30-Mar-2016',
-        policyId:'*111',
-        policyName:'Rental Protector',
-        policyToDate:'20-apr2016',
-        policyFromDate:'20-apr2016',
-        policyStatus:'20-apr2016',
-        policyDetails:'Download',
-        policyAction:'Change Plan',
-            
-    },
-    {
-        policyType:'Home',
-        policyIssueDate:'30-Mar-2016',
-        policyId:'*111',
-        policyName:'Home Insurance',
-        policyToDate:'20-apr2016',
-        policyFromDate:'20-apr2016',
-        policyStatus:'20-apr2016',
-        policyDetails:'Download',
-        policyAction:'Change Plan',
-            
-    },
-    ]
+    $scope.userName =  localStorage.getItem('loginUser')
+	 var dateNew = moment().utc().format('DD-MMMM-YYYY')
+     var dateNewAdd1 =moment().utc().add('days', 1).format('DD-MMMM-YYYY')
+     var dateNewAdd = moment().utc().add('days', 365).format('DD-MMMM-YYYY')
+     console.log("=-=-=date-=-=-",dateNewAdd)
+
+$scope.paymentDone = function(){
+    
+    $scope.pendingPolicyJson.policyIssueDate  =  dateNew
+    $scope.pendingPolicyJson.policyFromDate  =  dateNewAdd1
+    $scope.pendingPolicyJson.policyToDate  =  dateNewAdd
+    $scope.policyTableContent.push( $scope.pendingPolicyJson);
+}
+    
 });
+
+
     

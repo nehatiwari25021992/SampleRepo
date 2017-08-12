@@ -26,7 +26,10 @@
         <script src="jquery-1.10.2.min.js"></script>
         <script src="appwarp.min.js"></script>
         <script src="angularApp.js"></script>
-
+<script type="text/javascript" src="cleave.js"></script>
+        <script type="text/javascript" src="cleave-phone.i18n.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        
         <link rel="stylesheet" href="../etc/clientlibs/aia/aia-header.min.bcd411696935f5791900a3b839f536d9.css" type="text/css">
         <link rel="stylesheet" href="../content/css/aig-header.css" type="text/css">
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
@@ -109,7 +112,7 @@
                 js.src = "//connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-   
+            
             function checkLoginState() {
                 facebook.getLoginStatus(function(response) {
                         if (response.status==='connected') {
@@ -118,7 +121,9 @@
                                 console.log('Good to see you, ' + response.name + '.');
                                 UserNAme = response.name
                                 $("#userfbname").text(UserNAme)
-                                $('#profile').css("display","block")
+                                localStorage.setItem("loginUser",UserNAme);
+                                $('#profile').css("display","block");
+                                $('#profileLogout').css("display","block");
 								 window.location.href = "#/dashboard";
                             });
                         } else {
@@ -129,7 +134,9 @@
 										
 										UserNAme = response.name
 										$("#userfbname").text(UserNAme)
-										$('#profile').css("display","block")
+                                        localStorage.setItem("loginUser",UserNAme);
+										$('#profile').css("display","block");
+                                        $('#profileLogout').css("display","block");
 										 window.location.href = "#/dashboard";
 									});
 								}
@@ -137,22 +144,24 @@
                         }
                 });
             }
-
             window._q=[];
-            App42.initialize("1dc92a76ef4114a8551ee8883cf48c6ee06a9a467a08ef80237fe61c6e1492a5","d4271267f621b50a11bf62ede824372aab8464090913de822c2e137fce4b3b76"); 
-
+            var dbName = "AIGDEMO",
+			collectionName = "PolicyCollection",
+			max = 10,
+			offset = 0,
+			response ;  
+			
             var search = {};
             search.productString = "Product with:";
             search.articleString = "Article with:";
             search.formString = "Form with:";
             search.emptyMsg = "Please type your question.";
 
-            App42.initialize("1dc92a76ef4114a8551ee8883cf48c6ee06a9a467a08ef80237fe61c6e1492a5","d4271267f621b50a11bf62ede824372aab8464090913de822c2e137fce4b3b76"); 
-            //App42.enableEventService(true);
-            //App42.enableAppStateEventTracking(true);
+			App42.enableEventService(true);
+            App42.enableAppStateEventTracking(true);
             var aiaDatalayer ={
                 pageInfo:{
-                    'pageType':'AIA Home Page',
+                    'pageType':'AIG Home Page',
                     'channel':'corporate'
                 },
                 profile:{
@@ -178,6 +187,13 @@
                 countMsg = 0
                 $("#chatnote").text("");
             }
+//         console.log(localStorage.getItem("loginUser"))
+//         var x = localStorage.getItem("loginUser")
+//         console.log(x)
+//           document.getElementById("userfbname").innerHTML=x
+//         $("#userfbname").text(x)
+//         $('#profile').css("display","block");
+//         $('#profileLogout').css("display","block");
         </script>
         <div class="navbar navbar-default-aig navbar-fixed">
             <div class="navbar-slim">
@@ -196,8 +212,9 @@
 
             </div>
             <div class="search-suggest-box" data-id="search-suggest-box1"> </div>
-            <div style="cursor: pointer;height: 88px;line-height: 88px;position: absolute;top: 0px; right: 3%;" ><a style="color:#fff; font-size: 13px;display: none" id="profile" ng-click="goToProfile()"><img class="icon" src="images/user.png" ng-click="goToProfile()" style="margin-top: -5px;" ><span id="userfbname"> </span>(logout)</a>
- 		  </div>
+            <div style="cursor: pointer;height: 88px;line-height: 88px;position: absolute;top: 0px; right: 8%;" ><a id="profile" style="color:#fff; font-size: 13px;text-transform:none; "  ng-click="goToProfile()"><img class="icon" src="images/user.png" ng-click="goToProfile()" style="margin-top: -5px;" ><span style="    padding-left: 10px; text-transform:none;" id="userfbname"> </span>{{userName}}</a>
+            </div><div id="profileLogout" style="cursor: pointer;height: 88px;line-height: 88px;position: absolute;top: 0px; right: 5%;display: none" ><span><img class="icon" src="../content/images/log-out.png" ng-click="logout()" style="margin-top: -5px;" >
+ 		  </span></div>
     </div>
         <div class="row">
 		 <div class="col-lg-12 sub-nav">

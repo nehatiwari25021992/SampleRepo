@@ -19,20 +19,20 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    <div class="card" ng-click="goToPolicySummary()">
-      <h5>My Active Policy</h5>
-      <p>#ID:7493553939<p>
+    <div class="card">
+      <h5>My Active Policy: <span >{{policyTableContent.length}}</span></h5>
+      <p>#ID:598de221<p>
       <p>Home Insurance<p>
-      <p>Effective from 1-September-2017<p>
-      <a href="javascript:void(0)" class="fixedLink">View all <i class="fa fa-plus" aria-hidden="true"></i></a> </div>
+      <p>Effective from 01-August-2017<p>
+      <a ng-href="#/policySummary"  class="fixedLink">View all <i class="fa fa-plus" aria-hidden="true"></i></a> </div>
   </div>
   <div class="col-md-4">
     <div class="card">
-      <h5>Pending to renew Policy <span  class="pending">{{pendingPolicy}}</span></h5>
+      <h5>Pending To Renew Policy <span  class="pending">{{pendingPolicy}}</span></h5>
      <span ng-show="pendingPolicy != 0">
-	  <p>#ID:7493553939</p>
-      <p>Motor Insurance</p>
-      <p>Effective from 1-November-2017</p>
+	  <p>#ID:598de063</p>
+      <p>Travel Insurance</p>
+      <p>Effective from 01-August-2017</p>
       <a href="javascript:void(0)" class="fixedLink">View all <i class="fa fa-plus" aria-hidden="true"></i></a><br/></span> 
       <div class="row setup">
         <div class="col-md-6 pd0" style="font-size: 14px; color: #00a4e4;"></div>
@@ -44,10 +44,10 @@
   </div>
   <div class="col-md-4 ">
     <div class="card">
-      <h5>My InActive Policy</h5>
-      <p>#ID: 493553939</p>
-      <p>Health Insurance</p>
-      <p>Effective from 1-May-2017</p>
+      <h5>My InActive Policy: <span>{{pendingPolicy}}</span></h5>
+      <p>#ID: 598de064</p>
+      <p>Golf Insurance</p>
+      <p>Effective from 01-May-2017</p>
       <a href="javascript:void(0)" class="fixedLink">View all <i class="fa fa-plus" aria-hidden="true"></i></a> </div>
   </div>
 </div>
