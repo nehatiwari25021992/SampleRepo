@@ -120,7 +120,7 @@
                             FB.api('/me', function(response) {
                                 console.log('Good to see you, ' + response.name + '.');
                                 UserNAme = response.name
-                               // $("#userfbname").text(UserNAme)
+                             $("#userfbname").text(UserNAme)
                                 localStorage.setItem("loginUser",UserNAme);
                                 $('#profile').css("display","block");
                                 $('#profileLogout').css("display","block");
@@ -133,7 +133,7 @@
 									FB.api('/me', function(response) {
 										
 										UserNAme = response.name
-										//$("#userfbname").text(UserNAme)
+										$("#userfbname").text(UserNAme)
                                         localStorage.setItem("loginUser",UserNAme);
 										$('#profile').css("display","block");
                                         $('#profileLogout').css("display","block");
@@ -212,7 +212,7 @@
 
             </div>
             <div class="search-suggest-box" data-id="search-suggest-box1"> </div>
-            <div style="cursor: pointer;height: 88px;line-height: 88px;position: absolute;top: 0px; right: 8%;" ><a id="profile" style="color:#fff; font-size: 13px;text-transform:none; "  ng-click="goToProfile()"><img class="icon" src="images/user.png" ng-click="goToProfile()" style="margin-top: -5px;" ><span style="    padding-left: 10px; text-transform:none;" id="userfbname"> </span>{{userName}}</a>
+            <div style="cursor: pointer;height: 88px;line-height: 88px;position: absolute;top: 0px; right: 8%;" ><a id="profile" style="color:#fff; font-size: 13px;text-transform:none; "  ng-click="goToProfile()"><img class="icon" src="images/user.png" ng-click="goToProfile()" style="margin-top: -5px;" ><span style="    padding-left: 10px; text-transform:none;" id="userfbname"> </span></a>
             </div><div id="profileLogout" style="cursor: pointer;height: 88px;line-height: 88px;position: absolute;top: 0px; right: 5%;display: none" ><span><img class="icon" src="../content/images/log-out.png" ng-click="logout()" style="margin-top: -5px;" >
  		  </span></div>
     </div>
