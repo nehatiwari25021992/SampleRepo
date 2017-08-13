@@ -169,6 +169,7 @@ $scope.pendingPolicyJson = {
     $scope.logout = function(){
 		$scope.username=''
 		 localStorage.removeItem("loginUser");
+		$("#userfbname").text($scope.username)
 		$('#profileLogout').css("display","none");
 		$('#profile').css("display","none");
         $location.path("/login")
@@ -230,11 +231,12 @@ $scope.pendingPolicyJson = {
 	
 	
 	if($scope.userName){
-		
+		  $("#userfbname").text($scope.userName)
 		  $('#profileLogout').css("display","block");
 		  $('#profile').css("display","block");
 		
 	}else{
+		$("#userfbname").text($scope.userName)
 		$('#profileLogout').css("display","none");
 		$('#profile').css("display","none");
 		
