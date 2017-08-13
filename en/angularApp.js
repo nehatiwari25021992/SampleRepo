@@ -163,7 +163,7 @@ $scope.pendingPolicyJson = {
     $scope.logout = function(){
 		$scope.username=''
 		 localStorage.removeItem("loginUser");
-		$("#userfbname").text('')
+		$("#userfbname").text($scope.username)
 		$('#profileLogout').css("display","none");
 		$('#profile').css("display","none");
         $location.path("/login")
@@ -225,11 +225,12 @@ $scope.pendingPolicyJson = {
 	
 	
 	if($scope.userName){
-		
+		  $("#userfbname").text($scope.userName)
 		  $('#profileLogout').css("display","block");
 		  $('#profile').css("display","block");
 		
 	}else{
+		$("#userfbname").text($scope.userName)
 		$('#profileLogout').css("display","none");
 		$('#profile').css("display","none");
 		
@@ -245,7 +246,7 @@ $scope.paymentDone = function(){
     $scope.pendingPolicyJson.policyFromDate  =  dateNewAdd1
     $scope.pendingPolicyJson.policyToDate  =  dateNewAdd
     $scope.policyTableContent.push( $scope.pendingPolicyJson);
-	$scope.policyTableContent.reverse();
+	$scope.policyTableContent.reverse()
 }
     
 });
