@@ -28,6 +28,9 @@ templateUrl: '../en/policySummary.html'
 .when('/profile',{
 templateUrl: '../en/profile.html'
 })
+.when('/renew',{
+templateUrl: '../en/renew-insurance.html'
+})
 .otherwise({
 redirectTo: '/login'
 });
