@@ -161,6 +161,10 @@ $scope.pendingPolicyJson = {
         $location.path("/profile")
     }
     $scope.logout = function(){
+		$scope.username=''
+		 localStorage.removeItem("loginUser");
+		$('#profileLogout').css("display","none");
+		$('#profile').css("display","none");
         $location.path("/login")
     }
     $scope.goToPayment = function(){
@@ -217,6 +221,18 @@ $scope.pendingPolicyJson = {
     }]
     
     $scope.userName =  localStorage.getItem('loginUser')
+	
+	
+	if($scope.userName){
+		
+		  $('#profileLogout').css("display","block");
+		  $('#profile').css("display","block");
+		
+	}else{
+		$('#profileLogout').css("display","none");
+		$('#profile').css("display","none");
+		
+	}
 	 var dateNew = moment().utc().format('DD-MMMM-YYYY')
      var dateNewAdd1 =moment().utc().add('days', 1).format('DD-MMMM-YYYY')
      var dateNewAdd = moment().utc().add('days', 365).format('DD-MMMM-YYYY')
@@ -228,7 +244,7 @@ $scope.paymentDone = function(){
     $scope.pendingPolicyJson.policyFromDate  =  dateNewAdd1
     $scope.pendingPolicyJson.policyToDate  =  dateNewAdd
     $scope.policyTableContent.push( $scope.pendingPolicyJson);
-	$scope.policyTableContent.reverse();
+	$scope.policyTableContent.reverse()
 }
     
 });
