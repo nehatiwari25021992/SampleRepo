@@ -130,7 +130,20 @@ $scope.pendingPolicyJson = {
     $scope.productName = "Travel Insurance"
     $scope.productPrice = "$1,110"
     $scope.goToDashboard = function(){
-        $location.path("/dashboard")
+		var emailId = document.getElementById("emailId").value;
+		if(emailId===undefined || emailId ===""){
+			document.getElementById('errors').innerHTML= "*Please enter email id*";
+			return;
+		}else{
+			document.getElementById('errors').innerHTML= "";
+		}
+		var password = document.getElementById("password").value;
+		if(password===undefined || password ===""){
+			document.getElementById('errors').innerHTML= "*Please enter password";
+		}else{
+			document.getElementById('errors').innerHTML= "";
+		}
+		
     }
 	$scope.goToRenew = function(){
         $location.path("/renew")

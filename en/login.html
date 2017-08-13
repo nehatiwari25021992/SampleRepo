@@ -6,14 +6,15 @@
     <h1>Log in with your email account </h1>
     <div>
 	  <label>Email</label>
-      <input type="text" value="" placeholder="name@domain.com" id="username" style="float: left; width: 70%;" />
+      <input type="text" value="" placeholder="name@domain.com" id="emailId" style="float: left; width: 70%;" />
 	</div>  
     <div>
 	<label>Password</label>
     <input type="password" value="" placeholder="Password" id="password" />
 	</div>
-    <button ng-click="goToDashboard()">Login</button>
-    <div class="links"><a href="javascript:void(0)">Forgot your password</a> | <a href="javascript:void(0)">Register as member</a></div>
+    <div id ="errors"></div>
+	<button ng-click="goToDashboard()">Login</button>
+	<div class="links"><a href="javascript:void(0)">Forgot your password</a> | <a href="javascript:void(0)">Register as member</a></div>
 	<div class="or_wrapper"></div>
 	<div class="social_login ">
 	  <a href="" onclick="checkLoginState()" class="fbLogin">Login with Facebook</a>
