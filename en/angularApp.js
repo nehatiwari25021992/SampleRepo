@@ -27,6 +27,9 @@ demoApp.config(['$routeProvider', '$httpProvider',
 		.when('/profile',{
             templateUrl: '../en/profile.html'
         })
+		.when('/renew',{
+            templateUrl: '../en/renew-insurance.html'
+        })
         .otherwise({
             redirectTo: '/dashboard'
         });
@@ -127,6 +130,9 @@ $scope.pendingPolicyJson = {
     $scope.productPrice = "$1,110"
     $scope.goToDashboard = function(){
         $location.path("/dashboard")
+    }
+	$scope.goToRenew = function(){
+        $location.path("/renew")
     }
     
     $scope.goToDashboardCongrats = function(){
