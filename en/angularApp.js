@@ -31,7 +31,7 @@ demoApp.config(['$routeProvider', '$httpProvider',
             templateUrl: '../en/renew-insurance.html'
         })
         .otherwise({
-            redirectTo: '/dashboard'
+            redirectTo: '../en/login.html'
         });
     }]);
 
