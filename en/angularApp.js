@@ -163,6 +163,7 @@ $scope.pendingPolicyJson = {
     $scope.logout = function(){
 		$scope.username=''
 		 localStorage.removeItem("loginUser");
+		$("#userfbname").text('')
 		$('#profileLogout').css("display","none");
 		$('#profile').css("display","none");
         $location.path("/login")
@@ -244,7 +245,7 @@ $scope.paymentDone = function(){
     $scope.pendingPolicyJson.policyFromDate  =  dateNewAdd1
     $scope.pendingPolicyJson.policyToDate  =  dateNewAdd
     $scope.policyTableContent.push( $scope.pendingPolicyJson);
-	$scope.policyTableContent.reverse()
+	$scope.policyTableContent.reverse();
 }
     
 });
