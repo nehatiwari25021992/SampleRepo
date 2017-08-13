@@ -3,38 +3,36 @@ var demoApp = angular.module('demoApp', ['ngRoute','ngAnimate']);
 
 // Routes configurations
 demoApp.config(['$routeProvider', '$httpProvider',
-    function ($routeProvider, $httpProvider) {
-        $routeProvider
-        //Dashboard Section Routes
-        .when('/dashboard', {
-            templateUrl: '../en/dashboard.html'
-        })
-        .when('/login', {
-            templateUrl: '../en/login.html'
-        })
-        .when('/productDetails',{
-            templateUrl: '../en/productDetails.html'
-        })
-        .when('/shoppingCart',{
-            templateUrl: '../en/shoppingCart.html'
-        })
-        .when('/payment',{
-            templateUrl: '../en/payment.html'
-        }) 
-        .when('/policySummary',{
-            templateUrl: '../en/policySummary.html'
-        }) 
-		.when('/profile',{
-            templateUrl: '../en/profile.html'
-        })
-		.when('/renew',{
-            templateUrl: '../en/renew-insurance.html'
-        })
-        .otherwise({
-            redirectTo: '../en/login.html'
-        });
-    }]);
+function ($routeProvider, $httpProvider) {
+$routeProvider
+//Dashboard Section Routes
+.when('/login', {
+templateUrl: '../en/login.html'
+})
+.when('/dashboard', {
+templateUrl: '../en/dashboard.html'
+})
 
+.when('/productDetails',{
+templateUrl: '../en/productDetails.html'
+})
+.when('/shoppingCart',{
+templateUrl: '../en/shoppingCart.html'
+})
+.when('/payment',{
+templateUrl: '../en/payment.html'
+}) 
+.when('/policySummary',{
+templateUrl: '../en/policySummary.html'
+}) 
+.when('/profile',{
+templateUrl: '../en/profile.html'
+})
+.otherwise({
+redirectTo: '/login'
+});
+}]);
+ 
 
 
 demoApp.directive('onlyDigits', function () {
