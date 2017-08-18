@@ -1,5 +1,5 @@
 
-  <div class="profileWrapper pdtp30">    
+  <div class="profileWrapper pdtp30" id="proSummary">    
 	<div class="row">
       <div class="col-md-12"> 
 	  <h6 style="padding: 0 0 10px 0; border-bottom: 1px dashed #cfcfcf; margin-bottom: 20px;text-transform:none;" >Product Summary</h6>
@@ -7,12 +7,12 @@
      
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-8">
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-default" style="background: #00a4e4; color: #fff;">Active</button>
           </div>
-          <div class="btn-group" role="group">
+          <div class="btn-group br" role="group">
             <button type="button" class="btn btn-default">Inactive Policy</button>
           </div>
           <div class="btn-group" role="group">
@@ -20,9 +20,9 @@
           </div>
         </div>
       </div>
-      <div class="posRel">
+      <div class="posRel hg25">
         <div class="actBtn">
-          <div class="col-md-7 pdrg0" style="padding: 0;text-align: right;margin-left:60px;line-height: 42px;"> <i class="fa fa-filter " aria-hidden="true"></i>
+          <div class="col-md-7 pdrg0 filter"> <i class="fa fa-filter " aria-hidden="true"></i>
             <label>Filter</label>
           </div>
           
@@ -34,9 +34,8 @@
 <!--        <label>Set up auto renewal for earning extra 10% off of the premium </label>-->
       </div>
     </div>
-    <div class="row" style="padding: 30px 0;">
-      <div class="col-md-12">
-        <table class="table table-bordered table-responsive">
+<div class="table-responsive mrtp30">          
+  <table class="table">
           <thead style="background: #00a4e4; color: #fff;">
             <tr>
               <th>Policy Type</th>
@@ -64,9 +63,10 @@
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
-    <!-- <div class="row policyCol">
+  </div>
+	
+	
+	<!-- <div class="row policyCol">
       <div class="col-md-6"> </div>
       <div class="col-md-6">
         <button class="blue-btn col-md-offset-6" ng-click="goToProductDetails()">Renew Now</button>

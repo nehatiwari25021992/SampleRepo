@@ -13,7 +13,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
         <meta name="google-site-verification" content="54r_aeWlMn4GlJ3E33iIBXCVRWlQ9u3NirgocpAQpz4"/>
-        <link rel="manifest" href="manifest.json">
+		 
+        <!-- <link rel="stylesheet" href="../etc/clientlibs/aia/aia-header.min.bcd411696935f5791900a3b839f536d9.css" type="text/css"> -->
+        <!-- <link rel="stylesheet" href="css/aig-header.css" type="text/css"> -->
+		<link rel='stylesheet' href='css/bootstrap.css'>
+		<link rel='stylesheet' href='css/custom_style.css'>		
+		
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>        
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		
+		<link rel="manifest" href="manifest.json">
         <script src="App42.js"></script>
         <script src="Sample.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
@@ -26,24 +39,38 @@
         <script src="jquery-1.10.2.min.js"></script>
         <script src="appwarp.min.js"></script>
         <script src="angularApp.js"></script>
-<script type="text/javascript" src="cleave.js"></script>
+        <script type="text/javascript" src="cleave.js"></script>
         <script type="text/javascript" src="cleave-phone.i18n.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-        
-        <link rel="stylesheet" href="../etc/clientlibs/aia/aia-header.min.bcd411696935f5791900a3b839f536d9.css" type="text/css">
-        <link rel="stylesheet" href="../content/css/aig-header.css" type="text/css">
-        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700|Roboto+Condensed:300,400,700' rel='stylesheet'
-              type='text/css'>
-        <link rel='stylesheet' href='custom_style.css'>
-        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>      
+       
         <title>AIG</title>
-        <style type="text/css" media="(max-width: 767px)"> 
-            .carousel-container .quick{
+        <style type="text/css">             
+			.navbar-default-aig{ 
+    height: 80px;
+    font-size: 1.000em;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #fff;
+    background: rgba(0,164,228,0.8);
+}
+.navbar-brand-aig{
+    padding-top: 22px;
+    padding-bottom: 22px;
+    text-align: center;
+	line-height: 80px;
+}
+.navbar-brand-aig .navbar-brand-img {
+    height: 44px;
+}	
+.navbar-default-aig .navbar-one {
+    line-height: 80px;
+    text-align: center;
+}
+        </style>
+        <!-- <style type="text/css" media="(min-width: 768px)">
+			.carousel-container .quick{
                 display: none;
             }
-        </style>
-        <style type="text/css" media="(min-width: 768px)"> 
             .carousel-container .quick {
                 position: absolute;
                 z-index: 50;
@@ -87,7 +114,7 @@
             .carousel-container .quick {
                 top: 10%;
             }
-        </style>
+        </style> -->
     </head>
 
     <body data-ng-controller="MainController" >
@@ -195,44 +222,41 @@
 //         $('#profile').css("display","block");
 //         $('#profileLogout').css("display","block");
         </script>
-        <div class="navbar navbar-default-aig navbar-fixed">
-            <div class="navbar-slim">
-                <div class="navbar-title-slim">AIG</div>
-            </div>
-            <div class="navbar-one">
-                <!--button type="button" class="navbar-btn hide-sd-up" data-toggle="offcanvas" data-target=".navmenu">
-                    <svg  class="icon icon-xs hide-on-fallback " role="img"> 
-                    </svg> </button-->
-                <a class="navbar-brand-aig" href="index.html" tabindex="99"> <svg  class="icon icon-s hide-on-fallback visible-xs-inline-block" role="img">
-                    <g>
-                    <image class="icon icon-s visible-xs-inline-block" src="../content/dam/aia/logos/aiawhite-logo.png" alt="" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#"></image>
-                    </g>
-                    </svg> <img class="navbar-brand-img hidden-xs mrlt50neg" src="../content/images/aig-logo-white.png"/> </a>
-
-
-            </div>
-            <div class="search-suggest-box" data-id="search-suggest-box1"> </div>
-            <div style="cursor: pointer;height: 88px;line-height: 88px;position: absolute;top: 0px; right: 8%;" ><a id="profile" style="color:#fff; font-size: 13px;text-transform:none; "  ng-click="goToProfile()"><img class="icon" src="images/user.png" ng-click="goToProfile()" style="margin-top: -5px;" ><span style="    padding-left: 10px; text-transform:none;" id="userfbname"> </span></a>
-            </div><div id="profileLogout" style="cursor: pointer;height: 88px;line-height: 88px;position: absolute;top: 0px; right: 5%;display: none" ><span><img class="icon" src="../content/images/log-out.png" ng-click="logout()" style="margin-top: -5px;" >
- 		  </span></div>
-    </div>
-        <div class="row">
-		 <div class="col-lg-12 sub-nav">
-            <ul>
+            
+<nav class="navbar navbar-default navbar-fixed-top">
+  
+    <div class="nav-container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand-aig" href="https://getbootstrap.com/docs/3.3/examples/navbar-fixed-top/#"><img class="navbar-brand-img" src="../content/images/aig-logo-white.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+		  
                 <li><a href="javascript:void(0)">Home</a></li>
                 <li><a href="javascript:void(0)">My Policy</a></li>
                 <li><a href="javascript:void(0)">My Claim</a></li>
                 <li><a href="javascript:void(0)">Latest Promotions</a></li>
                 <li><a href="javascript:void(0)">Buy Insurance</a></li>
                 <li><a href="javascript:void(0)">Help</a></li>
-                <li><a href="javascript:void(0)">About Portal</a></li>
-	 </ul>	 
-         </div>
-        </div>
+                <li><a href="javascript:void(0)">About Portal</a></li>	
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+  </nav>
 		<div class="clear"></div>	
-        <div>
+    
+	    
+		<div>
             <div class="grid-control-1-col section">
-                <div class="row">  
+                <div class="contentWrapper">  
                     <div ng-view></div>                  
                 </div>
             </div>
