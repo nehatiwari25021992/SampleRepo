@@ -148,9 +148,12 @@
                                 console.log('Good to see you, ' + response.name + '.');
                                 UserNAme = response.name
                              $("#userfbname").text(UserNAme)
+							 $("#userfbname1").text(UserNAme)
                                 localStorage.setItem("loginUser",UserNAme);
                                 $('#profile').css("display","block");
+                                $('#profile1').css("display","block");
                                 $('#profileLogout').css("display","block");
+                                $('#profileLogout1').css("display","block");
 								 window.location.href = "#/dashboard";
                             });
                         } else {
@@ -161,9 +164,12 @@
 										
 										UserNAme = response.name
 										$("#userfbname").text(UserNAme)
+										$("#userfbname1").text(UserNAme)
                                         localStorage.setItem("loginUser",UserNAme);
 										$('#profile').css("display","block");
+										$('#profile1').css("display","block");
                                         $('#profileLogout').css("display","block");
+                                        $('#profileLogout1').css("display","block");
 										 window.location.href = "#/dashboard";
 									});
 								}
@@ -224,7 +230,11 @@
         </script>
             
 <nav class="navbar navbar-default navbar-fixed-top">
-  
+           <div  class="loginWrapper"> <div class="userLogin"><a id="profile" ng-click="goToProfile()"><img class="icon" src="images/user.png" ng-click="goToProfile()" style="margin-top: -5px;"><span style="padding-left: 10px; text-transform:none;" id="userfbname"></span></a>
+            </div>
+			<div id="profileLogout"><span><img class="icon" src="../content/images/log-out.png" ng-click="logout()">
+ 		  </span></div>
+		  </div>
     <div class="nav-container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -245,9 +255,15 @@
                 <li><a href="javascript:void(0)">Buy Insurance</a></li>
                 <li><a href="javascript:void(0)">Help</a></li>
                 <li><a href="javascript:void(0)">About Portal</a></li>	
+				<li>
+				 <div  class="loginWrapperMob"> <div class="userLogin"><a id="profile1" ng-click="goToProfile()"><img class="icon" src="images/user.png" ng-click="goToProfile()" style="margin-top: -5px;"><span style="text-transform:none;" id="userfbname1"></span></a>
+            </div>
+			<div id="profileLogout1"><span><img class="icon" src="../content/images/log-out.png" ng-click="logout()">
+ 		  </span></div>
+		  </div>
+				</li>
               </ul>
-            </li>
-          </ul>
+
         </div><!--/.nav-collapse -->
       </div>
   </nav>

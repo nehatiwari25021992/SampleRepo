@@ -3177,6 +3177,17 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
     background-color: #fff;
     border: 1px solid #b3b1a8;
 }
+.loginWrapper{display: block;
+    width: 15%;
+    height: 80px;
+    position: absolute;
+    right: 100px;}
+.userLogin{cursor: pointer;height: 88px;line-height: 88px;}
+.userLogin a {color: #fff; font-size: 13px; display: block;}
+#profileLogout{cursor: pointer; height: 88px; line-height: 82px; position: absolute; top: 0px; right: 5%; display: block;}
+.loginWrapperMob{display: none;}
+.loginWrapper #profile span{ padding: 0 10px;}
+.loginWrapperMob #profile1 span{ padding: 0 10px;}
 
 
 @media (max-width: 320px) {
@@ -3214,6 +3225,10 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {max-height: 380px;}
 .navbar-default .navbar-nav>li>a:hover {border-bottom: 2px solid transparent;}
 .orange-btn {padding: 8px 8px 9px 8px;  height: 42px;}
+.loginWrapper{display: none;}
+.loginWrapperMob{display: block;}
+.loginWrapperMob .userLogin {height: 70px; line-height: 70px;}
+.loginWrapperMob #profileLogout1{position: absolute; right: 0px; top: 10px;}
 }
 
 @media only screen and (min-width: 320px) and (max-width: 479px) {
@@ -3247,11 +3262,15 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
 .congratulations{ margin: 0 0 30px 0;}
 .congratulations h4 { line-height: 24px; font-size: 24px;}
 .nav>li{border-bottom: 1px solid #efefef; display: block;}
-.nav>li:last-child{border-bottom: none;}
+.nav>li:last-child{border-bottom: none; background-color: #e36f1e !important;}
 .navbar-default .navbar-nav>li>a{font-size: 16px;}
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {max-height: 380px;}
 .navbar-default .navbar-nav>li>a:hover {border-bottom: 2px solid transparent;}
 .orange-btn {padding: 8px 8px 9px 8px;  height: 42px;}
+.loginWrapper{display: none;}
+.loginWrapperMob{display: block;}
+.loginWrapperMob .userLogin {height: 70px; line-height: 70px;}
+.loginWrapperMob #profileLogout1{position: absolute; right: 15px; top: 22px;}
 }
 
 @media only screen and (max-width: 960px) and (min-width: 641px) {

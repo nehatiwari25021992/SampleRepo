@@ -246,13 +246,19 @@ $scope.pendingPolicyJson = {
 	
 	if($scope.userName){
 		  $("#userfbname").text($scope.userName)
+		  $("#userfbname1").text($scope.userName)
 		  $('#profileLogout').css("display","block");
+		  $('#profileLogout1').css("display","block");
 		  $('#profile').css("display","block");
+		  $('#profile1').css("display","block");
 		
 	}else{
 		$("#userfbname").text($scope.userName)
+		$("#userfbname1").text($scope.userName)
 		$('#profileLogout').css("display","none");
+		$('#profileLogout1').css("display","none");
 		$('#profile').css("display","none");
+		$('#profile1').css("display","none");
 		
 	}
 	 var dateNew = moment().utc().format('DD-MMMM-YYYY')
