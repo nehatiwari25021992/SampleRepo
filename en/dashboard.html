@@ -2,7 +2,7 @@
   <div class="profileWrapperTrans">    
   <div class="row congratulations" ng-show="showCongrats" >  
   <div class="col-md-12 ">
-   <div style="text-align: center;"><i class="fa fa-check" aria-hidden="true" style="text-align: center;width: 34px;background: #00e696;height: 34px;border-radius: 50%;line-height: 34px;color: #fff;margin-bottom: 20px;"></i></div>
+   <div style="text-align: center;"><i class="fa fa-check icon" aria-hidden="true"></i></div>
     <h4 style="
     text-align: center;
 ">Congratulations! <br> You have successfully renewed your policy.</h4>
@@ -15,7 +15,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-4">
     <div class="card">
       <h5>My Active Policy: <span >{{policyTableContent.length}}</span></h5>
       <p>#ID:598de221<p>
@@ -23,7 +23,7 @@
       <p>Effective from 01-August-2017<p>
       <p class="fixedLinkW"><a ng-href="#/policySummary"  class="fixedLink">View all <i class="fa fa-plus" aria-hidden="true"></i></a></p> </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-4">
     <div class="card">
       <h5>Pending To Renew Policy <span  class="pending">{{pendingPolicy}}</span></h5>
      <span ng-show="pendingPolicy != 0">
@@ -39,7 +39,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4 ">
+  <div class="col-md-4 col-sm-4">
     <div class="card">
       <h5>My InActive Policy: <span>{{pendingPolicy}}</span></h5>
       <p>#ID: 598de064</p>
