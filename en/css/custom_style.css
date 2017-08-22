@@ -2894,7 +2894,8 @@ body {
     width: 100%;
     outline: 0;
     background: transparent;
-    font-size: 15px!important;
+    font-size: 17px!important;
+	    font-family: futuraregular;
 }
 .blue-btn {
     padding: 11px 8px;
@@ -3188,6 +3189,16 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
 .loginWrapperMob{display: none;}
 .loginWrapper #profile span{ padding: 0 10px;}
 .loginWrapperMob #profile1 span{ padding: 0 10px;}
+.profileTitle{margin-bottom: 26px; padding: 0 0 10px 0; border-bottom: 1px dashed #cfcfcf; width: 32%; margin: 0 3% 4% 3%;}
+#profileInfo{font-size: 16px; color: #333; margin-bottom: 3px; font-family: futuraregular;}
+#profileInfo input{height: 40px; padding-left: 16px; padding-right: 16px; font: normal 16px Arial, "Helvetica Neue", Helvetica, sans-serif;
+    line-height: 2.5; color: #b3b1a8; font-weight: 400; background-color: #fff; border: 1px solid #b3b1a8;}
+#profileInfo label{line-height: 40px;}
+#profileInfo .title{color: #0073ae; line-height: 30px; font-size: 18px; margin-bottom: 20px}
+#profileInfo .title1{color: #0073ae; line-height: 30px; font-size: 18px; margin-bottom: 20px; margin-top: 20px }
+.profileClassiBox .tab{margin-bottom: 30px;}
+#profileInfo  .form{margin-bottom:20px;}
+
 
 
 @media (max-width: 320px) {
@@ -3212,7 +3223,7 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
 #cartDetails .buy-now-small{ width: 100%;}
 .paymentWraper {width: 100%;}
 .paymentWraper input {min-width: 120px; width: 100%;}
-.pd0prj{padding: 0;}
+.pd0prj{padding: 0 !important;}
 .pdrg0prj{padding-right: 0;}
 .cc{position: absolute; right: 0;}
 .diffcc{ width: 100%;}
@@ -3229,6 +3240,14 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
 .loginWrapperMob{display: block;}
 .loginWrapperMob .userLogin {height: 70px; line-height: 70px;}
 .loginWrapperMob #profileLogout1{position: absolute; right: 0px; top: 10px;}
+
+.profileTitle{width: 92%;}
+.profileClassiBox{background: #f5f5f5; margin: 15px 15px 15px 10px; padding: 0;}
+.profileClassiBox a{display: block; text-align: left;}
+.profileClassiBox .tab{margin-bottom: 0;}
+#profileInfo input{width: 100%;}
+.pd0rg{padding-right: 0;}
+
 }
 
 @media only screen and (min-width: 320px) and (max-width: 479px) {
@@ -3271,6 +3290,13 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
 .loginWrapperMob{display: block;}
 .loginWrapperMob .userLogin {height: 70px; line-height: 70px;}
 .loginWrapperMob #profileLogout1{position: absolute; right: 15px; top: 22px;}
+
+.profileTitle{width: 92%;}
+.profileClassiBox{background: #f5f5f5; margin: 15px 15px 15px 10px; padding: 0;}
+.profileClassiBox a{display: block; text-align: left;}
+.profileClassiBox .tab{margin-bottom: 0;}
+#profileInfo input{width: 100%;}
+.pd0rg{padding-right: 0;}
 }
 
 @media only screen and (max-width: 960px) and (min-width: 641px) {
@@ -3298,7 +3324,20 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
 .bill-info .payAmnt {font-size: 20px;}
 .paymentWraper {width: 100%;}
 .paymentWraper input {min-width: 360px !important; width: 100% !important;}
-
+.loginWrapper {width: 25%; right: 20px;}
+#proSummary .table>thead>tr>th {vertical-align: top;}
+#proSummary .actBtn {right: 10%;}
+#proSummary .btn{font-size: 17px;}
+#proSummary .table-responsive th{font-size: 15px;}
+#proSummary .wd15ip{width: 15%;}
+#proSummary .table-responsive td {font-size: 14px;}
+.profileClassiBox a{display: block; text-align: left;}
+.profileClassiBox .tab{margin-bottom: 0;}
+.blue-btn{ padding: 11px 3px; font-size: 12px!important;}
+.transparent-btn{ padding: 11px 3px; font-size: 14px!important;}
+#profileInfo .title {margin-top: 10px;}
+#profileInfo .orange-btn{width: 93%;}
+#profileInfo  .switch{margin-left: 10px;}
 }
 
 
@@ -3322,10 +3361,13 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
         width: 310px;
         padding: 20px 15px;
 		height: 475px;
+		float: right;
 }
+.login-block label{line-height: 48px;}
     
 .login-block input {
-        min-width: 185px !important;
+        min-width: 145px !important;
+		width: 73%;
 }
     
 .banner {
@@ -3359,7 +3401,7 @@ padding: 15px 0 5px 0; border-bottom: 2px solid transparent;}
 }
     
 .actBtn {
-        right: -4.6%;
+        right: -16.6%;
 }
     
 h4,.h4 {
@@ -3378,4 +3420,7 @@ h4,.h4 {
 .planInfo{width: 40%;}
 .bill-info .payAmnt {font-size: 18px;}
 .cartDetails .btn {min-width: 90px !important;}
+.pd0prjP{padding: 0 !important;}
+.loginWrapper {width: 20%; right: 40px;}
+#proSummary .btn{font-size: 17px;}
 }

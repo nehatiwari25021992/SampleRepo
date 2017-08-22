@@ -152,6 +152,7 @@
                                 localStorage.setItem("loginUser",UserNAme);
                                 $('#profile').css("display","block");
                                 $('#profile1').css("display","block");
+                                $('#loginWrapperWithMob').css("display","block");
                                 $('#profileLogout').css("display","block");
                                 $('#profileLogout1').css("display","block");
 								 window.location.href = "#/dashboard";
@@ -170,6 +171,7 @@
 										$('#profile1').css("display","block");
                                         $('#profileLogout').css("display","block");
                                         $('#profileLogout1').css("display","block");
+                                        $('#loginWrapperWithMob').css("display","block");
 										 window.location.href = "#/dashboard";
 									});
 								}
@@ -255,7 +257,7 @@
                 <li><a href="javascript:void(0)">Buy Insurance</a></li>
                 <li><a href="javascript:void(0)">Help</a></li>
                 <li><a href="javascript:void(0)">About Portal</a></li>	
-				<li>
+				<li id="loginWrapperWithMob">
 				 <div  class="loginWrapperMob"> <div class="userLogin"><a id="profile1" ng-click="goToProfile()"><img class="icon" src="images/user.png" ng-click="goToProfile()" style="margin-top: -5px;"><span style="text-transform:none;" id="userfbname1"></span></a>
             </div>
 			<div id="profileLogout1"><span><img class="icon" src="../content/images/log-out.png" ng-click="logout()">

@@ -64,66 +64,60 @@ input:checked + .slider:before {
 }
 </style>   
     
-     <div class="profileWrapper pdtp30">
-      <div class="row ">
-        <div class="col-md-12" style="margin-bottom: 26px; padding: 0 0 10px 0; border-bottom: 1px dashed #cfcfcf; width: 32%; margin: 0 3% 4% 3%;">            <h6>My Profile</h6> 
-        </div>
-        <div class="posRel">
-              
-            
-        </div>
+     <div class="profileWrapper pdtp30" id="profileInfo">
+	 <div class="row ">
+      <div class="col-md-12">
+        <h6 class="heading">My Profile</h6>
+      </div>
     </div>
-      <div class="row">
+      <div class="row mrtp20">
         
-                    <div class="col-md-4">
-                        <div style="margin-bottom: 30px;"><a href="javascript:void(0)" class="transparent-btn"><Font size="2">Personal Information</font> </a></div>
-                        <div style="margin-bottom: 30px;"><a href="javascript:void(0)" class="blue-btn"><Font size="2">Account & Notification Setting</font> </a></div>
-                        <div style="margin-bottom: 30px;"><a href="javascript:void(0)" class="transparent-btn"><Font size="2">Auto Renewal & payment setting</font> </a></div>
+                    <div class="col-md-4 col-sm-4 profileClassiBox">
+                        <div class="tab"><a href="javascript:void(0)" class="transparent-btn">Personal Information</a></div>
+                        <div class="tab"><a href="javascript:void(0)" class="blue-btn">Account & Notification Setting</a></div>
+                        <div class="tab"><a href="javascript:void(0)" class="transparent-btn">Auto Renewal & payment setting</a></div>
                         
                     </div>
-                    <div class="col-md-8">
-                       <div class="row">
-                           <div class="col-md-12" >
-                             <font size="4">Change Your Password</font> 
+                    <div class="col-md-8 col-sm-8">                       
+                           <div class="title" >
+                            Change Your Password
                            </div>
-                       </div></br> 
-                        <div class="row">
-                    <div class="col-md-4" >
-                        Existing password
+                     
+                        <div class="row form">
+                    <div class="col-md-4 col-sm-4" >
+                        <label>Existing password</label>
                     </div>
-                    <div class="col-md-8" >
+                    <div class="col-md-8 col-sm-8" >
                         <input type="text" name="Existing password" >
                     </div>
-                    </div></br>
-                    
-                      <div class="row">
-                    <div class="col-md-4" >
-                        New pasword
                     </div>
-                    <div class="col-md-8" >
+                    
+                      <div class="row form">
+                    <div class="col-md-4 col-sm-4" >
+                        <label>New pasword</label>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
                         <input type="text" name="New password" >
                     </div>
-                    </div></br>
+                    </div>
                     
                       <div class="row">
-                    <div class="col-md-4 col-md-offset-5" >                    
+                    <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-5 col-sm-7 col-sm-offset-4 pd0prjP" >                    
                      <button class="orange-btn" ng-click="goToDashboardCongrats()">Update Password</button>
                        </div>
                     
                     </div>
-                    </br>
-                    </br>
                     
                     <div class="row">
-                           <div class="col-md-12" >
-                             <font size="4">Policy Document Notification</font> 
+                           <div class="col-md-12 title1" >
+                             Policy Document Notification
                            </div>
-                       </div></br>
-                       <div class="row">
-                           <div class="col-md-4" >
-                    <p>Email Notification</p>
+                       </div>
+                       <div class="row form">
+                           <div class="col-lg-4 col-md-5 col-xs-8" >
+                    <label>Email Notification</label>
                            </div>
-                           <div class="col-md-8" >
+                           <div class="col-lg-8 col-md-7 col-xs-4 pd0prjP" >
                                <label class="switch">
   <input type="checkbox">
   <span class="slider round"></span>
@@ -131,35 +125,35 @@ input:checked + .slider:before {
                            </div>
                            </div> 
                            
-                        <div class="row">
-                           <div class="col-md-4" >
-                    <p>Hard Copy Notification</p>
+                        <div class="row form">
+                           <div class="col-lg-4 col-md-5 col-xs-8" >
+                    <label>Hard Copy Notification</label>
                            </div>
-                           <div class="col-md-8" >
+                           <div class="col-lg-8 col-md-7 col-xs-4 pd0prjP" >
                                <label class="switch">
   <input type="checkbox">
   <span class="slider round"></span>
 </label> 
                            </div>
-                           </div> </br>
+                           </div>
                             <div class="row">
-                           <div class="col-md-12" >
+                           <div class="col-md-12 col-md-11" >
                            <footer>*you can change the address in personal information for updating contact, past address & email address</footer>
                     </div>
-                    </div></br>
+                    </div>
                          
-                         <div class="row">
-                           <div class="col-md-12" >
-                             <font size="4">Promotional Material Opt Out</font> 
+                         <div class="row"> 
+                           <div class="col-md-12  title1" >
+                             Promotional Material Opt Out
                            </div>
-                       </div></br>
+                       </div>
                           
-                          <div class="row">
-                           <div class="col-md-4" >
+                          <div class="row form">
+                           <div class="col-lg-4 col-md-5 col-xs-8 pd0rg" >
                     <label>Opt Out marketing materials</label>
                            
                     </div>
-                    <div class="col-md-8" >
+                    <div class="col-lg-8 col-md-7 col-xs-4 pd0prjP" >
                            <label class="switch">
   <input type="checkbox">
   <span class="slider round"></span>
@@ -169,7 +163,7 @@ input:checked + .slider:before {
                     </div>
                           
                           <div class="row">
-                    <div class="col-md-4 col-md-offset-5" > 
+                    <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-5  col-sm-7 col-sm-offset-4 pd0prjP" > 
                     
                      <button class="orange-btn" ng-click="goToDashboardCongrats()">Update Settings</button>
                        </div>

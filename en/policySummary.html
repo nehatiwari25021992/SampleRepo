@@ -7,7 +7,7 @@
      
     </div>
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-lg-8 col-md-8 col-sm-9">
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-default" style="background: #00a4e4; color: #fff;">Active</button>
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      <div class="posRel hg25">
+      <div class="col-lg-4 col-md-4 col-sm-3 posRel hg25">
         <div class="actBtn">
           <div class="col-md-7 pdrg0 filter"> <i class="fa fa-filter " aria-hidden="true"></i>
             <label>Filter</label>
@@ -45,7 +45,7 @@
               <th>Effective Date from</th>
               <th>Effective Date To</th>
               <th> Status</th>
-              <th>Policy Details</th>
+              <th class="wd15ip">Policy Details</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -58,7 +58,7 @@
               <td>{{policyJson.policyFromDate }}</td>
               <td>{{policyJson.policyToDate }}</td>
               <td>{{policyJson.policyStatus }}</td>
-              <td><i class="fa fa-download" aria-hidden="true"></i><a href="javascript:;"> {{policyJson.policyDetails}}</a></td>
+              <td class="wd15ip"><i class="fa fa-download" aria-hidden="true"></i><a href="javascript:;"> {{policyJson.policyDetails}}</a></td>
               <td><a href="javascript:;"> {{policyJson.policyAction }}</a></td>
             </tr>
           </tbody>

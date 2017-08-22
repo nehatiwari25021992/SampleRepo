@@ -184,8 +184,12 @@ $scope.pendingPolicyJson = {
 		$scope.username=''
 		 localStorage.removeItem("loginUser");
 		$("#userfbname").text($scope.username)
+		$("#userfbname1").text($scope.username)
 		$('#profileLogout').css("display","none");
+		$('#profileLogout1').css("display","none");
 		$('#profile').css("display","none");
+		$('#profile1').css("display","none");
+		$('#loginWrapperWithMob').css("display","none");
         $location.path("/login")
     }
     $scope.goToPayment = function(){
@@ -249,6 +253,7 @@ $scope.pendingPolicyJson = {
 		  $("#userfbname1").text($scope.userName)
 		  $('#profileLogout').css("display","block");
 		  $('#profileLogout1').css("display","block");
+		  $('#loginWrapperWithMob').css("display","block");
 		  $('#profile').css("display","block");
 		  $('#profile1').css("display","block");
 		
@@ -257,8 +262,10 @@ $scope.pendingPolicyJson = {
 		$("#userfbname1").text($scope.userName)
 		$('#profileLogout').css("display","none");
 		$('#profileLogout1').css("display","none");
+		$('#loginWrapperWithMob').css("display","none");
 		$('#profile').css("display","none");
 		$('#profile1').css("display","none");
+		$location.path("/login")
 		
 	}
 	 var dateNew = moment().utc().format('DD-MMMM-YYYY')
